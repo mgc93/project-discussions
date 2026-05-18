@@ -1,0 +1,6 @@
+otree>=5.10
+anthropic
+tenacity
+python-dotenv
+requests
+pydantic

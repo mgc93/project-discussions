@@ -1,0 +1,38 @@
+{{ block title }}{{ endblock }}
+
+{{ block content }}
+
+<p>Now that you have discussed the issue, please tell us your current view.</p>
+
+<p class="fw-bold mb-3">{{ topic_statement }}</p>
+
+<div class="mb-2 d-flex justify-content-between">
+    <span class="text-muted" style="max-width: 45%; font-size: 0.9em;">{{ position_a }}</span>
+    <span class="text-muted" style="max-width: 45%; text-align: right; font-size: 0.9em;">{{ position_b }}</span>
+</div>
+
+<input type="range"
+       id="opinion_post_slider"
+       class="form-range"
+       min="0" max="100" step="1"
+       value="50"
+       oninput="syncOpinionPost(this.value)">
+
+<p class="mt-2 text-center">
+    Your position: <strong id="opinion-post-value">50</strong> / 100
+</p>
+
+<input type="hidden" name="opinion_post" id="id_opinion_post" value="50">
+
+{{ next_button }}
+
+<script>
+document.getElementById('id_opinion_post').value = 50;
+
+function syncOpinionPost(val) {
+    document.getElementById('opinion-post-value').textContent = val;
+    document.getElementById('id_opinion_post').value          = val;
+}
+</script>
+
+{{ endblock }}

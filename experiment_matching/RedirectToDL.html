@@ -1,0 +1,13 @@
+{{ block title }}{{ endblock }}
+
+{{ block content }}
+
+<meta http-equiv="refresh"
+      content="3; url={{ dl_url }}?external_id={{ participant_code }}___{{ topic_id }}">
+
+<p>Connecting you to the conversation. Please wait...</p>
+
+<p>If you are not redirected automatically,
+   <a href="{{ dl_url }}?external_id={{ participant_code }}___{{ topic_id }}">click here</a>.</p>
+
+{{ endblock }}

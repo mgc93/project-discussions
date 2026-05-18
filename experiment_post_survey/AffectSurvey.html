@@ -1,0 +1,117 @@
+{{ block title }}{{ endblock }}
+
+{{ block content }}
+
+<div style="max-width: 900px; margin: 0 auto;">
+
+<!-- Feeling thermometer -->
+<div class="mb-5">
+    <p class="fw-bold">How warmly do you feel toward someone who holds the view expressed by the other participant?</p>
+
+    <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; font-size: 0.80em; color: #666; margin-bottom: 2px;">
+        <span style="text-align: left;">Very cold or unfavourable</span>
+        <span style="text-align: center;">No feeling either way</span>
+        <span style="text-align: right;">Very warm or favourable</span>
+    </div>
+    <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; font-weight: 600; color: #333; margin-bottom: 6px;">
+        <span style="text-align: left;">0</span>
+        <span style="text-align: center;">50</span>
+        <span style="text-align: right;">100</span>
+    </div>
+
+    <input type="range"
+           id="affect_warmth_slider"
+           class="form-range"
+           min="0" max="100" step="1"
+           value="50"
+           oninput="syncWarmth(this.value)">
+
+    <p class="mt-2 text-center">
+        Your rating: <strong id="affect-warmth-value">50</strong> / 100
+    </p>
+
+    <input type="hidden" name="affect_warmth" id="id_affect_warmth" value="50">
+</div>
+
+<!-- Perceived distance -->
+<div class="mb-4">
+    <p class="fw-bold">How different are your values from the other person's?</p>
+
+    <style>
+    .survey-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 8px;
+        table-layout: fixed;
+    }
+    .survey-table th:not(.q-col),
+    .survey-table td:not(.q-col) {
+        text-align: center;
+        padding: 8px 4px;
+        vertical-align: middle;
+    }
+    .survey-table thead tr.label-row th {
+        font-size: 0.80em;
+        font-weight: normal;
+        color: #666;
+        padding-top: 6px;
+        padding-bottom: 2px;
+    }
+    .survey-table thead tr.num-row th {
+        font-weight: 600;
+        color: #333;
+        padding-bottom: 10px;
+    }
+    .survey-table input[type=radio] {
+        width: 18px;
+        height: 18px;
+        cursor: pointer;
+        accent-color: #0d6efd;
+    }
+    </style>
+
+    <table class="survey-table">
+        <colgroup>
+            <col style="width: 20%">
+            <col style="width: 20%">
+            <col style="width: 20%">
+            <col style="width: 20%">
+            <col style="width: 20%">
+        </colgroup>
+        <thead>
+            <tr class="label-row">
+                <th>Very similar</th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th>Very different</th>
+            </tr>
+            <tr class="num-row">
+                <th>1</th><th>2</th><th>3</th><th>4</th><th>5</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                {% for val in "12345" %}
+                <td><input type="radio" name="perceived_distance" value="{{ val }}"
+                           id="perceived_distance_{{ val }}" required></td>
+                {% endfor %}
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+{{ next_button }}
+
+</div>
+
+<script>
+document.getElementById('id_affect_warmth').value = 50;
+
+function syncWarmth(val) {
+    document.getElementById('affect-warmth-value').textContent = val;
+    document.getElementById('id_affect_warmth').value          = val;
+}
+</script>
+
+{{ endblock }}

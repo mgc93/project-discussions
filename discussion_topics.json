@@ -1,0 +1,1610 @@
+{
+  "generated_at": "2026-05-06T19:34:56.673772Z",
+  "configuration": {
+    "topics_per_category": 5,
+    "num_categories": 10
+  },
+  "total_topics": 100,
+  "topics": [
+    {
+      "id": "001",
+      "statement": "Should governments make childhood vaccinations compulsory, or should parents have the right to choose whether their children are vaccinated?",
+      "category": "health_policy",
+      "category_label": "Health & Medicine",
+      "is_political": true,
+      "ratings": {
+        "objectivity": 3,
+        "emotionality": 4,
+        "morality": 4,
+        "complexity": 3
+      },
+      "topic_label": "Whether governments should make childhood vaccinations compulsory",
+      "position_a": "Governments should make childhood vaccinations compulsory",
+      "position_b": "Parents should have the right to choose whether their children are vaccinated"
+    },
+    {
+      "id": "002",
+      "statement": "Should public healthcare systems be required to fund mental health treatment at the same level as physical health treatment, or is it reasonable to prioritise physical health given limited budgets?",
+      "category": "health_policy",
+      "category_label": "Health & Medicine",
+      "is_political": true,
+      "ratings": {
+        "objectivity": 3,
+        "emotionality": 3,
+        "morality": 4,
+        "complexity": 4
+      },
+      "topic_label": "Equal funding for mental and physical health treatment",
+      "position_a": "Public healthcare systems should fund mental and physical health treatment equally",
+      "position_b": "It is reasonable for public healthcare systems to prioritise physical health funding"
+    },
+    {
+      "id": "003",
+      "statement": "Should assisted dying be legalised and regulated by governments for people with terminal illnesses, or should the law continue to prohibit it in order to protect vulnerable people?",
+      "category": "health_policy",
+      "category_label": "Health & Medicine",
+      "is_political": true,
+      "ratings": {
+        "objectivity": 4,
+        "emotionality": 5,
+        "morality": 5,
+        "complexity": 4
+      },
+      "topic_label": "Whether assisted dying should be legal for the terminally ill",
+      "position_a": "Assisted dying should be legalised and regulated by governments",
+      "position_b": "Assisted dying should remain prohibited by law"
+    },
+    {
+      "id": "004",
+      "statement": "Should public healthcare funding be withheld or reduced for treatments linked to lifestyle choices such as smoking or obesity, or should healthcare remain unconditional regardless of personal behaviour?",
+      "category": "health_policy",
+      "category_label": "Health & Medicine",
+      "is_political": true,
+      "ratings": {
+        "objectivity": 3,
+        "emotionality": 4,
+        "morality": 5,
+        "complexity": 4
+      },
+      "topic_label": "Whether lifestyle choices should affect your healthcare funding",
+      "position_a": "Public healthcare funding should be reduced for treatments linked to lifestyle choices",
+      "position_b": "Healthcare funding should remain unconditional regardless of personal behaviour"
+    },
+    {
+      "id": "005",
+      "statement": "Should the law allow patients to refuse life-saving medical treatment on religious or personal grounds, or should doctors be permitted to override that refusal in certain circumstances?",
+      "category": "health_policy",
+      "category_label": "Health & Medicine",
+      "is_political": true,
+      "ratings": {
+        "objectivity": 5,
+        "emotionality": 4,
+        "morality": 5,
+        "complexity": 5
+      },
+      "topic_label": "Whether patients can refuse life-saving treatment on personal grounds",
+      "position_a": "The law should allow patients to refuse life-saving treatment on personal or religious grounds",
+      "position_b": "Doctors should be permitted to override a patient's refusal in certain circumstances"
+    },
+    {
+      "id": "006",
+      "statement": "Should adults who refuse vaccination be considered socially responsible for putting vulnerable people at risk, or is vaccination a personal health decision that others have no right to judge?",
+      "category": "health_policy",
+      "category_label": "Health & Medicine",
+      "is_political": false,
+      "ratings": {
+        "objectivity": 4,
+        "emotionality": 5,
+        "morality": 5,
+        "complexity": 4
+      },
+      "topic_label": "Whether refusing vaccination is irresponsible to others",
+      "position_a": "Adults who refuse vaccination are socially responsible for putting vulnerable people at risk",
+      "position_b": "Vaccination is a personal health decision that others have no right to judge"
+    },
+    {
+      "id": "007",
+      "statement": "Should parents who rely on prayer or alternative remedies instead of conventional medicine for a seriously ill child be seen as acting within their rights, or are they failing in their duty of care?",
+      "category": "health_policy",
+      "category_label": "Health & Medicine",
+      "is_political": false,
+      "ratings": {
+        "objectivity": 3,
+        "emotionality": 5,
+        "morality": 5,
+        "complexity": 4
+      },
+      "topic_label": "Whether parents can choose prayer over medicine for sick children",
+      "position_a": "Parents who use prayer or alternative remedies for a seriously ill child are acting within their rights",
+      "position_b": "Parents who use prayer or alternative remedies for a seriously ill child are failing in their duty of care"
+    },
+    {
+      "id": "008",
+      "statement": "Should people be expected to share their infectious illness status with close contacts and family members, or is this private medical information that belongs only to the individual?",
+      "category": "health_policy",
+      "category_label": "Health & Medicine",
+      "is_political": false,
+      "ratings": {
+        "objectivity": 3,
+        "emotionality": 3,
+        "morality": 4,
+        "complexity": 3
+      },
+      "topic_label": "Whether you should tell close contacts about an infectious illness",
+      "position_a": "People should be expected to share their infectious illness status with close contacts",
+      "position_b": "Infectious illness status is private medical information belonging only to the individual"
+    },
+    {
+      "id": "009",
+      "statement": "Should doctors always tell patients the full truth about a terminal diagnosis, even when it may cause severe distress, or is it sometimes kinder to soften or withhold that information?",
+      "category": "health_policy",
+      "category_label": "Health & Medicine",
+      "is_political": false,
+      "ratings": {
+        "objectivity": 3,
+        "emotionality": 4,
+        "morality": 4,
+        "complexity": 4
+      },
+      "topic_label": "Whether doctors should always tell patients about a terminal diagnosis",
+      "position_a": "Doctors should always tell patients the full truth about a terminal diagnosis",
+      "position_b": "It is sometimes appropriate for doctors to soften or withhold a terminal diagnosis"
+    },
+    {
+      "id": "010",
+      "statement": "Should healthy people feel a moral obligation to donate blood or bone marrow regularly, or is it unreasonable to expect people to make physical sacrifices for strangers?",
+      "category": "health_policy",
+      "category_label": "Health & Medicine",
+      "is_political": false,
+      "ratings": {
+        "objectivity": 4,
+        "emotionality": 2,
+        "morality": 3,
+        "complexity": 3
+      },
+      "topic_label": "Whether healthy people have a duty to donate blood or bone marrow",
+      "position_a": "Healthy people have a moral obligation to donate blood or bone marrow regularly",
+      "position_b": "It is unreasonable to expect people to make physical sacrifices for strangers"
+    },
+    {
+      "id": "011",
+      "statement": "Should artificial intelligence be banned from making final decisions in areas like criminal sentencing or welfare benefits, or can AI-assisted decisions be made fair enough through proper regulation?",
+      "category": "technology_ethics",
+      "category_label": "Technology & AI",
+      "is_political": true,
+      "ratings": {
+        "objectivity": 4,
+        "emotionality": 3,
+        "morality": 5,
+        "complexity": 5
+      },
+      "topic_label": "Whether AI should make final decisions about people's lives",
+      "position_a": "AI should be banned from making final decisions in criminal sentencing or welfare",
+      "position_b": "AI-assisted decisions can be made fair through proper regulation"
+    },
+    {
+      "id": "012",
+      "statement": "Should governments break up the largest technology companies on the grounds that they have too much power, or does their size allow them to innovate and compete globally in ways that benefit everyone?",
+      "category": "technology_ethics",
+      "category_label": "Technology & AI",
+      "is_political": true,
+      "ratings": {
+        "objectivity": 3,
+        "emotionality": 3,
+        "morality": 3,
+        "complexity": 5
+      },
+      "topic_label": "Whether governments should break up the biggest tech companies",
+      "position_a": "Governments should break up the largest technology companies due to their power",
+      "position_b": "Large technology companies should remain intact to innovate and compete globally"
+    },
+    {
+      "id": "013",
+      "statement": "Should employers be required by law to tell job applicants when AI has been used to screen or reject their application, or is this an internal business matter that does not need to be disclosed?",
+      "category": "technology_ethics",
+      "category_label": "Technology & AI",
+      "is_political": true,
+      "ratings": {
+        "objectivity": 3,
+        "emotionality": 2,
+        "morality": 4,
+        "complexity": 3
+      },
+      "topic_label": "Whether employers should tell applicants when AI screened them out",
+      "position_a": "Employers should be required by law to disclose when AI screens or rejects applicants",
+      "position_b": "Whether to disclose AI use in hiring is an internal business matter"
+    },
+    {
+      "id": "014",
+      "statement": "Should governments fund a universal basic income to support workers whose jobs are lost to automation, or should the response to job losses be left to existing welfare systems and market forces?",
+      "category": "technology_ethics",
+      "category_label": "Technology & AI",
+      "is_political": true,
+      "ratings": {
+        "objectivity": 3,
+        "emotionality": 4,
+        "morality": 4,
+        "complexity": 5
+      },
+      "topic_label": "Whether governments should pay people whose jobs are lost to automation",
+      "position_a": "Governments should fund a universal basic income to support workers displaced by automation",
+      "position_b": "Responses to automation job losses should be left to existing welfare systems and market forces"
+    },
+    {
+      "id": "015",
+      "statement": "Should governments ban the use of facial recognition technology in public spaces by police, or is it a legitimate tool for keeping people safe?",
+      "category": "technology_ethics",
+      "category_label": "Technology & AI",
+      "is_political": true,
+      "ratings": {
+        "objectivity": 4,
+        "emotionality": 4,
+        "morality": 5,
+        "complexity": 5
+      },
+      "topic_label": "Whether police should be allowed to use facial recognition in public",
+      "position_a": "Governments should ban police use of facial recognition technology in public spaces",
+      "position_b": "Facial recognition technology is a legitimate tool for police to use in public spaces"
+    },
+    {
+      "id": "016",
+      "statement": "Should people feel a personal responsibility to limit how much time they spend on social media, or is it unfair to blame individuals for behaviour that platforms are deliberately designed to encourage?",
+      "category": "technology_ethics",
+      "category_label": "Technology & AI",
+      "is_political": false,
+      "ratings": {
+        "objectivity": 4,
+        "emotionality": 3,
+        "morality": 3,
+        "complexity": 4
+      },
+      "topic_label": "Whether individuals should take responsibility for their own social media use",
+      "position_a": "People have a personal responsibility to limit their time on social media",
+      "position_b": "Individuals should not be blamed for social media behaviour that platforms are designed to encourage"
+    },
+    {
+      "id": "017",
+      "statement": "Should people be honest with others when they have used AI to write messages, emails, or creative work on their behalf, or is this no different from using any other tool to help communicate?",
+      "category": "technology_ethics",
+      "category_label": "Technology & AI",
+      "is_political": false,
+      "ratings": {
+        "objectivity": 4,
+        "emotionality": 2,
+        "morality": 3,
+        "complexity": 3
+      },
+      "topic_label": "Whether you should tell people when AI wrote something for you",
+      "position_a": "People should disclose when AI has written messages, emails, or creative work on their behalf",
+      "position_b": "Using AI to write personal communications requires no more disclosure than any other tool"
+    },
+    {
+      "id": "018",
+      "statement": "Should employees feel comfortable knowing their employer monitors their productivity and online activity during work hours, or does workplace surveillance undermine trust and dignity regardless of the setting?",
+      "category": "technology_ethics",
+      "category_label": "Technology & AI",
+      "is_political": false,
+      "ratings": {
+        "objectivity": 4,
+        "emotionality": 4,
+        "morality": 4,
+        "complexity": 4
+      },
+      "topic_label": "Whether employers should be allowed to monitor workers online activity",
+      "position_a": "Employees should feel comfortable with employers monitoring their productivity and online activity during work hours",
+      "position_b": "Workplace surveillance undermines trust and dignity regardless of the setting"
+    },
+    {
+      "id": "019",
+      "statement": "Should online platforms be expected to remove harmful or false content quickly, or does giving platforms that power create a greater risk of silencing legitimate speech?",
+      "category": "technology_ethics",
+      "category_label": "Technology & AI",
+      "is_political": false,
+      "ratings": {
+        "objectivity": 3,
+        "emotionality": 4,
+        "morality": 4,
+        "complexity": 5
+      },
+      "topic_label": "Whether platforms should have to remove harmful or false content quickly",
+      "position_a": "Online platforms should be required to remove harmful or false content quickly",
+      "position_b": "Giving platforms power to remove content creates a greater risk of silencing legitimate speech"
+    },
+    {
+      "id": "020",
+      "statement": "Should people be free to use AI tools to create realistic fake images or videos of real individuals for entertainment, or does this cause a harm to those people that outweighs any creative value?",
+      "category": "technology_ethics",
+      "category_label": "Technology & AI",
+      "is_political": false,
+      "ratings": {
+        "objectivity": 4,
+        "emotionality": 4,
+        "morality": 5,
+        "complexity": 4
+      },
+      "topic_label": "Whether people should be free to make realistic fake videos of others",
+      "position_a": "People should be free to use AI to create realistic fake images or videos of real individuals for entertainment",
+      "position_b": "Creating realistic AI-generated fake images or videos of real individuals causes harm that outweighs creative value"
+    },
+    {
+      "id": "021",
+      "statement": "Should airlines and shipping companies be legally required to pay a tax on their carbon emissions, or would this unfairly raise the cost of travel and trade for ordinary people?",
+      "category": "environment",
+      "category_label": "Environment & Climate",
+      "is_political": true,
+      "ratings": {
+        "objectivity": 3,
+        "emotionality": 3,
+        "morality": 3,
+        "complexity": 4
+      },
+      "topic_label": "Taxing airlines and shipping companies for carbon emissions",
+      "position_a": "Airlines and shipping companies should be legally required to pay a carbon tax",
+      "position_b": "Airlines and shipping companies should not face a legally required carbon tax"
+    },
+    {
+      "id": "022",
+      "statement": "Should governments ban new licences for oil and gas exploration, or is continued fossil fuel production necessary to keep energy affordable while cleaner alternatives are developed?",
+      "category": "environment",
+      "category_label": "Environment & Climate",
+      "is_political": true,
+      "ratings": {
+        "objectivity": 3,
+        "emotionality": 4,
+        "morality": 4,
+        "complexity": 4
+      },
+      "topic_label": "Banning new oil and gas exploration licences",
+      "position_a": "Governments should ban new licences for oil and gas exploration",
+      "position_b": "Governments should continue issuing new licences for oil and gas exploration"
+    },
+    {
+      "id": "023",
+      "statement": "Should governments fund the full cost of insulating homes to reduce energy use, or should homeowners be expected to pay for their own upgrades?",
+      "category": "environment",
+      "category_label": "Environment & Climate",
+      "is_political": true,
+      "ratings": {
+        "objectivity": 3,
+        "emotionality": 2,
+        "morality": 3,
+        "complexity": 3
+      },
+      "topic_label": "Who should pay for home insulation upgrades",
+      "position_a": "Governments should fund the full cost of insulating homes",
+      "position_b": "Homeowners should be expected to pay for their own insulation upgrades"
+    },
+    {
+      "id": "024",
+      "statement": "Should countries with large forests be paid by richer nations to keep those forests standing, or should wealthy countries not be able to buy their way out of reducing their own emissions?",
+      "category": "environment",
+      "category_label": "Environment & Climate",
+      "is_political": true,
+      "ratings": {
+        "objectivity": 3,
+        "emotionality": 3,
+        "morality": 4,
+        "complexity": 4
+      },
+      "topic_label": "Paying countries to protect their forests",
+      "position_a": "Richer nations should pay countries with large forests to keep them standing",
+      "position_b": "Richer nations should not be able to pay other countries in place of reducing their own emissions"
+    },
+    {
+      "id": "025",
+      "statement": "Should governments introduce a tax on meat and dairy products to reduce the environmental impact of farming, or is taxing food an unacceptable intrusion into people's personal choices?",
+      "category": "environment",
+      "category_label": "Environment & Climate",
+      "is_political": true,
+      "ratings": {
+        "objectivity": 3,
+        "emotionality": 4,
+        "morality": 4,
+        "complexity": 3
+      },
+      "topic_label": "Taxing meat and dairy to help the environment",
+      "position_a": "Governments should introduce a tax on meat and dairy products",
+      "position_b": "Governments should not introduce a tax on meat and dairy products"
+    },
+    {
+      "id": "026",
+      "statement": "Should parents feel responsible for teaching their children environmentally conscious habits like recycling and reducing waste, or is it unreasonable to place that burden on families when the real change needs to happen at a larger scale?",
+      "category": "environment",
+      "category_label": "Environment & Climate",
+      "is_political": false,
+      "ratings": {
+        "objectivity": 4,
+        "emotionality": 3,
+        "morality": 3,
+        "complexity": 3
+      },
+      "topic_label": "Whether parents should teach children green habits",
+      "position_a": "Parents should feel responsible for teaching their children environmentally conscious habits",
+      "position_b": "Parents should not be expected to bear responsibility for teaching environmental habits"
+    },
+    {
+      "id": "027",
+      "statement": "Should individuals feel obligated to switch to an electric vehicle even if it costs significantly more than they can comfortably afford, or does financial hardship make this an unreasonable expectation?",
+      "category": "environment",
+      "category_label": "Environment & Climate",
+      "is_political": false,
+      "ratings": {
+        "objectivity": 4,
+        "emotionality": 3,
+        "morality": 4,
+        "complexity": 3
+      },
+      "topic_label": "Whether people should buy electric cars they can't afford",
+      "position_a": "Individuals should feel obligated to switch to an electric vehicle",
+      "position_b": "Individuals should not feel obligated to switch to an electric vehicle"
+    },
+    {
+      "id": "028",
+      "statement": "Should communities have the right to block the building of wind turbines or solar farms near their homes, or does the broader need for clean energy outweigh the preferences of local residents?",
+      "category": "environment",
+      "category_label": "Environment & Climate",
+      "is_political": false,
+      "ratings": {
+        "objectivity": 3,
+        "emotionality": 4,
+        "morality": 4,
+        "complexity": 4
+      },
+      "topic_label": "Whether locals can block nearby wind and solar farms",
+      "position_a": "Communities should have the right to block wind turbines or solar farms near their homes",
+      "position_b": "Communities should not have the right to block wind turbines or solar farms near their homes"
+    },
+    {
+      "id": "029",
+      "statement": "Should companies be expected to make their products last longer and be easier to repair, or does offering cheaper disposable products give consumers a genuine choice they have the right to make?",
+      "category": "environment",
+      "category_label": "Environment & Climate",
+      "is_political": false,
+      "ratings": {
+        "objectivity": 3,
+        "emotionality": 2,
+        "morality": 3,
+        "complexity": 4
+      },
+      "topic_label": "Whether companies should make products last longer",
+      "position_a": "Companies should be required to make their products last longer and be easier to repair",
+      "position_b": "Companies should not be required to make their products last longer and be easier to repair"
+    },
+    {
+      "id": "030",
+      "statement": "Should employers encourage or expect staff to work from home to reduce commuting emissions, or does this cross a line between environmental concern and interfering in how people organise their working lives?",
+      "category": "environment",
+      "category_label": "Environment & Climate",
+      "is_political": false,
+      "ratings": {
+        "objectivity": 4,
+        "emotionality": 3,
+        "morality": 3,
+        "complexity": 4
+      },
+      "topic_label": "Whether working from home should reduce commuting emissions",
+      "position_a": "Employers should encourage or expect staff to work from home to reduce commuting emissions",
+      "position_b": "Employers should not encourage or expect staff to work from home on environmental grounds"
+    },
+    {
+      "id": "031",
+      "statement": "Should national governments be legally required to recognise a set number of official languages in countries with large minority-language communities, or should a single national language be used in all public services?",
+      "category": "social_norms",
+      "category_label": "Social Norms & Values",
+      "is_political": true,
+      "ratings": {
+        "objectivity": 4,
+        "emotionality": 4,
+        "morality": 3,
+        "complexity": 4
+      },
+      "topic_label": "Whether countries should officially recognise multiple languages",
+      "position_a": "Governments should be legally required to recognise a set number of official languages",
+      "position_b": "A single national language should be used across all public services"
+    },
+    {
+      "id": "032",
+      "statement": "Should governments introduce laws requiring employers to give paid leave for religious holidays beyond the standard public holidays, or would this create an unfair advantage for some workers over others?",
+      "category": "social_norms",
+      "category_label": "Social Norms & Values",
+      "is_political": true,
+      "ratings": {
+        "objectivity": 4,
+        "emotionality": 3,
+        "morality": 4,
+        "complexity": 3
+      },
+      "topic_label": "Whether employers should give paid leave for religious holidays",
+      "position_a": "Governments should require employers to provide paid leave for religious holidays",
+      "position_b": "Paid religious leave should not be mandated beyond standard public holidays"
+    },
+    {
+      "id": "033",
+      "statement": "Should citizenship tests be required for people applying to become nationals of a new country, or are such tests an unfair barrier that discriminates against people from different educational backgrounds?",
+      "category": "social_norms",
+      "category_label": "Social Norms & Values",
+      "is_political": true,
+      "ratings": {
+        "objectivity": 3,
+        "emotionality": 3,
+        "morality": 4,
+        "complexity": 3
+      },
+      "topic_label": "Whether people should have to pass a test to get citizenship",
+      "position_a": "Citizenship tests should be required for people applying to become nationals",
+      "position_b": "Citizenship tests should not be required for people applying to become nationals"
+    },
+    {
+      "id": "034",
+      "statement": "Should governments require broadcasters and media outlets to reflect the ethnic and cultural diversity of the country in their staff and content, or should editorial decisions be left entirely to the organisations themselves?",
+      "category": "social_norms",
+      "category_label": "Social Norms & Values",
+      "is_political": true,
+      "ratings": {
+        "objectivity": 4,
+        "emotionality": 3,
+        "morality": 4,
+        "complexity": 4
+      },
+      "topic_label": "Whether media outlets should be required to reflect cultural diversity",
+      "position_a": "Governments should require broadcasters to reflect the country's ethnic and cultural diversity",
+      "position_b": "Editorial and staffing decisions should be left entirely to media organisations"
+    },
+    {
+      "id": "035",
+      "statement": "Should public schools be required to serve food that meets the dietary rules of all major religions represented in the student population, or should school menus be decided purely on nutritional and budgetary grounds?",
+      "category": "social_norms",
+      "category_label": "Social Norms & Values",
+      "is_political": true,
+      "ratings": {
+        "objectivity": 4,
+        "emotionality": 3,
+        "morality": 4,
+        "complexity": 4
+      },
+      "topic_label": "Whether school meals should cater to all religious dietary needs",
+      "position_a": "Public schools should be required to serve food meeting the dietary rules of all major religions",
+      "position_b": "School menus should be decided purely on nutritional and budgetary grounds"
+    },
+    {
+      "id": "036",
+      "statement": "Should friends and family feel obligated to speak up when someone they care about is making a decision they believe is harmful, or is staying silent the more respectful choice when the decision affects only that person?",
+      "category": "social_norms",
+      "category_label": "Social Norms & Values",
+      "is_political": false,
+      "ratings": {
+        "objectivity": 4,
+        "emotionality": 3,
+        "morality": 3,
+        "complexity": 3
+      },
+      "topic_label": "Whether to speak up or stay silent when a loved one makes a harmful choice",
+      "position_a": "Friends and family should speak up when someone they care about is making a harmful decision",
+      "position_b": "Friends and family should stay silent when a decision affects only that person"
+    },
+    {
+      "id": "037",
+      "statement": "Should people be expected to adapt their cultural or religious practices when they conflict with the widely shared norms of the community they live in, or should communities make space for those differences without requiring anyone to change?",
+      "category": "social_norms",
+      "category_label": "Social Norms & Values",
+      "is_political": false,
+      "ratings": {
+        "objectivity": 5,
+        "emotionality": 4,
+        "morality": 4,
+        "complexity": 5
+      },
+      "topic_label": "Whether people should adapt their customs to fit in with their community",
+      "position_a": "People should adapt their cultural or religious practices when they conflict with widely shared community norms",
+      "position_b": "Communities should make space for cultural and religious differences without requiring anyone to change"
+    },
+    {
+      "id": "038",
+      "statement": "Should employers be allowed to ask employees not to display visible religious symbols such as headscarves or crosses in customer-facing roles, or does this amount to an unjustifiable interference with personal and religious identity?",
+      "category": "social_norms",
+      "category_label": "Social Norms & Values",
+      "is_political": false,
+      "ratings": {
+        "objectivity": 4,
+        "emotionality": 4,
+        "morality": 5,
+        "complexity": 4
+      },
+      "topic_label": "Whether employers can ban religious symbols like headscarves at work",
+      "position_a": "Employers should be allowed to ask employees not to display visible religious symbols in customer-facing roles",
+      "position_b": "Employers should not be allowed to restrict employees from displaying visible religious symbols"
+    },
+    {
+      "id": "039",
+      "statement": "Should men who choose not to hold traditionally masculine roles — such as being the primary earner or doing physical labour — face no social judgment for that choice, or does society reasonably expect different things from men and women?",
+      "category": "social_norms",
+      "category_label": "Social Norms & Values",
+      "is_political": false,
+      "ratings": {
+        "objectivity": 4,
+        "emotionality": 4,
+        "morality": 3,
+        "complexity": 3
+      },
+      "topic_label": "Whether men should face judgment for rejecting traditional male roles",
+      "position_a": "Men who choose non-traditional roles should face no social judgment for that choice",
+      "position_b": "Society reasonably holds different expectations of men and women regarding their roles"
+    },
+    {
+      "id": "040",
+      "statement": "Should couples be free to keep their finances entirely separate in a long-term relationship, or does genuine partnership require a shared approach to money?",
+      "category": "social_norms",
+      "category_label": "Social Norms & Values",
+      "is_political": false,
+      "ratings": {
+        "objectivity": 4,
+        "emotionality": 2,
+        "morality": 2,
+        "complexity": 3
+      },
+      "topic_label": "Whether couples in long-term relationships should share their finances",
+      "position_a": "Couples should be free to keep their finances entirely separate in a long-term relationship",
+      "position_b": "Genuine long-term partnership requires a shared approach to money"
+    },
+    {
+      "id": "041",
+      "statement": "Should governments make a core national curriculum compulsory for all schools, including private ones, or should schools be free to decide what they teach?",
+      "category": "education",
+      "category_label": "Education",
+      "is_political": true,
+      "ratings": {
+        "objectivity": 4,
+        "emotionality": 3,
+        "morality": 3,
+        "complexity": 4
+      },
+      "topic_label": "Whether all schools should follow the same national curriculum",
+      "position_a": "Governments should make a core national curriculum compulsory for all schools",
+      "position_b": "Schools should be free to decide what they teach"
+    },
+    {
+      "id": "042",
+      "statement": "Should standardised tests be used as the main way to measure student achievement and school performance, or should governments move toward broader forms of assessment that include coursework and practical skills?",
+      "category": "education",
+      "category_label": "Education",
+      "is_political": true,
+      "ratings": {
+        "objectivity": 3,
+        "emotionality": 3,
+        "morality": 3,
+        "complexity": 4
+      },
+      "topic_label": "Whether exams or broader assessment better measures student ability",
+      "position_a": "Standardised tests should be the main measure of student and school performance",
+      "position_b": "Assessment should include broader methods such as coursework and practical skills"
+    },
+    {
+      "id": "043",
+      "statement": "Should university education be free for all students and funded by the government, or should graduates be expected to contribute to the cost of a degree they personally benefit from?",
+      "category": "education",
+      "category_label": "Education",
+      "is_political": true,
+      "ratings": {
+        "objectivity": 4,
+        "emotionality": 4,
+        "morality": 4,
+        "complexity": 4
+      },
+      "topic_label": "Whether university should be free and paid for by the government",
+      "position_a": "University education should be free for all students and funded by the government",
+      "position_b": "Graduates should contribute to the cost of their degree"
+    },
+    {
+      "id": "044",
+      "statement": "Should private fee-paying schools lose their charitable tax status, or does removing it risk pricing out middle-income families and reducing overall choice in education?",
+      "category": "education",
+      "category_label": "Education",
+      "is_political": true,
+      "ratings": {
+        "objectivity": 3,
+        "emotionality": 3,
+        "morality": 3,
+        "complexity": 4
+      },
+      "topic_label": "Whether private schools should lose their charitable tax status",
+      "position_a": "Private fee-paying schools should lose their charitable tax status",
+      "position_b": "Private fee-paying schools should retain their charitable tax status"
+    },
+    {
+      "id": "045",
+      "statement": "Should teacher pay be linked to the academic results their students achieve, or should all qualified teachers be paid on the same national pay scale regardless of outcomes?",
+      "category": "education",
+      "category_label": "Education",
+      "is_political": true,
+      "ratings": {
+        "objectivity": 3,
+        "emotionality": 4,
+        "morality": 4,
+        "complexity": 4
+      },
+      "topic_label": "Whether teacher pay should depend on how well their students do",
+      "position_a": "Teacher pay should be linked to the academic results their students achieve",
+      "position_b": "All qualified teachers should be paid on the same national pay scale"
+    },
+    {
+      "id": "046",
+      "statement": "Should children be taught about different world religions in school as part of a general education, or should parents have the right to withdraw their children from those lessons if they conflict with the family's beliefs?",
+      "category": "education",
+      "category_label": "Education",
+      "is_political": false,
+      "ratings": {
+        "objectivity": 4,
+        "emotionality": 4,
+        "morality": 4,
+        "complexity": 4
+      },
+      "topic_label": "Whether schools should teach world religions to all children",
+      "position_a": "All children should be taught about different world religions as part of general education",
+      "position_b": "Parents should have the right to withdraw their children from religious education lessons"
+    },
+    {
+      "id": "047",
+      "statement": "Should universities be expected to admit students from disadvantaged backgrounds with lower grades than other applicants, or should all applicants be judged purely on the results they achieved?",
+      "category": "education",
+      "category_label": "Education",
+      "is_political": false,
+      "ratings": {
+        "objectivity": 3,
+        "emotionality": 4,
+        "morality": 5,
+        "complexity": 4
+      },
+      "topic_label": "Whether universities should accept disadvantaged students with lower grades",
+      "position_a": "Universities should admit students from disadvantaged backgrounds with lower grades",
+      "position_b": "All university applicants should be judged purely on their academic results"
+    },
+    {
+      "id": "048",
+      "statement": "Should students be allowed to use AI tools to help them complete assignments, or does this undermine the purpose of education and make it harder to fairly assess what a student has actually learned?",
+      "category": "education",
+      "category_label": "Education",
+      "is_political": false,
+      "ratings": {
+        "objectivity": 3,
+        "emotionality": 3,
+        "morality": 3,
+        "complexity": 4
+      },
+      "topic_label": "Whether students should be allowed to use AI to help with schoolwork",
+      "position_a": "Students should be allowed to use AI tools to help complete assignments",
+      "position_b": "Students should not be permitted to use AI tools to complete assignments"
+    },
+    {
+      "id": "049",
+      "statement": "Should students be grouped in class by their academic ability, or does separating children this way do more harm than good to those placed in lower groups?",
+      "category": "education",
+      "category_label": "Education",
+      "is_political": false,
+      "ratings": {
+        "objectivity": 3,
+        "emotionality": 3,
+        "morality": 3,
+        "complexity": 4
+      },
+      "topic_label": "Whether children should be grouped in class by ability",
+      "position_a": "Students should be grouped in class by their academic ability",
+      "position_b": "Students should not be separated into groups based on academic ability"
+    },
+    {
+      "id": "050",
+      "statement": "Should universities allow speakers with controversial views to appear on campus, or is it reasonable for students and staff to prevent those they find harmful from having a platform?",
+      "category": "education",
+      "category_label": "Education",
+      "is_political": false,
+      "ratings": {
+        "objectivity": 4,
+        "emotionality": 5,
+        "morality": 5,
+        "complexity": 4
+      },
+      "topic_label": "Whether universities should allow controversial speakers on campus",
+      "position_a": "Universities should allow speakers with controversial views to appear on campus",
+      "position_b": "Universities should be able to prevent speakers with controversial views from appearing on campus"
+    },
+    {
+      "id": "051",
+      "statement": "Should employers be legally banned from contacting employees outside of contracted working hours, or should workers and employers be free to set their own boundaries around after-hours communication?",
+      "category": "workplace",
+      "category_label": "Work & Labor",
+      "is_political": true,
+      "ratings": {
+        "objectivity": 3,
+        "emotionality": 3,
+        "morality": 3,
+        "complexity": 3
+      },
+      "topic_label": "Banning employers from contacting staff outside work hours",
+      "position_a": "Employers should be legally banned from contacting employees outside contracted working hours",
+      "position_b": "Workers and employers should be free to set their own boundaries around after-hours contact"
+    },
+    {
+      "id": "052",
+      "statement": "Should governments place legal limits on how many hours a person can be required to work each week, or should individuals be free to work as many hours as they choose?",
+      "category": "workplace",
+      "category_label": "Work & Labor",
+      "is_political": true,
+      "ratings": {
+        "objectivity": 3,
+        "emotionality": 3,
+        "morality": 3,
+        "complexity": 4
+      },
+      "topic_label": "Whether governments should set a legal limit on working hours",
+      "position_a": "Governments should legally limit the number of hours a person can be required to work each week",
+      "position_b": "Individuals should be free to work as many hours as they choose"
+    },
+    {
+      "id": "053",
+      "statement": "Should large companies be required by law to give workers seats on their board of directors, or should how a company is run remain the decision of its owners and shareholders?",
+      "category": "workplace",
+      "category_label": "Work & Labor",
+      "is_political": true,
+      "ratings": {
+        "objectivity": 3,
+        "emotionality": 2,
+        "morality": 3,
+        "complexity": 4
+      },
+      "topic_label": "Giving workers a say on company boards",
+      "position_a": "Large companies should be required by law to give workers seats on their board of directors",
+      "position_b": "How a company is run should remain the decision of its owners and shareholders"
+    },
+    {
+      "id": "054",
+      "statement": "Should governments guarantee a job to any citizen who wants one through publicly funded employment schemes, or is a job guarantee an unrealistic and costly overreach of government responsibility?",
+      "category": "workplace",
+      "category_label": "Work & Labor",
+      "is_political": true,
+      "ratings": {
+        "objectivity": 2,
+        "emotionality": 3,
+        "morality": 3,
+        "complexity": 5
+      },
+      "topic_label": "Whether governments should guarantee a job to everyone who wants one",
+      "position_a": "Governments should guarantee a job to any citizen who wants one through publicly funded employment",
+      "position_b": "Guaranteeing jobs to all citizens is an unrealistic and excessive government responsibility"
+    },
+    {
+      "id": "055",
+      "statement": "Should unpaid internships be banned by law, or should young people be free to accept unpaid positions if they believe it will help their careers?",
+      "category": "workplace",
+      "category_label": "Work & Labor",
+      "is_political": true,
+      "ratings": {
+        "objectivity": 4,
+        "emotionality": 3,
+        "morality": 4,
+        "complexity": 4
+      },
+      "topic_label": "Whether unpaid internships should be banned",
+      "position_a": "Unpaid internships should be banned by law",
+      "position_b": "People should be free to accept unpaid positions if they choose to do so"
+    },
+    {
+      "id": "056",
+      "statement": "Should employers be allowed to offer lower pay or fewer benefits to remote workers than to those doing the same job in the office, or should location of work make no difference to how someone is compensated?",
+      "category": "workplace",
+      "category_label": "Work & Labor",
+      "is_political": false,
+      "ratings": {
+        "objectivity": 4,
+        "emotionality": 3,
+        "morality": 3,
+        "complexity": 3
+      },
+      "topic_label": "Whether remote workers should get the same pay as office workers",
+      "position_a": "Employers should be allowed to offer lower pay or fewer benefits to remote workers",
+      "position_b": "Location of work should make no difference to how someone is compensated"
+    },
+    {
+      "id": "057",
+      "statement": "Should people feel socially judged for choosing a well-paid career they find meaningless over lower-paid work they find fulfilling, or should earning more always be seen as a rational and respectable priority?",
+      "category": "workplace",
+      "category_label": "Work & Labor",
+      "is_political": false,
+      "ratings": {
+        "objectivity": 5,
+        "emotionality": 3,
+        "morality": 2,
+        "complexity": 3
+      },
+      "topic_label": "Judging people for choosing money over meaningful work",
+      "position_a": "People should feel socially judged for choosing high pay over personally fulfilling work",
+      "position_b": "Earning more should be seen as a rational and respectable priority without social judgement"
+    },
+    {
+      "id": "058",
+      "statement": "Should hiring managers be expected to give honest, detailed feedback to every job applicant they reject, or is a brief rejection with no explanation an acceptable and practical norm?",
+      "category": "workplace",
+      "category_label": "Work & Labor",
+      "is_political": false,
+      "ratings": {
+        "objectivity": 4,
+        "emotionality": 2,
+        "morality": 3,
+        "complexity": 3
+      },
+      "topic_label": "Whether rejected job applicants deserve detailed feedback",
+      "position_a": "Hiring managers should give honest, detailed feedback to every job applicant they reject",
+      "position_b": "A brief rejection with no detailed explanation is an acceptable and practical norm"
+    },
+    {
+      "id": "059",
+      "statement": "Should people openly discuss their salaries with colleagues, or does sharing pay information create unnecessary tension and awkwardness in the workplace?",
+      "category": "workplace",
+      "category_label": "Work & Labor",
+      "is_political": false,
+      "ratings": {
+        "objectivity": 4,
+        "emotionality": 3,
+        "morality": 3,
+        "complexity": 3
+      },
+      "topic_label": "Whether people should share their salaries with workmates",
+      "position_a": "People should openly discuss their salaries with colleagues",
+      "position_b": "Sharing pay information creates unnecessary tension and awkwardness in the workplace"
+    },
+    {
+      "id": "060",
+      "statement": "Should gig economy platforms be expected to build a sense of community and support among the independent workers who use them, or is it unreasonable to expect that kind of relationship from a purely commercial arrangement?",
+      "category": "workplace",
+      "category_label": "Work & Labor",
+      "is_political": false,
+      "ratings": {
+        "objectivity": 4,
+        "emotionality": 2,
+        "morality": 3,
+        "complexity": 4
+      },
+      "topic_label": "Whether gig platforms should support the workers who use them",
+      "position_a": "Gig economy platforms should be expected to build community and support among their workers",
+      "position_b": "It is unreasonable to expect community or support from a purely commercial platform arrangement"
+    },
+    {
+      "id": "061",
+      "statement": "Should governments abolish mandatory minimum prison sentences and give judges full freedom to decide punishment case by case, or do fixed minimum sentences serve an important role in ensuring consistency and deterrence?",
+      "category": "criminal_justice",
+      "category_label": "Crime & Justice",
+      "is_political": true,
+      "ratings": {
+        "objectivity": 3,
+        "emotionality": 3,
+        "morality": 4,
+        "complexity": 4
+      },
+      "topic_label": "Whether judges should decide prison sentences freely or follow fixed minimums",
+      "position_a": "Governments should abolish mandatory minimum sentences and give judges full discretion",
+      "position_b": "Fixed minimum sentences should be kept to ensure consistency and deterrence"
+    },
+    {
+      "id": "062",
+      "statement": "Should private companies be banned from running prisons and detention centres, or does bringing in private operators improve efficiency and outcomes for those in the system?",
+      "category": "criminal_justice",
+      "category_label": "Crime & Justice",
+      "is_political": true,
+      "ratings": {
+        "objectivity": 3,
+        "emotionality": 3,
+        "morality": 4,
+        "complexity": 4
+      },
+      "topic_label": "Whether private companies should be allowed to run prisons",
+      "position_a": "Private companies should be banned from running prisons and detention centres",
+      "position_b": "Private companies should be permitted to operate prisons and detention centres"
+    },
+    {
+      "id": "063",
+      "statement": "Should governments fund restorative justice programmes — where offenders meet their victims and agree on how to make things right — as a formal alternative to prosecution, or should criminal cases always go through the courts?",
+      "category": "criminal_justice",
+      "category_label": "Crime & Justice",
+      "is_political": true,
+      "ratings": {
+        "objectivity": 3,
+        "emotionality": 3,
+        "morality": 4,
+        "complexity": 4
+      },
+      "topic_label": "Whether offenders should meet victims instead of going to court",
+      "position_a": "Governments should fund restorative justice programmes as a formal alternative to prosecution",
+      "position_b": "Criminal cases should always be handled through the courts"
+    },
+    {
+      "id": "064",
+      "statement": "Should stop-and-search powers used by police be subject to strict legal quotas to prevent targeting of particular groups, or should officers retain broad discretion to stop anyone they consider suspicious?",
+      "category": "criminal_justice",
+      "category_label": "Crime & Justice",
+      "is_political": true,
+      "ratings": {
+        "objectivity": 3,
+        "emotionality": 4,
+        "morality": 4,
+        "complexity": 4
+      },
+      "topic_label": "Whether police should face limits on who they can stop and search",
+      "position_a": "Stop-and-search powers should be subject to strict legal quotas",
+      "position_b": "Officers should retain broad discretion to stop anyone they consider suspicious"
+    },
+    {
+      "id": "065",
+      "statement": "Should governments legalise and regulate the sale of cannabis through licensed shops in the same way alcohol is sold, or should cannabis remain illegal to buy and sell?",
+      "category": "criminal_justice",
+      "category_label": "Crime & Justice",
+      "is_political": true,
+      "ratings": {
+        "objectivity": 2,
+        "emotionality": 4,
+        "morality": 4,
+        "complexity": 4
+      },
+      "topic_label": "Whether cannabis should be sold legally in licensed shops",
+      "position_a": "Cannabis should be legalised and sold through regulated licensed shops",
+      "position_b": "Cannabis should remain illegal to buy and sell"
+    },
+    {
+      "id": "066",
+      "statement": "Should communities treat someone who has served their prison sentence as having fully paid their debt to society and deserving a fresh start, or is it reasonable to remain cautious about that person for years afterward?",
+      "category": "criminal_justice",
+      "category_label": "Crime & Justice",
+      "is_political": false,
+      "ratings": {
+        "objectivity": 4,
+        "emotionality": 3,
+        "morality": 4,
+        "complexity": 4
+      },
+      "topic_label": "Whether someone who has served their sentence deserves a full fresh start",
+      "position_a": "Someone who has served their sentence should be treated as fully deserving a fresh start",
+      "position_b": "It is reasonable to remain cautious about someone with a prison record for years afterward"
+    },
+    {
+      "id": "067",
+      "statement": "Should employers be expected to hire people with criminal records and judge them on their current merits, or is it reasonable to treat a criminal past as a lasting mark against someone's trustworthiness?",
+      "category": "criminal_justice",
+      "category_label": "Crime & Justice",
+      "is_political": false,
+      "ratings": {
+        "objectivity": 4,
+        "emotionality": 3,
+        "morality": 4,
+        "complexity": 3
+      },
+      "topic_label": "Whether employers should give people with criminal records a fair chance",
+      "position_a": "Employers should judge people with criminal records on their current merits",
+      "position_b": "It is reasonable to treat a criminal past as a lasting factor in assessing trustworthiness"
+    },
+    {
+      "id": "068",
+      "statement": "Should gun owners be held personally and socially responsible when a weapon they legally own is used to harm someone, or does responsibility end at the point of lawful ownership and storage?",
+      "category": "criminal_justice",
+      "category_label": "Crime & Justice",
+      "is_political": false,
+      "ratings": {
+        "objectivity": 4,
+        "emotionality": 4,
+        "morality": 5,
+        "complexity": 4
+      },
+      "topic_label": "Whether gun owners should be responsible if their weapon harms someone",
+      "position_a": "Gun owners should bear personal responsibility when their legally owned weapon harms someone",
+      "position_b": "Responsibility ends at the point of lawful ownership and storage"
+    },
+    {
+      "id": "069",
+      "statement": "Should victims of crime have a meaningful say in how their offender is punished, or should that decision belong entirely to the justice system regardless of the victim's wishes?",
+      "category": "criminal_justice",
+      "category_label": "Crime & Justice",
+      "is_political": false,
+      "ratings": {
+        "objectivity": 4,
+        "emotionality": 4,
+        "morality": 5,
+        "complexity": 3
+      },
+      "topic_label": "Whether crime victims should have a say in how offenders are punished",
+      "position_a": "Victims of crime should have a meaningful say in how their offender is punished",
+      "position_b": "Punishment decisions should belong entirely to the justice system"
+    },
+    {
+      "id": "070",
+      "statement": "Should someone who buys stolen goods — even unknowingly — bear some moral responsibility for the original theft, or is ignorance a complete and fair defence?",
+      "category": "criminal_justice",
+      "category_label": "Crime & Justice",
+      "is_political": false,
+      "ratings": {
+        "objectivity": 3,
+        "emotionality": 2,
+        "morality": 4,
+        "complexity": 3
+      },
+      "topic_label": "Whether buying stolen goods unknowingly makes you partly responsible for the theft",
+      "position_a": "Someone who unknowingly buys stolen goods bears some moral responsibility for the original theft",
+      "position_b": "Ignorance of goods being stolen is a complete and fair defence against moral responsibility"
+    },
+    {
+      "id": "071",
+      "statement": "Should governments legally require fast food companies to display calorie counts and health warnings on all packaging and advertising, or is that level of intervention an overreach into how businesses communicate with their customers?",
+      "category": "personal_choices",
+      "category_label": "Personal Choices & Lifestyle",
+      "is_political": true,
+      "ratings": {
+        "objectivity": 3,
+        "emotionality": 2,
+        "morality": 3,
+        "complexity": 3
+      },
+      "topic_label": "Whether fast food packaging should show calorie counts and health warnings",
+      "position_a": "Governments should legally require fast food companies to display calorie counts and health warnings",
+      "position_b": "Requiring health labels on fast food packaging is an overreach into business communication"
+    },
+    {
+      "id": "072",
+      "statement": "Should alcohol carry the same prominent health warnings as cigarettes by law, or does treating alcohol like tobacco unfairly stigmatise a product most people consume responsibly?",
+      "category": "personal_choices",
+      "category_label": "Personal Choices & Lifestyle",
+      "is_political": true,
+      "ratings": {
+        "objectivity": 3,
+        "emotionality": 3,
+        "morality": 3,
+        "complexity": 3
+      },
+      "topic_label": "Whether alcohol should carry the same health warnings as cigarettes",
+      "position_a": "Alcohol should carry the same prominent health warnings as cigarettes by law",
+      "position_b": "Alcohol should not be subject to the same warning requirements as tobacco"
+    },
+    {
+      "id": "073",
+      "statement": "Should governments ban the sale of tobacco products to anyone born after a certain year, effectively phasing out smoking over time, or does a permanent sales ban go too far in restricting adult freedom?",
+      "category": "personal_choices",
+      "category_label": "Personal Choices & Lifestyle",
+      "is_political": true,
+      "ratings": {
+        "objectivity": 4,
+        "emotionality": 4,
+        "morality": 4,
+        "complexity": 4
+      },
+      "topic_label": "Whether tobacco sales should be banned for people born after a set year",
+      "position_a": "Governments should ban tobacco sales to anyone born after a certain year",
+      "position_b": "A permanent generational tobacco sales ban goes too far in restricting adult freedom"
+    },
+    {
+      "id": "074",
+      "statement": "Should parents who are found to be raising children with severe obesity face legal consequences, or should the state stay out of family decisions about food and weight?",
+      "category": "personal_choices",
+      "category_label": "Personal Choices & Lifestyle",
+      "is_political": true,
+      "ratings": {
+        "objectivity": 4,
+        "emotionality": 5,
+        "morality": 5,
+        "complexity": 5
+      },
+      "topic_label": "Whether parents should face legal consequences for a child's severe obesity",
+      "position_a": "Parents found raising children with severe obesity should face legal consequences",
+      "position_b": "The state should not intervene legally in family decisions about food and weight"
+    },
+    {
+      "id": "075",
+      "statement": "Should the minimum legal age for buying energy drinks be raised to 18, or is restricting the sale of a legal product to older teenagers an unnecessary overreach?",
+      "category": "personal_choices",
+      "category_label": "Personal Choices & Lifestyle",
+      "is_political": true,
+      "ratings": {
+        "objectivity": 3,
+        "emotionality": 3,
+        "morality": 3,
+        "complexity": 3
+      },
+      "topic_label": "Whether energy drinks should only be sold to people aged 18 and over",
+      "position_a": "The minimum legal age for buying energy drinks should be raised to 18",
+      "position_b": "Restricting energy drink sales to older teenagers is an unnecessary overreach"
+    },
+    {
+      "id": "076",
+      "statement": "Should parents raise children on a strictly vegan diet, or does imposing that choice on a child before they can decide for themselves cross an ethical line?",
+      "category": "personal_choices",
+      "category_label": "Personal Choices & Lifestyle",
+      "is_political": false,
+      "ratings": {
+        "objectivity": 4,
+        "emotionality": 3,
+        "morality": 4,
+        "complexity": 4
+      },
+      "topic_label": "Whether parents should raise their children on a strictly vegan diet",
+      "position_a": "Parents should be able to raise children on a strictly vegan diet",
+      "position_b": "Imposing a strictly vegan diet on a child before they can decide crosses an ethical line"
+    },
+    {
+      "id": "077",
+      "statement": "Should people who are significantly overweight be treated with the same social concern as people who smoke or drink heavily, or does applying that kind of social pressure do more harm than good?",
+      "category": "personal_choices",
+      "category_label": "Personal Choices & Lifestyle",
+      "is_political": false,
+      "ratings": {
+        "objectivity": 3,
+        "emotionality": 4,
+        "morality": 3,
+        "complexity": 4
+      },
+      "topic_label": "Whether being very overweight should carry the same social concern as smoking",
+      "position_a": "People who are significantly overweight should receive the same social concern as heavy smokers or drinkers",
+      "position_b": "Applying that kind of social pressure to overweight people does more harm than good"
+    },
+    {
+      "id": "078",
+      "statement": "Should adults who use recreational drugs in private be seen as behaving irresponsibly toward their community, or is what someone does in their own home with their own body entirely their own concern?",
+      "category": "personal_choices",
+      "category_label": "Personal Choices & Lifestyle",
+      "is_political": false,
+      "ratings": {
+        "objectivity": 3,
+        "emotionality": 3,
+        "morality": 4,
+        "complexity": 3
+      },
+      "topic_label": "Whether using recreational drugs in private is anyone else's business",
+      "position_a": "Adults who use recreational drugs in private are behaving irresponsibly toward their community",
+      "position_b": "What adults do with their own bodies in their own home is entirely their own concern"
+    },
+    {
+      "id": "079",
+      "statement": "Should homeschooling be seen as a valid and potentially superior alternative to formal schooling, or does keeping children out of school deprive them of important social experiences they cannot get at home?",
+      "category": "personal_choices",
+      "category_label": "Personal Choices & Lifestyle",
+      "is_political": false,
+      "ratings": {
+        "objectivity": 3,
+        "emotionality": 3,
+        "morality": 3,
+        "complexity": 4
+      },
+      "topic_label": "Whether homeschooling is a good alternative to sending children to school",
+      "position_a": "Homeschooling is a valid and potentially superior alternative to formal schooling",
+      "position_b": "Keeping children out of school deprives them of important social experiences they cannot get at home"
+    },
+    {
+      "id": "080",
+      "statement": "Should parents strictly limit their children's screen time, or does managing that balance teach kids self-regulation skills they will need as adults?",
+      "category": "personal_choices",
+      "category_label": "Personal Choices & Lifestyle",
+      "is_political": false,
+      "ratings": {
+        "objectivity": 3,
+        "emotionality": 3,
+        "morality": 3,
+        "complexity": 4
+      },
+      "topic_label": "Whether parents should strictly limit how much screen time their children have",
+      "position_a": "Parents should strictly limit their children's screen time",
+      "position_b": "Managing screen time balance teaches children self-regulation skills they will need as adults"
+    },
+    {
+      "id": "081",
+      "statement": "Should the government provide every adult citizen with a regular cash payment — no strings attached — to cover basic living costs, or is unconditional cash support an unaffordable and poorly targeted use of public money?",
+      "category": "economic_policy",
+      "category_label": "Economics & Inequality",
+      "is_political": true,
+      "ratings": {
+        "objectivity": 4,
+        "emotionality": 3,
+        "morality": 4,
+        "complexity": 5
+      },
+      "topic_label": "Whether every adult should get a regular no-strings cash payment",
+      "position_a": "The government should provide every adult citizen with a regular unconditional cash payment",
+      "position_b": "Unconditional cash payments to all citizens are unaffordable and poorly targeted"
+    },
+    {
+      "id": "082",
+      "statement": "Should wealth taxes — annual charges on total assets like savings, property, and investments — be introduced as a way to reduce the gap between rich and poor, or are wealth taxes too difficult to enforce and too damaging to economic growth to be practical?",
+      "category": "economic_policy",
+      "category_label": "Economics & Inequality",
+      "is_political": true,
+      "ratings": {
+        "objectivity": 3,
+        "emotionality": 3,
+        "morality": 3,
+        "complexity": 5
+      },
+      "topic_label": "Whether annual taxes on total wealth would help reduce inequality",
+      "position_a": "Annual taxes on total assets should be introduced to reduce inequality",
+      "position_b": "Wealth taxes should not be introduced due to enforcement difficulties and economic harm"
+    },
+    {
+      "id": "083",
+      "statement": "Should governments be required to publicly report each year on whether the gap between the richest and poorest in society is growing or shrinking, or is tracking inequality a distraction from simply improving conditions for those at the bottom?",
+      "category": "economic_policy",
+      "category_label": "Economics & Inequality",
+      "is_political": true,
+      "ratings": {
+        "objectivity": 2,
+        "emotionality": 2,
+        "morality": 3,
+        "complexity": 3
+      },
+      "topic_label": "Whether governments should publicly track the gap between rich and poor",
+      "position_a": "Governments should be required to report publicly each year on changes in inequality",
+      "position_b": "Tracking inequality diverts attention from directly improving conditions for the poorest"
+    },
+    {
+      "id": "084",
+      "statement": "Should inheritance above a certain amount be heavily taxed to prevent wealth passing through generations, or does taxing inheritance punish families for saving and building something to pass on?",
+      "category": "economic_policy",
+      "category_label": "Economics & Inequality",
+      "is_political": true,
+      "ratings": {
+        "objectivity": 4,
+        "emotionality": 3,
+        "morality": 4,
+        "complexity": 4
+      },
+      "topic_label": "Whether large inheritances should be heavily taxed",
+      "position_a": "Inheritance above a certain amount should be heavily taxed",
+      "position_b": "Inheritance should not be heavily taxed regardless of the amount passed on"
+    },
+    {
+      "id": "085",
+      "statement": "Should financial support for families — such as child benefit payments — be cut off after a certain number of children, or should support be available regardless of family size to protect children from poverty?",
+      "category": "economic_policy",
+      "category_label": "Economics & Inequality",
+      "is_political": true,
+      "ratings": {
+        "objectivity": 4,
+        "emotionality": 5,
+        "morality": 5,
+        "complexity": 3
+      },
+      "topic_label": "Whether child benefit payments should be capped by family size",
+      "position_a": "Financial support for families should be available regardless of the number of children",
+      "position_b": "Financial support for families should be cut off after a certain number of children"
+    },
+    {
+      "id": "086",
+      "statement": "Should tipping be seen as a genuine act of gratitude that customers freely choose to give, or has it become an unfair way for businesses to pass their wage obligations onto customers?",
+      "category": "economic_policy",
+      "category_label": "Economics & Inequality",
+      "is_political": false,
+      "ratings": {
+        "objectivity": 4,
+        "emotionality": 3,
+        "morality": 3,
+        "complexity": 3
+      },
+      "topic_label": "Whether tipping is a free choice or an unfair burden on customers",
+      "position_a": "Tipping is a genuine act of gratitude that customers freely choose to give",
+      "position_b": "Tipping has become a way for businesses to pass wage obligations onto customers"
+    },
+    {
+      "id": "087",
+      "statement": "Should wealthy individuals who donate large sums to charity be celebrated for their generosity, or does private philanthropy allow the rich to decide which social problems get solved in ways that should not be left to one person's preferences?",
+      "category": "economic_policy",
+      "category_label": "Economics & Inequality",
+      "is_political": false,
+      "ratings": {
+        "objectivity": 4,
+        "emotionality": 3,
+        "morality": 4,
+        "complexity": 4
+      },
+      "topic_label": "Whether billionaire charity giving does more good than harm",
+      "position_a": "Wealthy individuals who donate large sums to charity should be celebrated for their generosity",
+      "position_b": "Private philanthropy gives wealthy individuals undue control over which social problems are addressed"
+    },
+    {
+      "id": "088",
+      "statement": "Should communities treat homelessness as a shared problem that everyone has some responsibility to address, or is a person's housing situation ultimately their own responsibility?",
+      "category": "economic_policy",
+      "category_label": "Economics & Inequality",
+      "is_political": false,
+      "ratings": {
+        "objectivity": 5,
+        "emotionality": 4,
+        "morality": 5,
+        "complexity": 5
+      },
+      "topic_label": "Whether homelessness is a shared problem or a personal one",
+      "position_a": "Homelessness is a shared problem that everyone has some responsibility to address",
+      "position_b": "A person's housing situation is ultimately their own responsibility"
+    },
+    {
+      "id": "089",
+      "statement": "Should landlords be free to charge whatever rent the market will bear, or does owning multiple homes that others depend on come with a social responsibility to keep rents affordable?",
+      "category": "economic_policy",
+      "category_label": "Economics & Inequality",
+      "is_political": false,
+      "ratings": {
+        "objectivity": 4,
+        "emotionality": 4,
+        "morality": 4,
+        "complexity": 4
+      },
+      "topic_label": "Whether landlords should be free to charge whatever rent they like",
+      "position_a": "Landlords should be free to charge whatever rent the market will bear",
+      "position_b": "Landlords have a social responsibility to keep rents affordable"
+    },
+    {
+      "id": "090",
+      "statement": "Should a person's financial struggles be treated as a private matter, or should communities create more openness around money so that people feel less shame in asking for help?",
+      "category": "economic_policy",
+      "category_label": "Economics & Inequality",
+      "is_political": false,
+      "ratings": {
+        "objectivity": 4,
+        "emotionality": 3,
+        "morality": 3,
+        "complexity": 4
+      },
+      "topic_label": "Whether people should talk more openly about money struggles",
+      "position_a": "Communities should foster more openness around money to reduce shame in seeking help",
+      "position_b": "A person's financial struggles should be treated as a private matter"
+    },
+    {
+      "id": "091",
+      "statement": "Should newspapers and online news outlets be required by law to publish corrections in the same place and at the same size as the original story, or is it enough to leave correction policies up to each outlet to decide?",
+      "category": "media_speech",
+      "category_label": "Media & Free Speech",
+      "is_political": true,
+      "ratings": {
+        "objectivity": 3,
+        "emotionality": 2,
+        "morality": 3,
+        "complexity": 3
+      },
+      "topic_label": "Whether news outlets must print corrections as prominently as the original story",
+      "position_a": "Newspapers and online outlets should be legally required to publish corrections in the same place and size as the original story",
+      "position_b": "Correction policies should be left to each outlet to decide without legal requirements"
+    },
+    {
+      "id": "092",
+      "statement": "Should journalists be legally protected from being forced to reveal their sources in court, or should those protections be removed when national security is at stake?",
+      "category": "media_speech",
+      "category_label": "Media & Free Speech",
+      "is_political": true,
+      "ratings": {
+        "objectivity": 4,
+        "emotionality": 3,
+        "morality": 4,
+        "complexity": 4
+      },
+      "topic_label": "Whether journalists can be forced to name their sources in court",
+      "position_a": "Journalists should be legally protected from being forced to reveal their sources in court",
+      "position_b": "Source protections should be removed when national security is at stake"
+    },
+    {
+      "id": "093",
+      "statement": "Should whistleblowers who leak classified government information to journalists be protected by law if the information reveals wrongdoing, or should leaking classified material always be treated as a criminal act regardless of motive?",
+      "category": "media_speech",
+      "category_label": "Media & Free Speech",
+      "is_political": true,
+      "ratings": {
+        "objectivity": 4,
+        "emotionality": 4,
+        "morality": 5,
+        "complexity": 5
+      },
+      "topic_label": "Whether leaking classified information to expose wrongdoing should be protected",
+      "position_a": "Whistleblowers who leak classified information revealing wrongdoing should be protected by law",
+      "position_b": "Leaking classified material should always be treated as a criminal act regardless of motive"
+    },
+    {
+      "id": "094",
+      "statement": "Should people who are publicly criticised or \"cancelled\" online have any legal recourse against coordinated campaigns that damage their reputation, or is mass public criticism simply an unavoidable feature of free speech?",
+      "category": "media_speech",
+      "category_label": "Media & Free Speech",
+      "is_political": true,
+      "ratings": {
+        "objectivity": 4,
+        "emotionality": 4,
+        "morality": 4,
+        "complexity": 4
+      },
+      "topic_label": "Whether people harmed by online pile-ons should have legal protection",
+      "position_a": "People harmed by coordinated online campaigns should have legal recourse against reputational damage",
+      "position_b": "Mass public criticism is a feature of free speech and should carry no legal liability"
+    },
+    {
+      "id": "095",
+      "statement": "Should end-to-end encrypted messaging apps be required to give governments a way to access private messages in criminal investigations, or does building in that access fundamentally undermine everyone's privacy?",
+      "category": "media_speech",
+      "category_label": "Media & Free Speech",
+      "is_political": true,
+      "ratings": {
+        "objectivity": 4,
+        "emotionality": 4,
+        "morality": 5,
+        "complexity": 5
+      },
+      "topic_label": "Whether governments should be able to access encrypted private messages",
+      "position_a": "Encrypted messaging apps should be required to provide governments access to private messages in criminal investigations",
+      "position_b": "Building government access into encrypted apps fundamentally undermines everyone's privacy"
+    },
+    {
+      "id": "096",
+      "statement": "Should satirical content that mocks or impersonates real people be clearly labelled as fiction, or does requiring labels undermine the nature of satire and comedy?",
+      "category": "media_speech",
+      "category_label": "Media & Free Speech",
+      "is_political": false,
+      "ratings": {
+        "objectivity": 4,
+        "emotionality": 3,
+        "morality": 3,
+        "complexity": 4
+      },
+      "topic_label": "Whether satirical content about real people must be labelled as fiction",
+      "position_a": "Satirical content mocking or impersonating real people should be clearly labelled as fiction",
+      "position_b": "Requiring labels on satirical content undermines the nature of satire and comedy"
+    },
+    {
+      "id": "097",
+      "statement": "Should comedy and satire be allowed to target any group, religion, or community, or are some groups entitled to protection from mockery because of the harm that ridicule can cause?",
+      "category": "media_speech",
+      "category_label": "Media & Free Speech",
+      "is_political": false,
+      "ratings": {
+        "objectivity": 5,
+        "emotionality": 5,
+        "morality": 5,
+        "complexity": 4
+      },
+      "topic_label": "Whether comedy and satire should be allowed to mock any group",
+      "position_a": "Comedy and satire should be allowed to target any group, religion, or community",
+      "position_b": "Some groups should be protected from mockery because of the harm ridicule can cause"
+    },
+    {
+      "id": "098",
+      "statement": "Should anonymous accounts on social media be treated as equally valid voices in public debate, or does the ability to hide your identity make anonymous speech less trustworthy and less deserving of protection?",
+      "category": "media_speech",
+      "category_label": "Media & Free Speech",
+      "is_political": false,
+      "ratings": {
+        "objectivity": 4,
+        "emotionality": 3,
+        "morality": 3,
+        "complexity": 4
+      },
+      "topic_label": "Whether anonymous social media accounts deserve the same voice as named ones",
+      "position_a": "Anonymous accounts should be treated as equally valid voices in public debate",
+      "position_b": "Anonymous speech is less trustworthy and less deserving of protection than identified speech"
+    },
+    {
+      "id": "099",
+      "statement": "Should communities actively challenge and push back against hateful speech when they encounter it, or does engaging with hateful speech give it more attention and legitimacy than it deserves?",
+      "category": "media_speech",
+      "category_label": "Media & Free Speech",
+      "is_political": false,
+      "ratings": {
+        "objectivity": 4,
+        "emotionality": 4,
+        "morality": 4,
+        "complexity": 4
+      },
+      "topic_label": "Whether communities should confront hateful speech or ignore it",
+      "position_a": "Communities should actively challenge and push back against hateful speech when they encounter it",
+      "position_b": "Engaging with hateful speech gives it more attention and legitimacy than it deserves"
+    },
+    {
+      "id": "100",
+      "statement": "Should journalists be expected to remain strictly neutral and never publicly express personal opinions, or does pretending to have no point of view make reporting less honest rather than more honest?",
+      "category": "media_speech",
+      "category_label": "Media & Free Speech",
+      "is_political": false,
+      "ratings": {
+        "objectivity": 4,
+        "emotionality": 3,
+        "morality": 3,
+        "complexity": 4
+      },
+      "topic_label": "Whether journalists should be allowed to share their personal opinions",
+      "position_a": "Journalists should remain strictly neutral and never publicly express personal opinions",
+      "position_b": "Journalists should be able to express personal views as concealing them makes reporting less honest"
+    }
+  ]
+}

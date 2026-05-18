@@ -1,0 +1,33 @@
+participant.id_in_session,participant.code,participant.label,participant._is_bot,participant._index_in_pages,participant._max_page_index,participant._current_app_name,participant._current_page_name,participant.time_started_utc,participant.visited,participant.mturk_worker_id,participant.mturk_assignment_id,participant.payoff,player.id_in_group,player.role,player.payoff,session.code,session.label,session.mturk_HITId,session.mturk_HITGroupId,session.comment,session.is_demo
+1,8rtmumd1,,0,2,11,experiment_discussion,BrowserCheck,2026-04-15 15:37:41.264765,1,,,0.0,1,,0.0,uzfwels1,,,,,1
+2,zwvra1j0,,0,0,11,,,,0,,,0.0,2,,0.0,uzfwels1,,,,,1
+1,413n3az4,,0,2,11,experiment_discussion,BrowserCheck,2026-04-15 15:40:09.741275,1,,,0.0,1,,0.0,u1zquq42,,,,,1
+2,7adzait2,,0,0,11,,,,0,,,0.0,2,,0.0,u1zquq42,,,,,1
+1,8m11edj1,,0,6,11,experiment_discussion,LLMInterview,2026-04-15 15:44:55.622974,1,,,0.0,1,,0.0,b6dcwi41,,,,,1
+2,28eldrj3,,0,0,11,,,,0,,,0.0,2,,0.0,b6dcwi41,,,,,1
+1,75cblvdy,,0,0,11,,,,0,,,0.0,1,,0.0,jj69cyyq,,,,,1
+2,jlnsg6c6,,0,0,11,,,,0,,,0.0,2,,0.0,jj69cyyq,,,,,1
+1,la6vcoez,,0,6,11,experiment_discussion,LLMInterview,2026-04-15 15:47:08.769826,1,,,0.0,1,,0.0,c6fspn88,,,,,1
+2,hhij8oaa,,0,0,11,,,,0,,,0.0,2,,0.0,c6fspn88,,,,,1
+1,f3hzc18l,,0,6,11,experiment_discussion,LLMInterview,2026-04-16 13:18:54.513237,1,,,0.0,1,,0.0,t2qnj38o,,,,,1
+2,f5khq4go,,0,0,11,,,,0,,,0.0,2,,0.0,t2qnj38o,,,,,1
+1,2jhzjd6x,,0,8,11,experiment_matching,MatchingWait,2026-04-16 13:22:28.348126,1,,,0.0,1,,0.0,xwwhxgsx,,,,,1
+2,jrrtmfgw,,0,0,11,,,,0,,,0.0,2,,0.0,xwwhxgsx,,,,,1
+1,j7f9sjxq,,0,0,11,,,,0,,,0.0,1,,0.0,brba3227,,,,,1
+2,r9l3llkd,,0,0,11,,,,0,,,0.0,2,,0.0,brba3227,,,,,1
+1,gtm3y2fs,,0,8,11,experiment_matching,MatchingWait,2026-04-16 13:45:29.922532,1,,,0.0,1,,0.0,3csemdf4,,,,,0
+2,iqj4dbow,,0,8,11,experiment_matching,MatchingWait,2026-04-16 13:45:31.773822,1,,,0.0,2,,0.0,3csemdf4,,,,,0
+1,8uwys1we,,0,0,11,,,,0,,,0.0,1,,0.0,09q5o40p,,,,,1
+2,fu70td5m,,0,0,11,,,,0,,,0.0,2,,0.0,09q5o40p,,,,,1
+1,2azmbvk2,,0,8,11,experiment_matching,MatchingWait,2026-04-16 14:00:29.870956,1,,,0.0,1,,0.0,ndmmhex2,,,,,0
+2,wzh7u1kw,,0,8,11,experiment_matching,MatchingWait,2026-04-16 14:00:31.975855,1,,,0.0,2,,0.0,ndmmhex2,,,,,0
+1,irlbqt0u,,0,0,11,,,,0,,,0.0,1,,0.0,zk0asz3t,,,,,1
+2,a5zfwsje,,0,0,11,,,,0,,,0.0,2,,0.0,zk0asz3t,,,,,1
+1,wcl6gmkj,,0,8,11,experiment_matching,MatchingWait,2026-04-16 14:07:12.656316,1,,,0.0,1,,0.0,hrsca437,,,,,0
+2,1defxvsv,,0,8,11,experiment_matching,MatchingWait,2026-04-16 14:07:14.070754,1,,,0.0,2,,0.0,hrsca437,,,,,0
+1,uqg4gebx,,0,10,11,experiment_matching,RedirectToDL,2026-04-16 14:32:24.069265,1,,,0.0,1,,0.0,ythz7q5f,,,,,0
+2,qcezxt0m,,0,10,11,experiment_matching,RedirectToDL,2026-04-16 14:32:25.728084,1,,,0.0,2,,0.0,ythz7q5f,,,,,0
+1,shx4nilk,,0,10,11,experiment_matching,RedirectToDL,2026-04-16 14:35:55.292031,1,,,0.0,1,,0.0,d22t6b9f,,,,,1
+2,zibrfws9,,0,10,11,experiment_matching,RedirectToDL,2026-04-16 14:35:57.737055,1,,,0.0,2,,0.0,d22t6b9f,,,,,1
+1,xrvja8he,,1,12,11,experiment_matching,EarlyReturn,2026-04-20 11:12:37.081516,1,,,0.0,1,,0.0,kprin4cc,,,,,0
+2,h5ehtlrs,,1,12,11,experiment_matching,EarlyReturn,2026-04-20 11:12:37.095907,1,,,0.0,2,,0.0,kprin4cc,,,,,0

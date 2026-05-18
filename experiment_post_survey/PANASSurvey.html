@@ -1,0 +1,85 @@
+{{ block title }}{{ endblock }}
+
+{{ block content }}
+
+<div style="max-width: 900px; margin: 0 auto;">
+
+<p>To what extent did you feel this way <strong>during the conversation</strong>?</p>
+
+<style>
+.survey-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 2rem;
+    table-layout: fixed;
+}
+.survey-table .q-col {
+    width: 50%;
+    text-align: left;
+    padding: 10px 20px 10px 4px;
+    font-size: 0.95em;
+    vertical-align: middle;
+}
+.survey-table th:not(.q-col),
+.survey-table td:not(.q-col) {
+    text-align: center;
+    padding: 8px 4px;
+    vertical-align: middle;
+}
+.survey-table thead tr.label-row th {
+    font-size: 0.80em;
+    font-weight: normal;
+    color: #666;
+    padding-top: 6px;
+    padding-bottom: 2px;
+}
+.survey-table thead tr.num-row th {
+    font-weight: 600;
+    color: #333;
+    border-bottom: 2px solid #dee2e6;
+    padding-bottom: 10px;
+}
+.survey-table tbody tr:nth-child(odd) { background: #f8f9fa; }
+.survey-table tbody tr:hover { background: #e9ecef; transition: background 0.1s; }
+.survey-table tbody td { border-bottom: 1px solid #f0f0f0; }
+.survey-table input[type=radio] {
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+    accent-color: #0d6efd;
+}
+</style>
+
+<table class="survey-table">
+    <thead>
+        <tr class="label-row">
+            <th class="q-col"></th>
+            <th>Not at all</th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th>Extremely</th>
+        </tr>
+        <tr class="num-row">
+            <th class="q-col"></th>
+            <th>1</th><th>2</th><th>3</th><th>4</th><th>5</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for item in items %}
+    <tr>
+        <td class="q-col">{{ item.label }}</td>
+        {% for val in "12345" %}
+        <td><input type="radio" name="{{ item.field }}" value="{{ val }}"
+                   id="{{ item.field }}_{{ val }}" required></td>
+        {% endfor %}
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+{{ next_button }}
+
+</div>
+
+{{ endblock }}

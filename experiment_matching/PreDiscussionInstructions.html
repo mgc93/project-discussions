@@ -1,0 +1,66 @@
+{{ block title }}{{ endblock }}
+
+{{ block content }}
+
+<div style="max-width: 800px; margin: 0 auto; padding: 20px; line-height: 1.8; color: #555;">
+
+
+    <h3 style="color: #333;">Part 2: Live Conversation</h3>
+
+    <div style="background: #fff8e1; border-left: 4px solid #e0a800; padding: 12px 16px; margin: 16px 0; border-radius: 4px;">
+        You have been matched with another participant who has a <strong>different view</strong> on this topic.
+    </div>
+
+    <p>Two additional participants will be present in your conversation:</p>
+
+    <ul>
+        {% if is_human_facilitator %}
+        <li>🧑 <strong>Facilitator</strong> — May introduce discussion prompts or questions, offer
+            summaries of what has been said, suggest different angles or perspectives to consider.</li>
+        {% else %}
+        <li>🤖 <strong>Facilitator</strong> — May introduce discussion prompts or questions, offer
+            summaries of what has been said, suggest different angles or perspectives to consider.</li>
+        {% endif %}
+        <li>🎙️ <strong>Assistant</strong> — Helps ensure balanced participation.</li>
+    </ul>
+
+    <p>The Facilitator will not argue for or against any position. Their role is to support a
+    productive discussion. Messages from the Facilitator and Assistant will be clearly labelled.
+    You do not need to respond directly to them—treat their contributions as suggestions to guide
+    the discussion.</p>
+
+    <p><strong>Duration:</strong> The conversation will last approximately <strong>20 minutes</strong>.
+    You will see a timer on screen.</p>
+
+    <p><strong>Important:</strong> Please do not share personally identifying information (such as
+    your name, address, or workplace) during the conversation.</p>
+
+    <p><strong>Leaving:</strong> You can leave the conversation at any time. You will still be
+    compensated for the time you spent.</p>
+
+    <p>The screenshot below shows an example of the conversation interface.</p>
+
+    <p>The conversation is <strong>text-based</strong>. Messages from all participants — including
+    the Facilitator and Assistant — are clearly labelled. A timer at the top shows the remaining time.</p>
+
+    <p>The other participant is a real person. They may take a moment to respond so please be patient.</p>
+    
+    <div class="text-center my-4">
+        {% if is_human_facilitator %}
+        <img src="{{ static 'deliberatelab_screenshot_human.png' }}"
+             alt="Example of the conversation interface"
+             style="max-width: 100%; border: 1px solid #dee2e6; border-radius: 6px;">
+        {% else %}
+        <img src="{{ static 'deliberatelab_screenshot_ai.png' }}"
+             alt="Example of the conversation interface"
+             style="max-width: 100%; border: 1px solid #dee2e6; border-radius: 6px;">
+        {% endif %}
+    </div>
+
+    <p class="mt-4">Click <strong>Next</strong> when you are ready to begin.</p>
+
+    {{ next_button }}
+
+</div>
+
+{{ endblock }}

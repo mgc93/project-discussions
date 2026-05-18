@@ -1,0 +1,32 @@
+{{ block title }}{{ endblock }}
+
+{{ block content }}
+
+<h3>Thank you for your time.</h3>
+
+<p>
+    Unfortunately, we were unable to find a suitable conversation partner for you
+    on this occasion.
+</p>
+
+<p>
+    You will still receive <strong>partial payment</strong> for completing the
+    interview.
+</p>
+
+{% if cloudresearch_completion_code %}
+<p>Please enter the following completion code on CloudResearch to receive your payment:</p>
+<div class="alert alert-success text-center fs-4 fw-bold my-3">
+    {{ cloudresearch_completion_code }}
+</div>
+{% endif %}
+
+{% if cloudresearch_return_url %}
+<p>
+    <a href="{{ cloudresearch_return_url }}" class="btn btn-primary">
+        Click here to return to CloudResearch
+    </a>
+</p>
+{% endif %}
+
+{{ endblock }}
