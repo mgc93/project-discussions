@@ -114,6 +114,7 @@ class RedirectToDL(Page):
             'dl_url':           player.participant.dl_url,
             'participant_code': player.participant.code,
             'topic_id':         player.session.topic_id,
+            'condition':        player.participant.condition,
         }
 
 

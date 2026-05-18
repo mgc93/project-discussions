@@ -19,8 +19,9 @@ class Group(BaseGroup):
 
 class Player(BasePlayer):
     # Linking fields — parsed from participant_label on arrival
-    # participant_label format: "{pre_survey_code}___{topic_id}___{dl_public_id}___{cohort_name}"
+    # participant_label format: "{pre_survey_code}___{topic_id}___{condition}___{dl_public_id}___{cohort_name}"
     pre_survey_code = models.StringField(blank=True)
+    condition       = models.StringField(blank=True)
     dl_public_id    = models.StringField(blank=True)
     cohort_name     = models.StringField(blank=True)
 
@@ -118,8 +119,9 @@ class PostSurveyLanding(Page):
 
         player.pre_survey_code  = parts[0] if len(parts) > 0 else ''
         player.topic_id         = parts[1] if len(parts) > 1 else ''
-        player.dl_public_id     = parts[2] if len(parts) > 2 else ''
-        player.cohort_name      = parts[3] if len(parts) > 3 else ''
+        player.condition        = parts[2] if len(parts) > 2 else ''
+        player.dl_public_id     = parts[3] if len(parts) > 3 else ''
+        player.cohort_name      = parts[4] if len(parts) > 4 else ''
 
         # Look up full topic details
         topic = _lookup_topic(player.topic_id)
@@ -132,6 +134,7 @@ class PostSurveyLanding(Page):
 
         # Mirror linking fields onto participant for easy export
         player.participant.pre_survey_code = player.pre_survey_code
+        player.participant.condition       = player.condition
         player.participant.dl_public_id    = player.dl_public_id
         player.participant.cohort_name     = player.cohort_name
 
