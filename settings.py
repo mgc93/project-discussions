@@ -50,6 +50,7 @@ PARTICIPANT_FIELDS = [
     'cloudresearch_id',      # str — entered by participant on consent page
     'dl_public_id',          # str — DeliberateLab anonymous ID (e.g. hamster-yellow-3762)
     'pre_survey_code',       # str — oTree participant code from pre-survey, echoed back by DL
+    'cohort_name',           # str — DeliberateLab cohort name, echoed back in completion redirect
 ]
 
 # ---------------------------------------------------------------------------
