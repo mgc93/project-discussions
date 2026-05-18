@@ -118,15 +118,15 @@ class Player(BasePlayer):
     ai_familiarity            = models.StringField()   # not_at_all / slightly / moderately / very / extremely
     ai_usage_frequency        = models.StringField()   # never / less_than_monthly / monthly / weekly / daily
     ai_moderation_encountered = models.StringField()   # yes / no / not_sure
-    ai_use_advice             = models.BooleanField(initial=False)
-    ai_use_emotional          = models.BooleanField(initial=False)
-    ai_use_casual             = models.BooleanField(initial=False)
-    ai_use_writing            = models.BooleanField(initial=False)
-    ai_use_coding             = models.BooleanField(initial=False)
-    ai_use_research           = models.BooleanField(initial=False)
-    ai_use_creative           = models.BooleanField(initial=False)
-    ai_use_learning           = models.BooleanField(initial=False)
-    ai_use_none               = models.BooleanField(initial=False)
+    ai_use_advice             = models.BooleanField(blank=True)
+    ai_use_emotional          = models.BooleanField(blank=True)
+    ai_use_casual             = models.BooleanField(blank=True)
+    ai_use_writing            = models.BooleanField(blank=True)
+    ai_use_coding             = models.BooleanField(blank=True)
+    ai_use_research           = models.BooleanField(blank=True)
+    ai_use_creative           = models.BooleanField(blank=True)
+    ai_use_learning           = models.BooleanField(blank=True)
+    ai_use_none               = models.BooleanField(blank=True)
 
     # Algorithmic aversion — 3-item scale
     algo_aversion_1 = models.IntegerField(min=1, max=5)
@@ -135,11 +135,11 @@ class Player(BasePlayer):
 
     # Online discussion experience
     discuss_frequency              = models.StringField()                  # never / a_few_times_a_year / a_few_times_a_month / a_few_times_a_week / every_day
-    discuss_platform_facebook      = models.BooleanField(initial=False)
-    discuss_platform_youtube       = models.BooleanField(initial=False)
-    discuss_platform_whatsapp      = models.BooleanField(initial=False)
-    discuss_platform_instagram     = models.BooleanField(initial=False)
-    discuss_platform_other         = models.BooleanField(initial=False)
+    discuss_platform_facebook      = models.BooleanField(blank=True)
+    discuss_platform_youtube       = models.BooleanField(blank=True)
+    discuss_platform_whatsapp      = models.BooleanField(blank=True)
+    discuss_platform_instagram     = models.BooleanField(blank=True)
+    discuss_platform_other         = models.BooleanField(blank=True)
     discuss_platform_other_text    = models.StringField(blank=True)
     discuss_content_removed        = models.StringField()                  # yes / no
     discuss_is_moderator           = models.StringField()                  # yes / no
