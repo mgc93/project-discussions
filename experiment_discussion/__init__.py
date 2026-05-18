@@ -255,7 +255,7 @@ class LLMInterview(Page):
                 for e in conversation
                 if e.get('answer') and e['answer'].strip()
             ]
-            next_question = generate_next_question(qa_history, n_rounds=C.MAX_TURNS, topic=player.session.topic_label)
+            next_question = generate_next_question(qa_history, n_rounds=C.MAX_TURNS, topic=player.session.topic_label, topic_statement=player.session.topic_statement)
             conversation.append({
                 'question':  next_question,
                 'answer':    '',

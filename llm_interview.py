@@ -93,49 +93,62 @@ def get_opening_question(topic_label: str, is_political: bool) -> str:
         )
 
 
-def generate_next_question(history: list[UserAnswer], n_rounds: int = 8, topic: str = '') -> str:
-    """
-    Adapted from generate_conversational_question in llm_adaptive.py (victor-m-p).
-    Replace the four [COVERAGE GOAL] items before running.
-    """
+def generate_next_question(
+    history: list[UserAnswer],
+    n_rounds: int = 8,
+    topic: str = '',
+    topic_statement: str = ''
+) -> str:
     conversation_str = ""
     for turn in history:
         conversation_str += f"Interviewer: {turn.question}\nParticipant: {turn.answer}\n\n"
 
     current_round = len(history) + 1
 
-    # RESEARCHER: Replace each [COVERAGE GOAL N] with one concrete learning objective.
+    forced_question_instruction = ""
+    if current_round == 3 and topic_statement:
+        forced_question_instruction = f"""
+For this turn only, you MUST ask the following question. You may open with a single sentence
+acknowledging what the participant just said, but the question itself must be asked verbatim:
+
+"{topic_statement}"
+
+Do not rephrase, soften, or split the question.
+"""
+
     system_prompt = f"""
 Context:
 You are a thoughtful, empathetic, and curious interviewer exploring {topic} with an interviewee.
-
 Current conversation:
 {conversation_str}
-
 =*=*=
-
 Task Description:
 Interview objective: By the end of the conversation, the interviewer has to learn about the following:
-1) The participant's personal stance on the topic and the core values or 
+1) The participant's personal stance on the topic and the core values or
    principles that underlie it.
-2) The specific reasons, experiences, or pieces of evidence that have 
+2) The specific reasons, experiences, or pieces of evidence that have
    shaped or reinforced their view.
-3) Tensions, uncertainties, or considerations they find genuinely difficult 
+3) Tensions, uncertainties, or considerations they find genuinely difficult
    to resolve — including arguments from the other side they find compelling.
-4) How people close to them (friends, family, community) tend to think about 
+4) How people close to them (friends, family, community) tend to think about
    the topic, and whether that has influenced their own view.
+5) How the participant perceives people who strongly disagree with them on
+   this topic — what they believe motivates those disagreements, how they
+   characterize those people's values or reasoning, and whether they see
+   them as reasonable people who have reached a different conclusion or as
+   fundamentally mistaken.
 
 Follow this strategy to generate your next question:
-1) Assess which of the 4 coverage goals have been adequately addressed so far, and which ones still need more exploration.
+1) Assess which of the 5 coverage goals have been adequately addressed so far, and which ones still need more exploration.
 2.1) If the previous answer introduced something potentially (1) important, (2) interesting, or (3) unclear, formulate an elaboration question about this.
 2.2) Otherwise, prefer asking about an uncovered goal from the list above.
 2.3) If one of the interview goals above is not important for the participant do not pursue it further.
-2.4) If the participant has stated a belief without explaining *why* they 
-     hold it, ask them to elaborate on the reasoning or experience behind it 
+2.4) If the participant has stated a belief without explaining *why* they
+     hold it, ask them to elaborate on the reasoning or experience behind it
      before moving to a new coverage goal.
-3) For the second-to-last question, ask the participant whether any of the 
+3) For the second-to-last question, ask the participant whether any of the
    things they have mentioned feel connected or in tension with each other.
-   For the final question, invite them to share anything important that has 
+   For the final question, invite them to share anything important that has
    not come up.
 
 Follow these guidelines when constructing your next question:
@@ -144,10 +157,10 @@ Follow these guidelines when constructing your next question:
 3) Ask one focused open question per turn (avoid asking about more than one thing and avoid leading phrasing).
 4) Keep it concise: ~1 sentence acknowledging what they said, then 1 clear question.
 5) Avoid moralizing, advice, assumptions, checklists, multiple-choice, or multi-part questions.
-6) When a participant gives a reason for their view, ask about the reason 
-   itself — not just to confirm they hold it, but to understand where it 
+6) When a participant gives a reason for their view, ask about the reason
+   itself — not just to confirm they hold it, but to understand where it
    comes from.
-
+{forced_question_instruction}
 Safety note: In an extreme case where the interviewee *explicitly* refuses to answer, do not force them. Instead move the interview forward by asking about another topic from the list above.
 
 Conversation constraints:
