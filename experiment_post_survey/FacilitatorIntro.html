@@ -7,18 +7,12 @@
 <p>Before you answer the questions below, take a moment to recall the two additional participants who were present in your conversation:</p>
 
 <ul>
-    {% if is_human_facilitator %}
-    <li>🧑 <strong>Facilitator</strong> — Occasionally stepped in during the conversation to introduce prompts or questions, offer summaries of what had been said, or suggest different angles to consider.</li>
-    {% else %}
-    <li>🤖 <strong>Facilitator</strong> — Occasionally stepped in during the conversation to introduce prompts or questions, offer summaries of what had been said, or suggest different angles to consider.</li>
-    {% endif %}
-    <li>🎙️ <strong>Assistant</strong> — Helped ensure both participants had an equal opportunity to speak.</li>
+    <li><strong>Facilitator</strong> — Occasionally stepped in during the conversation to introduce prompts or questions, offer summaries of what had been said, or suggest different angles to consider.</li>
+    <li><strong>Assistant</strong> — Helped ensure both participants had an equal opportunity to speak.</li>
 </ul>
 
 <p>The questions on this page are about the <strong>Facilitator</strong> only, not the Assistant.</p>
-<p>When answering, focus on the messages sent by the
-    {% if is_human_facilitator %}🧑 <strong>Facilitator</strong>{% else %}🤖 <strong>Facilitator</strong>{% endif %},
-    and set aside anything the 🎙️ <strong>Assistant</strong> said.</p>
+<p>When answering, focus on the messages sent by the <strong>Facilitator</strong>, and set aside anything the <strong>Assistant</strong> said.</p>
 
 <div style="text-align: center; margin-top: 30px;">
     {{ next_button }}

@@ -220,9 +220,7 @@ class PANASSurvey(Page):
 
 
 class FacilitatorIntro(Page):
-    @staticmethod
-    def vars_for_template(player):
-        return {'is_human_facilitator': player.condition.endswith('_human')}
+    pass
 
 
 class FacilitatorSurvey(Page):
@@ -281,11 +279,11 @@ class PostSurveyComplete(Page):
 
 page_sequence = [
     PostSurveyLanding,
+    FacilitatorIntro,
     ManipulationCheck,
     OpinionPost,
     ConversationSurvey,
     PANASSurvey,
-    FacilitatorIntro,
     FacilitatorSurvey,
     AffectSurvey,
     Debrief,
