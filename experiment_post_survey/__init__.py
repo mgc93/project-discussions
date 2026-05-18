@@ -34,6 +34,10 @@ class Player(BasePlayer):
     topic_position_a   = models.StringField(blank=True)
     topic_position_b   = models.StringField(blank=True)
 
+    # Manipulation check
+    manip_check_type       = models.StringField()   # ai_facilitator / human_facilitator / dont_remember
+    manip_check_confidence = models.IntegerField(min=1, max=5)
+
     # Post-discussion opinion
     opinion_post = models.IntegerField(min=0, max=100)
 
@@ -99,6 +103,11 @@ def _lookup_topic(topic_id: str) -> dict:
 # ---------------------------------------------------------------------------
 # Pages
 # ---------------------------------------------------------------------------
+
+class ManipulationCheck(Page):
+    form_model  = 'player'
+    form_fields = ['manip_check_type', 'manip_check_confidence']
+
 
 class PostSurveyLanding(Page):
     """
@@ -272,6 +281,7 @@ class PostSurveyComplete(Page):
 
 page_sequence = [
     PostSurveyLanding,
+    ManipulationCheck,
     OpinionPost,
     ConversationSurvey,
     PANASSurvey,

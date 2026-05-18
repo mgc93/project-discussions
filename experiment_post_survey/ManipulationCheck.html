@@ -1,0 +1,49 @@
+{{ block title }}{{ endblock }}
+
+{{ block content }}
+
+<div style="max-width: 800px; margin: 0 auto; padding: 20px; line-height: 1.8; color: #555;">
+    <div style="margin: 25px 0;">
+        <p style="font-weight: bold; color: #333;">What type of facilitator did you see in the conversation?</p>
+        <div style="margin-left: 20px;">
+            <label style="display: block; margin: 8px 0; cursor: pointer;">
+                <input type="radio" name="manip_check_type" value="ai_facilitator" required> AI Facilitator
+            </label>
+            <label style="display: block; margin: 8px 0; cursor: pointer;">
+                <input type="radio" name="manip_check_type" value="human_facilitator"> Human Facilitator
+            </label>
+            <label style="display: block; margin: 8px 0; cursor: pointer;">
+                <input type="radio" name="manip_check_type" value="dont_remember"> I don't remember
+            </label>
+        </div>
+    </div>
+
+    <div style="margin: 25px 0;">
+        <p style="font-weight: bold; color: #333;">How confident are you about your answer above?</p>
+        <div style="display: flex; align-items: center; gap: 15px; margin-left: 20px; flex-wrap: wrap;">
+            <span style="font-size: 13px; color: #777;">Not at all confident</span>
+            <label style="cursor: pointer; text-align: center;">
+                <input type="radio" name="manip_check_confidence" value="1" required><br><span style="font-size: 13px;">1</span>
+            </label>
+            <label style="cursor: pointer; text-align: center;">
+                <input type="radio" name="manip_check_confidence" value="2"><br><span style="font-size: 13px;">2</span>
+            </label>
+            <label style="cursor: pointer; text-align: center;">
+                <input type="radio" name="manip_check_confidence" value="3"><br><span style="font-size: 13px;">3</span>
+            </label>
+            <label style="cursor: pointer; text-align: center;">
+                <input type="radio" name="manip_check_confidence" value="4"><br><span style="font-size: 13px;">4</span>
+            </label>
+            <label style="cursor: pointer; text-align: center;">
+                <input type="radio" name="manip_check_confidence" value="5"><br><span style="font-size: 13px;">5</span>
+            </label>
+            <span style="font-size: 13px; color: #777;">Very confident</span>
+        </div>
+    </div>
+
+    <div style="text-align: center; margin-top: 30px;">
+        {{ next_button }}
+    </div>
+</div>
+
+{{ endblock }}
