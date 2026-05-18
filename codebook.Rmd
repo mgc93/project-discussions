@@ -1,0 +1,378 @@
+---
+title: "Codebook: AI Facilitation Study"
+date: "`r Sys.Date()`"
+output:
+  html_document:
+    toc: true
+    toc_float: true
+    toc_depth: 3
+    theme: flatly
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+library(knitr)
+library(kableExtra)
+
+cb <- function(df) {
+  kable(df, col.names = c("Variable", "Type", "Range / Values", "Description", "Notes"),
+        align = c("l","c","c","l","l")) |>
+    kable_styling(bootstrap_options = c("striped","hover","condensed"),
+                  full_width = TRUE, font_size = 13)
+}
+```
+
+---
+
+## Overview
+
+This codebook covers all measured variables across three oTree apps:
+
+| App | oTree name | Purpose |
+|-----|-----------|---------|
+| `experiment_discussion` | `main` | Consent, LLM interview, pre-discussion opinion |
+| `experiment_matching` | `matching` | Wait page, condition assignment, DeliberateLab redirect |
+| `experiment_post_survey` | `post_survey` | Post-discussion surveys (opinion, conversation, PANAS, facilitator, affect) |
+
+**Export columns** follow the oTree wide-format convention:
+`{app_name}.1.player.{field}` — e.g. `experiment_discussion.1.player.opinion_pre`
+
+**Linking key across apps:**
+
+| Field | Where stored | Description |
+|-------|-------------|-------------|
+| `participant.code` | oTree participant | Auto-generated oTree ID; used as `external_id` sent to DeliberateLab |
+| `participant.label` | Post-survey participant | Set by DL redirect; format `{pre_code}___{topic_id}___{dl_public_id}` |
+| `cloudresearch_pid` | Pre-survey player | Self-reported CloudResearch ID entered on consent page |
+| `dl_public_id` | Post-survey player | DeliberateLab anonymous participant ID (e.g. `hamster-yellow-3762`) |
+| `pre_survey_code` | Post-survey player | oTree `participant.code` from the pre-survey session, recovered from DL redirect |
+
+---
+
+## Session-level variables
+
+These are set once per session in `experiment_discussion` and available to all apps.
+
+```{r}
+cb(data.frame(
+  var  = c("session.topic_id", "session.topic_label", "session.topic_statement",
+           "session.topic_category", "session.topic_category_label",
+           "session.topic_is_political",
+           "session.topic_position_a", "session.topic_position_b",
+           "session.pairs_matched"),
+  type = c("String","String","String","String","String","Boolean","String","String","Integer"),
+  range = c("e.g. '001'","—","—","e.g. 'health_policy'","—","TRUE / FALSE","—","—","≥ 0"),
+  desc = c(
+    "Unique topic ID from discussion_topics.json",
+    "Short topic label shown to participants",
+    "Full topic statement used as discussion prompt",
+    "Topic category code",
+    "Human-readable category label",
+    "Whether the topic is classified as political",
+    "Label for the left/low end of the opinion slider",
+    "Label for the right/high end of the opinion slider",
+    "Running count of successfully matched pairs in this session"
+  ),
+  notes = rep("", 9)
+))
+```
+
+---
+
+## Participant-level fields
+
+Stored on the oTree participant object; available in all apps via `participant.vars`.
+
+```{r}
+cb(data.frame(
+  var  = c("participant.code", "participant.cloudresearch_id", "participant.condition",
+           "participant.opinion_pre", "participant.opinion_post",
+           "participant.is_matched", "participant.is_dropout",
+           "participant.dl_url", "participant.dl_public_id",
+           "participant.pre_survey_code", "participant.interview_transcript"),
+  type = c("String","String","String","Integer","Integer","Boolean","Boolean",
+           "String","String","String","JSON String"),
+  range = c("Auto","—","4 levels","0–100","0–100","TRUE/FALSE","TRUE/FALSE","URL","—","—","—"),
+  desc = c(
+    "oTree auto-generated participant ID; used as external_id in DL redirect",
+    "CloudResearch participant ID entered on consent page",
+    "Between-subjects condition assigned at matching",
+    "Pre-discussion opinion on the topic (0 = fully agree with position A, 100 = position B)",
+    "Post-discussion opinion on the topic",
+    "Whether the participant was successfully matched with a partner",
+    "Whether the participant timed out before being matched",
+    "Full DeliberateLab cohort URL assigned to this participant",
+    "DeliberateLab anonymous participant ID recovered from post-survey redirect",
+    "oTree participant.code from the pre-survey, recovered from post-survey redirect",
+    "Full LLM interview transcript as a JSON array of question–answer objects"
+  ),
+  notes = c("","","control_ai, control_human, bridging_ai, bridging_human",
+            "Collected in experiment_discussion","Collected in experiment_post_survey",
+            "","","","","Links pre and post survey records","")
+))
+```
+
+---
+
+## App 1: experiment_discussion
+
+### Consent & identification
+
+```{r}
+cb(data.frame(
+  var   = c("experiment_discussion.1.player.consent",
+            "experiment_discussion.1.player.cloudresearch_pid"),
+  type  = c("Boolean", "String"),
+  range = c("TRUE / FALSE", "—"),
+  desc  = c("Whether the participant provided informed consent",
+            "CloudResearch participant ID as self-reported on consent page"),
+  notes = c("Must be TRUE to proceed", "Copied to participant.cloudresearch_id")
+))
+```
+
+### LLM interview
+
+```{r}
+cb(data.frame(
+  var   = c("experiment_discussion.1.player.interview_test",
+            "experiment_discussion.1.player.conversation_json",
+            "experiment_discussion.1.player.interview_transcript"),
+  type  = c("String", "JSON String", "JSON String"),
+  range = c("—", "—", "—"),
+  desc  = c(
+    "Text or transcription from the voice/microphone test page",
+    "Full interview conversation stored as a JSON array; updated after each turn",
+    "Final copy of conversation_json saved at end of interview"
+  ),
+  notes = c(
+    "",
+    "Each element: {question, answer, input_mode, time_sent, time_received}",
+    "Identical to conversation_json at completion; also mirrored to participant"
+  )
+))
+```
+
+### Pre-discussion opinion
+
+```{r}
+cb(data.frame(
+  var   = "experiment_discussion.1.player.opinion_pre",
+  type  = "Integer",
+  range = "0–100",
+  desc  = "Participant's opinion on the discussion topic before the conversation (slider). 0 = fully agrees with position A; 100 = fully agrees with position B.",
+  notes = "Mirrored to participant.opinion_pre for use in matching"
+))
+```
+
+---
+
+## App 2: experiment_matching
+
+The matching app has **no player-level fields** in the database. All outcomes are stored on the participant object (see [Participant-level fields] above).
+
+### Condition assignment
+
+Conditions are assigned at matching using a balanced shuffled queue. Each matched pair is assigned one condition.
+
+```{r}
+cb(data.frame(
+  var   = "participant.condition",
+  type  = "String",
+  range = "4 levels",
+  desc  = "Between-subjects experimental condition assigned at matching",
+  notes = ""
+))
+
+kable(data.frame(
+  Value = c("control_ai", "control_human", "bridging_ai", "bridging_human"),
+  Facilitator = c("AI", "Human (confederate)", "AI", "Human (confederate)"),
+  Strategy = c("Control (no active facilitation)", "Control (no active facilitation)",
+               "Bridging intervention", "Bridging intervention")
+), align = "l") |>
+  kable_styling(bootstrap_options = c("striped","condensed"), full_width = FALSE)
+```
+
+---
+
+## App 3: experiment_post_survey
+
+### Linking & topic fields
+
+```{r}
+cb(data.frame(
+  var   = c("experiment_post_survey.1.player.pre_survey_code",
+            "experiment_post_survey.1.player.dl_public_id",
+            "experiment_post_survey.1.player.topic_id",
+            "experiment_post_survey.1.player.topic_label",
+            "experiment_post_survey.1.player.topic_statement",
+            "experiment_post_survey.1.player.topic_category",
+            "experiment_post_survey.1.player.topic_is_political",
+            "experiment_post_survey.1.player.topic_position_a",
+            "experiment_post_survey.1.player.topic_position_b"),
+  type  = c("String","String","String","String","String","String","Boolean","String","String"),
+  range = rep("—", 9),
+  desc  = c(
+    "oTree participant.code from the pre-survey session (links pre and post records)",
+    "DeliberateLab anonymous participant ID",
+    "Discussion topic ID (links to session topic fields)",
+    "Short topic label",
+    "Full topic statement",
+    "Topic category code",
+    "Whether the topic is political",
+    "Left-end label of the opinion slider",
+    "Right-end label of the opinion slider"
+  ),
+  notes = c("Primary cross-session linking key","From DL completion redirect",
+            rep("", 7))
+))
+```
+
+### Post-discussion opinion
+
+```{r}
+cb(data.frame(
+  var   = "experiment_post_survey.1.player.opinion_post",
+  type  = "Integer",
+  range = "0–100",
+  desc  = "Participant's opinion on the discussion topic after the conversation (slider). 0 = fully agrees with position A; 100 = fully agrees with position B.",
+  notes = "Mirrored to participant.opinion_post"
+))
+```
+
+### Conversation quality (1–5 Likert)
+
+Scale: 1 = Strongly disagree, 5 = Strongly agree. `conv_safety` is reverse-coded.
+
+```{r}
+cb(data.frame(
+  var = c("experiment_post_survey.1.player.conv_productive",
+          "experiment_post_survey.1.player.conv_depth",
+          "experiment_post_survey.1.player.conv_mutual_understanding",
+          "experiment_post_survey.1.player.conv_feeling_heard",
+          "experiment_post_survey.1.player.conv_good_faith",
+          "experiment_post_survey.1.player.conv_comfort",
+          "experiment_post_survey.1.player.conv_safety",
+          "experiment_post_survey.1.player.conv_openness",
+          "experiment_post_survey.1.player.conv_future_engagement",
+          "experiment_post_survey.1.player.conv_platform_willingness"),
+  type  = rep("Integer", 10),
+  range = rep("1–5", 10),
+  desc  = c(
+    "Overall, this was a productive conversation.",
+    "We got beyond surface-level disagreement in this conversation.",
+    "By the end, I felt I understood the other person's perspective.",
+    "The other person genuinely listened to what I had to say.",
+    "The other person engaged with my arguments in good faith.",
+    "I felt comfortable expressing my views in this conversation.",
+    "I was worried about being judged for what I said.",
+    "This conversation made me reconsider some of my views.",
+    "I would be willing to have a similar conversation with someone who disagrees with me.",
+    "I would participate in another conversation on this platform."
+  ),
+  notes = c("","","","","","","Reverse-coded","","","")
+))
+```
+
+### I-PANAS-SF — Affect during conversation (1–5)
+
+International Positive and Negative Affect Schedule — Short Form (Thompson, 2007).
+Scale: 1 = Not at all, 5 = Extremely.
+
+```{r}
+cb(data.frame(
+  var = c("experiment_post_survey.1.player.panas_active",
+          "experiment_post_survey.1.player.panas_determined",
+          "experiment_post_survey.1.player.panas_attentive",
+          "experiment_post_survey.1.player.panas_inspired",
+          "experiment_post_survey.1.player.panas_alert",
+          "experiment_post_survey.1.player.panas_afraid",
+          "experiment_post_survey.1.player.panas_upset",
+          "experiment_post_survey.1.player.panas_nervous",
+          "experiment_post_survey.1.player.panas_ashamed",
+          "experiment_post_survey.1.player.panas_hostile"),
+  type  = rep("Integer", 10),
+  range = rep("1–5", 10),
+  desc  = c("Active","Determined","Attentive","Inspired","Alert",
+            "Afraid","Upset","Nervous","Ashamed","Hostile"),
+  notes = c(rep("Positive affect", 5), rep("Negative affect", 5))
+))
+```
+
+### Facilitator evaluation (1–5 Likert)
+
+Scale: 1 = Strongly disagree, 5 = Strongly agree. `fac_intrusiveness` is reverse-coded.
+
+```{r}
+cb(data.frame(
+  var = c("experiment_post_survey.1.player.fac_warmth",
+          "experiment_post_survey.1.player.fac_competence",
+          "experiment_post_survey.1.player.fac_legitimacy",
+          "experiment_post_survey.1.player.fac_fairness",
+          "experiment_post_survey.1.player.fac_appropriateness",
+          "experiment_post_survey.1.player.fac_timing",
+          "experiment_post_survey.1.player.fac_intrusiveness",
+          "experiment_post_survey.1.player.fac_authenticity",
+          "experiment_post_survey.1.player.fac_eff_understanding",
+          "experiment_post_survey.1.player.fac_eff_constructive",
+          "experiment_post_survey.1.player.fac_eff_civility",
+          "experiment_post_survey.1.player.fac_willingness"),
+  type  = rep("Integer", 12),
+  range = rep("1–5", 12),
+  desc  = c(
+    "The facilitator seemed warm and understanding.",
+    "The facilitator understood the situation well.",
+    "This is the kind of intervention this facilitator should be allowed to make.",
+    "The way the facilitator intervened was fair.",
+    "This intervention was appropriate for this situation.",
+    "The facilitator intervened at the right moment.",
+    "The facilitator's intervention felt disruptive to the conversation.",
+    "The facilitator's message felt genuine rather than scripted.",
+    "This intervention helped us understand each other better.",
+    "This intervention made the conversation more productive.",
+    "This intervention improved the tone of the conversation.",
+    "I would participate in another conversation that used this kind of facilitator."
+  ),
+  notes = c("Trust – Warmth","Trust – Competence","Legitimacy","Procedural Fairness",
+            "Appropriateness","Appropriateness of timing","Intrusiveness — reverse-coded",
+            "Authenticity","Effectiveness – Understanding","Effectiveness – Constructiveness",
+            "Effectiveness – Civility","Willingness to Participate")
+))
+```
+
+### Affect toward partner & perceived distance
+
+```{r}
+cb(data.frame(
+  var   = c("experiment_post_survey.1.player.affect_warmth",
+            "experiment_post_survey.1.player.perceived_distance"),
+  type  = c("Integer", "Integer"),
+  range = c("0–100", "1–5"),
+  desc  = c(
+    "Feeling thermometer: how warmly do you feel toward someone who holds the view expressed by the other participant? (0 = very cold/unfavourable, 50 = no feeling either way, 100 = very warm/favourable)",
+    "How different are your values from the other person's? (1 = very similar, 5 = very different)"
+  ),
+  notes = c("Feeling thermometer", "")
+))
+```
+
+---
+
+## Notes on reverse-coding
+
+The following items should be reverse-coded before computing scale scores:
+
+```{r}
+kable(data.frame(
+  Variable = c("conv_safety", "fac_intrusiveness"),
+  Item = c("I was worried about being judged for what I said.",
+           "The facilitator's intervention felt disruptive to the conversation."),
+  Formula = c("conv_safety_r = 6 - conv_safety", "fac_intrusiveness_r = 6 - fac_intrusiveness")
+), align = "l") |>
+  kable_styling(bootstrap_options = c("striped","condensed"), full_width = FALSE)
+```
+
+---
+
+## References
+
+Thompson, E. R. (2007). Development and validation of an internationally reliable short-form of the Positive and Negative Affect Schedule (PANAS). *Journal of Cross-Cultural Psychology, 38*(2), 227–242.

@@ -1,0 +1,255 @@
+{{ block title }}{{ endblock }}
+
+{{ block content }}
+
+<div style="max-width: 900px; margin: 0 auto; padding: 20px; line-height: 1.8; color: #555;">
+    <p><em>Please indicate your level of agreement with the following statements about Artificial Intelligence (AI).</em></p>
+
+    <style>
+        .gaais-header th { background-color: #f5f5f5; }
+    </style>
+
+    <table style="width: 100%; border-collapse: collapse; margin-top: 15px; text-align: center;">
+        <thead>
+            <tr class="gaais-header">
+                <th style="text-align: left; padding: 8px 12px; width: 45%;"></th>
+                <th colspan="5" style="padding: 4px 12px;">
+                    <div style="display: flex; justify-content: space-between; font-weight: normal; font-size: 13px; color: #555; padding-bottom: 4px;">
+                        <span>Strongly Disagree</span>
+                        <span>Strongly Agree</span>
+                    </div>
+                </th>
+            </tr>
+            <tr class="gaais-header">
+                <th style="width: 45%;"></th>
+                <th style="padding: 4px 4px; font-weight: normal; font-size: 13px; color: #555;">1</th>
+                <th style="padding: 4px 4px; font-weight: normal; font-size: 13px; color: #555;">2</th>
+                <th style="padding: 4px 4px; font-weight: normal; font-size: 13px; color: #555;">3</th>
+                <th style="padding: 4px 4px; font-weight: normal; font-size: 13px; color: #555;">4</th>
+                <th style="padding: 4px 4px; font-weight: normal; font-size: 13px; color: #555;">5</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr style="border-top: 1px solid #eee;">
+                <td style="text-align: left; padding: 14px 12px; color: #333;">For routine transactions, I would rather interact with an artificially intelligent system than with a human.</td>
+                <td style="padding: 14px 4px;"><input type="radio" name="gaais_pos_1" value="1" required></td>
+                <td style="padding: 14px 4px;"><input type="radio" name="gaais_pos_1" value="2"></td>
+                <td style="padding: 14px 4px;"><input type="radio" name="gaais_pos_1" value="3"></td>
+                <td style="padding: 14px 4px;"><input type="radio" name="gaais_pos_1" value="4"></td>
+                <td style="padding: 14px 4px;"><input type="radio" name="gaais_pos_1" value="5"></td>
+            </tr>
+            <tr style="border-top: 1px solid #eee;">
+                <td style="text-align: left; padding: 14px 12px; color: #333;">Artificial Intelligence can provide new economic opportunities for this country.</td>
+                <td style="padding: 14px 4px;"><input type="radio" name="gaais_pos_2" value="1" required></td>
+                <td style="padding: 14px 4px;"><input type="radio" name="gaais_pos_2" value="2"></td>
+                <td style="padding: 14px 4px;"><input type="radio" name="gaais_pos_2" value="3"></td>
+                <td style="padding: 14px 4px;"><input type="radio" name="gaais_pos_2" value="4"></td>
+                <td style="padding: 14px 4px;"><input type="radio" name="gaais_pos_2" value="5"></td>
+            </tr>
+            <tr style="border-top: 1px solid #eee;">
+                <td style="text-align: left; padding: 14px 12px; color: #333;">Artificially intelligent systems can help people feel happier.</td>
+                <td style="padding: 14px 4px;"><input type="radio" name="gaais_pos_3" value="1" required></td>
+                <td style="padding: 14px 4px;"><input type="radio" name="gaais_pos_3" value="2"></td>
+                <td style="padding: 14px 4px;"><input type="radio" name="gaais_pos_3" value="3"></td>
+                <td style="padding: 14px 4px;"><input type="radio" name="gaais_pos_3" value="4"></td>
+                <td style="padding: 14px 4px;"><input type="radio" name="gaais_pos_3" value="5"></td>
+            </tr>
+            <tr style="border-top: 1px solid #eee;">
+                <td style="text-align: left; padding: 14px 12px; color: #333;">I am impressed by what Artificial Intelligence can do.</td>
+                <td style="padding: 14px 4px;"><input type="radio" name="gaais_pos_4" value="1" required></td>
+                <td style="padding: 14px 4px;"><input type="radio" name="gaais_pos_4" value="2"></td>
+                <td style="padding: 14px 4px;"><input type="radio" name="gaais_pos_4" value="3"></td>
+                <td style="padding: 14px 4px;"><input type="radio" name="gaais_pos_4" value="4"></td>
+                <td style="padding: 14px 4px;"><input type="radio" name="gaais_pos_4" value="5"></td>
+            </tr>
+            <tr style="border-top: 1px solid #eee;">
+                <td style="text-align: left; padding: 14px 12px; color: #333;">I am interested in using artificially intelligent systems in my daily life.</td>
+                <td style="padding: 14px 4px;"><input type="radio" name="gaais_pos_5" value="1" required></td>
+                <td style="padding: 14px 4px;"><input type="radio" name="gaais_pos_5" value="2"></td>
+                <td style="padding: 14px 4px;"><input type="radio" name="gaais_pos_5" value="3"></td>
+                <td style="padding: 14px 4px;"><input type="radio" name="gaais_pos_5" value="4"></td>
+                <td style="padding: 14px 4px;"><input type="radio" name="gaais_pos_5" value="5"></td>
+            </tr>
+            <!-- Repeated header after row 5 -->
+            <tr class="gaais-header" style="border-top: 2px solid #ddd;">
+                <th style="text-align: left; padding: 8px 12px;"></th>
+                <th colspan="5" style="padding: 4px 12px;">
+                    <div style="display: flex; justify-content: space-between; font-weight: normal; font-size: 13px; color: #555; padding-bottom: 4px;">
+                        <span>Strongly Disagree</span>
+                        <span>Strongly Agree</span>
+                    </div>
+                </th>
+            </tr>
+            <tr class="gaais-header">
+                <th style="width: 45%;"></th>
+                <th style="padding: 4px 4px; font-weight: normal; font-size: 13px; color: #555;">1</th>
+                <th style="padding: 4px 4px; font-weight: normal; font-size: 13px; color: #555;">2</th>
+                <th style="padding: 4px 4px; font-weight: normal; font-size: 13px; color: #555;">3</th>
+                <th style="padding: 4px 4px; font-weight: normal; font-size: 13px; color: #555;">4</th>
+                <th style="padding: 4px 4px; font-weight: normal; font-size: 13px; color: #555;">5</th>
+            </tr>
+            <tr style="border-top: 1px solid #eee;">
+                <td style="text-align: left; padding: 14px 12px; color: #333;">Artificial Intelligence can have positive impacts on people's wellbeing.</td>
+                <td style="padding: 14px 4px;"><input type="radio" name="gaais_pos_6" value="1" required></td>
+                <td style="padding: 14px 4px;"><input type="radio" name="gaais_pos_6" value="2"></td>
+                <td style="padding: 14px 4px;"><input type="radio" name="gaais_pos_6" value="3"></td>
+                <td style="padding: 14px 4px;"><input type="radio" name="gaais_pos_6" value="4"></td>
+                <td style="padding: 14px 4px;"><input type="radio" name="gaais_pos_6" value="5"></td>
+            </tr>
+            <tr style="border-top: 1px solid #eee;">
+                <td style="text-align: left; padding: 14px 12px; color: #333;">Artificial Intelligence is exciting.</td>
+                <td style="padding: 14px 4px;"><input type="radio" name="gaais_pos_7" value="1" required></td>
+                <td style="padding: 14px 4px;"><input type="radio" name="gaais_pos_7" value="2"></td>
+                <td style="padding: 14px 4px;"><input type="radio" name="gaais_pos_7" value="3"></td>
+                <td style="padding: 14px 4px;"><input type="radio" name="gaais_pos_7" value="4"></td>
+                <td style="padding: 14px 4px;"><input type="radio" name="gaais_pos_7" value="5"></td>
+            </tr>
+            <tr style="border-top: 1px solid #eee;">
+                <td style="text-align: left; padding: 14px 12px; color: #333;">An artificially intelligent agent would be better than an employee in many routine jobs.</td>
+                <td style="padding: 14px 4px;"><input type="radio" name="gaais_pos_8" value="1" required></td>
+                <td style="padding: 14px 4px;"><input type="radio" name="gaais_pos_8" value="2"></td>
+                <td style="padding: 14px 4px;"><input type="radio" name="gaais_pos_8" value="3"></td>
+                <td style="padding: 14px 4px;"><input type="radio" name="gaais_pos_8" value="4"></td>
+                <td style="padding: 14px 4px;"><input type="radio" name="gaais_pos_8" value="5"></td>
+            </tr>
+            <tr style="border-top: 1px solid #eee;">
+                <td style="text-align: left; padding: 14px 12px; color: #333;">There are many beneficial applications of Artificial Intelligence.</td>
+                <td style="padding: 14px 4px;"><input type="radio" name="gaais_pos_9" value="1" required></td>
+                <td style="padding: 14px 4px;"><input type="radio" name="gaais_pos_9" value="2"></td>
+                <td style="padding: 14px 4px;"><input type="radio" name="gaais_pos_9" value="3"></td>
+                <td style="padding: 14px 4px;"><input type="radio" name="gaais_pos_9" value="4"></td>
+                <td style="padding: 14px 4px;"><input type="radio" name="gaais_pos_9" value="5"></td>
+            </tr>
+            <tr style="border-top: 1px solid #eee;">
+                <td style="text-align: left; padding: 14px 12px; color: #333;">Artificially intelligent systems can perform better than humans.</td>
+                <td style="padding: 14px 4px;"><input type="radio" name="gaais_pos_10" value="1" required></td>
+                <td style="padding: 14px 4px;"><input type="radio" name="gaais_pos_10" value="2"></td>
+                <td style="padding: 14px 4px;"><input type="radio" name="gaais_pos_10" value="3"></td>
+                <td style="padding: 14px 4px;"><input type="radio" name="gaais_pos_10" value="4"></td>
+                <td style="padding: 14px 4px;"><input type="radio" name="gaais_pos_10" value="5"></td>
+            </tr>
+            <!-- Repeated header after row 10 -->
+            <tr class="gaais-header" style="border-top: 2px solid #ddd;">
+                <th style="text-align: left; padding: 8px 12px;"></th>
+                <th colspan="5" style="padding: 4px 12px;">
+                    <div style="display: flex; justify-content: space-between; font-weight: normal; font-size: 13px; color: #555; padding-bottom: 4px;">
+                        <span>Strongly Disagree</span>
+                        <span>Strongly Agree</span>
+                    </div>
+                </th>
+            </tr>
+            <tr class="gaais-header">
+                <th style="width: 45%;"></th>
+                <th style="padding: 4px 4px; font-weight: normal; font-size: 13px; color: #555;">1</th>
+                <th style="padding: 4px 4px; font-weight: normal; font-size: 13px; color: #555;">2</th>
+                <th style="padding: 4px 4px; font-weight: normal; font-size: 13px; color: #555;">3</th>
+                <th style="padding: 4px 4px; font-weight: normal; font-size: 13px; color: #555;">4</th>
+                <th style="padding: 4px 4px; font-weight: normal; font-size: 13px; color: #555;">5</th>
+            </tr>
+            <tr style="border-top: 1px solid #eee;">
+                <td style="text-align: left; padding: 14px 12px; color: #333;">Much of society will benefit from a future full of Artificial Intelligence.</td>
+                <td style="padding: 14px 4px;"><input type="radio" name="gaais_pos_11" value="1" required></td>
+                <td style="padding: 14px 4px;"><input type="radio" name="gaais_pos_11" value="2"></td>
+                <td style="padding: 14px 4px;"><input type="radio" name="gaais_pos_11" value="3"></td>
+                <td style="padding: 14px 4px;"><input type="radio" name="gaais_pos_11" value="4"></td>
+                <td style="padding: 14px 4px;"><input type="radio" name="gaais_pos_11" value="5"></td>
+            </tr>
+            <tr style="border-top: 1px solid #eee;">
+                <td style="text-align: left; padding: 14px 12px; color: #333;">I would like to use Artificial Intelligence in my own job.</td>
+                <td style="padding: 14px 4px;"><input type="radio" name="gaais_pos_12" value="1" required></td>
+                <td style="padding: 14px 4px;"><input type="radio" name="gaais_pos_12" value="2"></td>
+                <td style="padding: 14px 4px;"><input type="radio" name="gaais_pos_12" value="3"></td>
+                <td style="padding: 14px 4px;"><input type="radio" name="gaais_pos_12" value="4"></td>
+                <td style="padding: 14px 4px;"><input type="radio" name="gaais_pos_12" value="5"></td>
+            </tr>
+            <tr style="border-top: 1px solid #eee;">
+                <td style="text-align: left; padding: 14px 12px; color: #333;">Organisations use Artificial Intelligence unethically.</td>
+                <td style="padding: 14px 4px;"><input type="radio" name="gaais_neg_1" value="1" required></td>
+                <td style="padding: 14px 4px;"><input type="radio" name="gaais_neg_1" value="2"></td>
+                <td style="padding: 14px 4px;"><input type="radio" name="gaais_neg_1" value="3"></td>
+                <td style="padding: 14px 4px;"><input type="radio" name="gaais_neg_1" value="4"></td>
+                <td style="padding: 14px 4px;"><input type="radio" name="gaais_neg_1" value="5"></td>
+            </tr>
+            <tr style="border-top: 1px solid #eee;">
+                <td style="text-align: left; padding: 14px 12px; color: #333;">I think artificially intelligent systems make many errors.</td>
+                <td style="padding: 14px 4px;"><input type="radio" name="gaais_neg_2" value="1" required></td>
+                <td style="padding: 14px 4px;"><input type="radio" name="gaais_neg_2" value="2"></td>
+                <td style="padding: 14px 4px;"><input type="radio" name="gaais_neg_2" value="3"></td>
+                <td style="padding: 14px 4px;"><input type="radio" name="gaais_neg_2" value="4"></td>
+                <td style="padding: 14px 4px;"><input type="radio" name="gaais_neg_2" value="5"></td>
+            </tr>
+            <tr style="border-top: 1px solid #eee;">
+                <td style="text-align: left; padding: 14px 12px; color: #333;">I find Artificial Intelligence sinister.</td>
+                <td style="padding: 14px 4px;"><input type="radio" name="gaais_neg_3" value="1" required></td>
+                <td style="padding: 14px 4px;"><input type="radio" name="gaais_neg_3" value="2"></td>
+                <td style="padding: 14px 4px;"><input type="radio" name="gaais_neg_3" value="3"></td>
+                <td style="padding: 14px 4px;"><input type="radio" name="gaais_neg_3" value="4"></td>
+                <td style="padding: 14px 4px;"><input type="radio" name="gaais_neg_3" value="5"></td>
+            </tr>
+            <!-- Repeated header after row 15 -->
+            <tr class="gaais-header" style="border-top: 2px solid #ddd;">
+                <th style="text-align: left; padding: 8px 12px;"></th>
+                <th colspan="5" style="padding: 4px 12px;">
+                    <div style="display: flex; justify-content: space-between; font-weight: normal; font-size: 13px; color: #555; padding-bottom: 4px;">
+                        <span>Strongly Disagree</span>
+                        <span>Strongly Agree</span>
+                    </div>
+                </th>
+            </tr>
+            <tr class="gaais-header">
+                <th style="width: 45%;"></th>
+                <th style="padding: 4px 4px; font-weight: normal; font-size: 13px; color: #555;">1</th>
+                <th style="padding: 4px 4px; font-weight: normal; font-size: 13px; color: #555;">2</th>
+                <th style="padding: 4px 4px; font-weight: normal; font-size: 13px; color: #555;">3</th>
+                <th style="padding: 4px 4px; font-weight: normal; font-size: 13px; color: #555;">4</th>
+                <th style="padding: 4px 4px; font-weight: normal; font-size: 13px; color: #555;">5</th>
+            </tr>
+            <tr style="border-top: 1px solid #eee;">
+                <td style="text-align: left; padding: 14px 12px; color: #333;">Artificial Intelligence might take control of people.</td>
+                <td style="padding: 14px 4px;"><input type="radio" name="gaais_neg_4" value="1" required></td>
+                <td style="padding: 14px 4px;"><input type="radio" name="gaais_neg_4" value="2"></td>
+                <td style="padding: 14px 4px;"><input type="radio" name="gaais_neg_4" value="3"></td>
+                <td style="padding: 14px 4px;"><input type="radio" name="gaais_neg_4" value="4"></td>
+                <td style="padding: 14px 4px;"><input type="radio" name="gaais_neg_4" value="5"></td>
+            </tr>
+            <tr style="border-top: 1px solid #eee;">
+                <td style="text-align: left; padding: 14px 12px; color: #333;">I think Artificial Intelligence is dangerous.</td>
+                <td style="padding: 14px 4px;"><input type="radio" name="gaais_neg_5" value="1" required></td>
+                <td style="padding: 14px 4px;"><input type="radio" name="gaais_neg_5" value="2"></td>
+                <td style="padding: 14px 4px;"><input type="radio" name="gaais_neg_5" value="3"></td>
+                <td style="padding: 14px 4px;"><input type="radio" name="gaais_neg_5" value="4"></td>
+                <td style="padding: 14px 4px;"><input type="radio" name="gaais_neg_5" value="5"></td>
+            </tr>
+            <tr style="border-top: 1px solid #eee;">
+                <td style="text-align: left; padding: 14px 12px; color: #333;">I shiver with discomfort when I think about future uses of Artificial Intelligence.</td>
+                <td style="padding: 14px 4px;"><input type="radio" name="gaais_neg_6" value="1" required></td>
+                <td style="padding: 14px 4px;"><input type="radio" name="gaais_neg_6" value="2"></td>
+                <td style="padding: 14px 4px;"><input type="radio" name="gaais_neg_6" value="3"></td>
+                <td style="padding: 14px 4px;"><input type="radio" name="gaais_neg_6" value="4"></td>
+                <td style="padding: 14px 4px;"><input type="radio" name="gaais_neg_6" value="5"></td>
+            </tr>
+            <tr style="border-top: 1px solid #eee;">
+                <td style="text-align: left; padding: 14px 12px; color: #333;">People like me will suffer if Artificial Intelligence is used more and more.</td>
+                <td style="padding: 14px 4px;"><input type="radio" name="gaais_neg_7" value="1" required></td>
+                <td style="padding: 14px 4px;"><input type="radio" name="gaais_neg_7" value="2"></td>
+                <td style="padding: 14px 4px;"><input type="radio" name="gaais_neg_7" value="3"></td>
+                <td style="padding: 14px 4px;"><input type="radio" name="gaais_neg_7" value="4"></td>
+                <td style="padding: 14px 4px;"><input type="radio" name="gaais_neg_7" value="5"></td>
+            </tr>
+            <tr style="border-top: 1px solid #eee;">
+                <td style="text-align: left; padding: 14px 12px; color: #333;">Artificial Intelligence is used to spy on people.</td>
+                <td style="padding: 14px 4px;"><input type="radio" name="gaais_neg_8" value="1" required></td>
+                <td style="padding: 14px 4px;"><input type="radio" name="gaais_neg_8" value="2"></td>
+                <td style="padding: 14px 4px;"><input type="radio" name="gaais_neg_8" value="3"></td>
+                <td style="padding: 14px 4px;"><input type="radio" name="gaais_neg_8" value="4"></td>
+                <td style="padding: 14px 4px;"><input type="radio" name="gaais_neg_8" value="5"></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div style="text-align: center; margin-top: 30px;">
+        {{ next_button }}
+    </div>
+</div>
+
+{{ endblock }}

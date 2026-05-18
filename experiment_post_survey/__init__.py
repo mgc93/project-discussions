@@ -84,6 +84,72 @@ class Player(BasePlayer):
     fac_eff_civility     = models.IntegerField(min=1, max=5)  # Effectiveness – Civility
     fac_willingness      = models.IntegerField(min=1, max=5)  # Willingness to Participate
 
+    # Facilitator preference
+    pref_support     = models.IntegerField(min=1, max=5)   # Support for adding facilitator to real platforms
+    pref_discussion  = models.StringField()                 # no_facilitator / human_facilitator / ai_facilitator / no_preference
+
+    # Believability check — human-facilitator conditions only
+    human_fac_believability = models.IntegerField(min=1, max=5, blank=True)  # 1=Not at all, 5=Completely
+    human_fac_suspicion     = models.StringField(blank=True)                 # yes / no / unsure
+
+    # GAAIS — General Attitudes towards Artificial Intelligence Scale (Schepman & Rodway 2020)
+    gaais_pos_1  = models.IntegerField(min=1, max=5)
+    gaais_pos_2  = models.IntegerField(min=1, max=5)
+    gaais_pos_3  = models.IntegerField(min=1, max=5)
+    gaais_pos_4  = models.IntegerField(min=1, max=5)
+    gaais_pos_5  = models.IntegerField(min=1, max=5)
+    gaais_pos_6  = models.IntegerField(min=1, max=5)
+    gaais_pos_7  = models.IntegerField(min=1, max=5)
+    gaais_pos_8  = models.IntegerField(min=1, max=5)
+    gaais_pos_9  = models.IntegerField(min=1, max=5)
+    gaais_pos_10 = models.IntegerField(min=1, max=5)
+    gaais_pos_11 = models.IntegerField(min=1, max=5)
+    gaais_pos_12 = models.IntegerField(min=1, max=5)
+    gaais_neg_1  = models.IntegerField(min=1, max=5)
+    gaais_neg_2  = models.IntegerField(min=1, max=5)
+    gaais_neg_3  = models.IntegerField(min=1, max=5)
+    gaais_neg_4  = models.IntegerField(min=1, max=5)
+    gaais_neg_5  = models.IntegerField(min=1, max=5)
+    gaais_neg_6  = models.IntegerField(min=1, max=5)
+    gaais_neg_7  = models.IntegerField(min=1, max=5)
+    gaais_neg_8  = models.IntegerField(min=1, max=5)
+
+    # AI experience
+    ai_familiarity            = models.StringField()   # not_at_all / slightly / moderately / very / extremely
+    ai_usage_frequency        = models.StringField()   # never / less_than_monthly / monthly / weekly / daily
+    ai_moderation_encountered = models.StringField()   # yes / no / not_sure
+    ai_use_advice             = models.BooleanField(initial=False)
+    ai_use_emotional          = models.BooleanField(initial=False)
+    ai_use_casual             = models.BooleanField(initial=False)
+    ai_use_writing            = models.BooleanField(initial=False)
+    ai_use_coding             = models.BooleanField(initial=False)
+    ai_use_research           = models.BooleanField(initial=False)
+    ai_use_creative           = models.BooleanField(initial=False)
+    ai_use_learning           = models.BooleanField(initial=False)
+    ai_use_none               = models.BooleanField(initial=False)
+
+    # Algorithmic aversion — 3-item scale
+    algo_aversion_1 = models.IntegerField(min=1, max=5)
+    algo_aversion_2 = models.IntegerField(min=1, max=5)
+    algo_aversion_3 = models.IntegerField(min=1, max=5)
+
+    # Online discussion experience
+    discuss_frequency              = models.StringField()                  # never / a_few_times_a_year / a_few_times_a_month / a_few_times_a_week / every_day
+    discuss_platform_facebook      = models.BooleanField(initial=False)
+    discuss_platform_youtube       = models.BooleanField(initial=False)
+    discuss_platform_whatsapp      = models.BooleanField(initial=False)
+    discuss_platform_instagram     = models.BooleanField(initial=False)
+    discuss_platform_other         = models.BooleanField(initial=False)
+    discuss_platform_other_text    = models.StringField(blank=True)
+    discuss_content_removed        = models.StringField()                  # yes / no
+    discuss_is_moderator           = models.StringField()                  # yes / no
+    discuss_witness_conflicts      = models.StringField()                  # never / a_few_times_a_year / a_few_times_a_month / a_few_times_a_week / every_day
+
+    # Open feedback
+    feedback_topic        = models.LongStringField(blank=True)
+    feedback_conversation = models.LongStringField(blank=True)
+    feedback_facilitators = models.LongStringField(blank=True)
+
 
 # ---------------------------------------------------------------------------
 # Helpers
@@ -258,9 +324,66 @@ class FacilitatorSurvey(Page):
         ])
 
 
+class FacilitatorPreference(Page):
+    form_model  = 'player'
+    form_fields = ['pref_support', 'pref_discussion']
+
+
 class AffectSurvey(Page):
     form_model  = 'player'
     form_fields = ['affect_warmth', 'perceived_distance']
+
+
+class AIAttitudes(Page):
+    form_model  = 'player'
+    form_fields = [
+        'gaais_pos_1', 'gaais_pos_2', 'gaais_pos_3', 'gaais_pos_4',
+        'gaais_pos_5', 'gaais_pos_6', 'gaais_pos_7', 'gaais_pos_8',
+        'gaais_pos_9', 'gaais_pos_10', 'gaais_pos_11', 'gaais_pos_12',
+        'gaais_neg_1', 'gaais_neg_2', 'gaais_neg_3', 'gaais_neg_4',
+        'gaais_neg_5', 'gaais_neg_6', 'gaais_neg_7', 'gaais_neg_8',
+    ]
+
+
+class AIExperience(Page):
+    form_model  = 'player'
+    form_fields = [
+        'ai_familiarity', 'ai_usage_frequency', 'ai_moderation_encountered',
+        'ai_use_advice', 'ai_use_emotional', 'ai_use_casual',
+        'ai_use_writing', 'ai_use_coding', 'ai_use_research',
+        'ai_use_creative', 'ai_use_learning', 'ai_use_none',
+    ]
+
+
+class AlgorithmicAversion(Page):
+    form_model  = 'player'
+    form_fields = ['algo_aversion_1', 'algo_aversion_2', 'algo_aversion_3']
+
+
+class OnlineExperience(Page):
+    form_model  = 'player'
+    form_fields = [
+        'discuss_frequency',
+        'discuss_platform_facebook', 'discuss_platform_youtube',
+        'discuss_platform_whatsapp', 'discuss_platform_instagram',
+        'discuss_platform_other', 'discuss_platform_other_text',
+        'discuss_content_removed', 'discuss_is_moderator',
+        'discuss_witness_conflicts',
+    ]
+
+
+class OpenFeedback(Page):
+    form_model  = 'player'
+    form_fields = ['feedback_topic', 'feedback_conversation', 'feedback_facilitators']
+
+
+class BelievabilityCheck(Page):
+    form_model  = 'player'
+    form_fields = ['human_fac_believability', 'human_fac_suspicion']
+
+    @staticmethod
+    def is_displayed(player):
+        return player.condition.endswith('_human')
 
 
 class Debrief(Page):
@@ -282,10 +405,17 @@ page_sequence = [
     FacilitatorIntro,
     ManipulationCheck,
     FacilitatorSurvey,
+    FacilitatorPreference,
     OpinionPost,
     ConversationSurvey,
     PANASSurvey,
     AffectSurvey,
+    AIAttitudes,
+    AIExperience,
+    AlgorithmicAversion,
+    OnlineExperience,
+    OpenFeedback,
+    BelievabilityCheck,
     Debrief,
     PostSurveyComplete,
 ]

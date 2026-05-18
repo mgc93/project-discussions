@@ -1,0 +1,31 @@
+{{ block title }}{{ endblock }}
+
+{{ block content }}
+
+<div style="max-width: 800px; margin: 0 auto; padding: 20px; line-height: 1.8; color: #555;">
+
+    <div style="margin: 25px 0;">
+        <p style="font-weight: bold; color: #333;">Is there anything you'd like to share about the topic you discussed today?</p>
+        <textarea name="feedback_topic" rows="5"
+            style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px; font-size: 14px; line-height: 1.6; resize: vertical;"></textarea>
+    </div>
+
+    <div style="margin: 25px 0;">
+        <p style="font-weight: bold; color: #333;">How would you describe the conversation with the other participant?</p>
+        <textarea name="feedback_conversation" rows="5"
+            style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px; font-size: 14px; line-height: 1.6; resize: vertical;"></textarea>
+    </div>
+
+    <div style="margin: 25px 0;">
+        <p style="font-weight: bold; color: #333;">Is there anything you'd like to share about your experience with the Facilitator and the Assistant during the conversation?</p>
+        <textarea name="feedback_facilitators" rows="5"
+            style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px; font-size: 14px; line-height: 1.6; resize: vertical;"></textarea>
+    </div>
+
+    <div style="text-align: center; margin-top: 30px;">
+        {{ next_button }}
+    </div>
+
+</div>
+
+{{ endblock }}

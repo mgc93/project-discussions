@@ -1,0 +1,45 @@
+{{ block title }}{{ endblock }}
+
+{{ block content }}
+
+<div style="max-width: 800px; margin: 0 auto; padding: 20px; line-height: 1.8; color: #555;">
+
+    <div style="margin: 25px 0;">
+        <p style="font-weight: bold; color: #333;">I would support adding this kind of facilitator to real online platforms.</p>
+        <div style="display: flex; align-items: center; gap: 15px; margin-left: 20px; flex-wrap: wrap;">
+            <span style="font-size: 13px; color: #777;">Strongly disagree</span>
+            {% for val in "12345" %}
+            <label style="cursor: pointer; text-align: center;">
+                <input type="radio" name="pref_support" value="{{ val }}" required><br>
+                <span style="font-size: 13px;">{{ val }}</span>
+            </label>
+            {% endfor %}
+            <span style="font-size: 13px; color: #777;">Strongly agree</span>
+        </div>
+    </div>
+
+    <div style="margin: 25px 0;">
+        <p style="font-weight: bold; color: #333;">For future discussions like this one, which type of facilitator would you prefer?</p>
+        <div style="margin-left: 20px;">
+            <label style="display: block; margin: 8px 0; cursor: pointer;">
+                <input type="radio" name="pref_discussion" value="no_facilitator" required> No facilitator
+            </label>
+            <label style="display: block; margin: 8px 0; cursor: pointer;">
+                <input type="radio" name="pref_discussion" value="human_facilitator"> Human facilitator
+            </label>
+            <label style="display: block; margin: 8px 0; cursor: pointer;">
+                <input type="radio" name="pref_discussion" value="ai_facilitator"> AI facilitator
+            </label>
+            <label style="display: block; margin: 8px 0; cursor: pointer;">
+                <input type="radio" name="pref_discussion" value="no_preference"> No preference
+            </label>
+        </div>
+    </div>
+
+    <div style="text-align: center; margin-top: 30px;">
+        {{ next_button }}
+    </div>
+
+</div>
+
+{{ endblock }}

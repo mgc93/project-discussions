@@ -1,0 +1,115 @@
+{{ block title }}{{ endblock }}
+
+{{ block content }}
+
+<div style="max-width: 800px; margin: 0 auto; padding: 20px; line-height: 1.8; color: #555;">
+    <div style="margin: 25px 0;">
+        <p style="font-weight: bold; color: #333;">How familiar are you with AI chatbots (like ChatGPT, Claude, Gemini)?</p>
+        <div style="margin-left: 20px;">
+            <label style="display: block; margin: 8px 0; cursor: pointer;">
+                <input type="radio" name="ai_familiarity" value="not_at_all" required> Not at all familiar
+            </label>
+            <label style="display: block; margin: 8px 0; cursor: pointer;">
+                <input type="radio" name="ai_familiarity" value="slightly"> Slightly familiar
+            </label>
+            <label style="display: block; margin: 8px 0; cursor: pointer;">
+                <input type="radio" name="ai_familiarity" value="moderately"> Moderately familiar
+            </label>
+            <label style="display: block; margin: 8px 0; cursor: pointer;">
+                <input type="radio" name="ai_familiarity" value="very"> Very familiar
+            </label>
+            <label style="display: block; margin: 8px 0; cursor: pointer;">
+                <input type="radio" name="ai_familiarity" value="extremely"> Extremely familiar
+            </label>
+        </div>
+    </div>
+
+    <div style="margin: 25px 0;">
+        <p style="font-weight: bold; color: #333;">How often do you use AI tools (chatbots, AI assistants, AI-generated content)?</p>
+        <div style="margin-left: 20px;">
+            <label style="display: block; margin: 8px 0; cursor: pointer;">
+                <input type="radio" name="ai_usage_frequency" value="never" required> Never
+            </label>
+            <label style="display: block; margin: 8px 0; cursor: pointer;">
+                <input type="radio" name="ai_usage_frequency" value="less_than_monthly"> Less than monthly
+            </label>
+            <label style="display: block; margin: 8px 0; cursor: pointer;">
+                <input type="radio" name="ai_usage_frequency" value="monthly"> Monthly
+            </label>
+            <label style="display: block; margin: 8px 0; cursor: pointer;">
+                <input type="radio" name="ai_usage_frequency" value="weekly"> Weekly
+            </label>
+            <label style="display: block; margin: 8px 0; cursor: pointer;">
+                <input type="radio" name="ai_usage_frequency" value="daily"> Daily
+            </label>
+        </div>
+    </div>
+
+    <div style="margin: 25px 0;">
+        <p style="font-weight: bold; color: #333;">Have you knowingly encountered AI-powered moderation or facilitation online?</p>
+        <div style="margin-left: 20px;">
+            <label style="display: block; margin: 8px 0; cursor: pointer;">
+                <input type="radio" name="ai_moderation_encountered" value="yes" required> Yes
+            </label>
+            <label style="display: block; margin: 8px 0; cursor: pointer;">
+                <input type="radio" name="ai_moderation_encountered" value="no"> No
+            </label>
+            <label style="display: block; margin: 8px 0; cursor: pointer;">
+                <input type="radio" name="ai_moderation_encountered" value="not_sure"> Not sure
+            </label>
+        </div>
+    </div>
+
+    <div style="margin: 25px 0;">
+        <p style="font-weight: bold; color: #333;">If you have used AI chatbots (like ChatGPT, Claude, Gemini), what have you used them for? (Check all that apply)</p>
+
+        <p style="font-weight: bold; color: #555; margin-top: 15px; margin-bottom: 5px; font-size: 14px;">Personal/Social:</p>
+        <div style="margin-left: 20px;">
+            <label style="display: block; margin: 8px 0; cursor: pointer;">
+                <input type="checkbox" name="ai_use_advice" value="on"> Getting advice or recommendations on personal matters
+            </label>
+            <label style="display: block; margin: 8px 0; cursor: pointer;">
+                <input type="checkbox" name="ai_use_emotional" value="on"> Emotional support or discussing feelings/problems
+            </label>
+            <label style="display: block; margin: 8px 0; cursor: pointer;">
+                <input type="checkbox" name="ai_use_casual" value="on"> Casual conversation or companionship
+            </label>
+        </div>
+
+        <p style="font-weight: bold; color: #555; margin-top: 15px; margin-bottom: 5px; font-size: 14px;">Work/Productivity:</p>
+        <div style="margin-left: 20px;">
+            <label style="display: block; margin: 8px 0; cursor: pointer;">
+                <input type="checkbox" name="ai_use_writing" value="on"> Writing or editing text
+            </label>
+            <label style="display: block; margin: 8px 0; cursor: pointer;">
+                <input type="checkbox" name="ai_use_coding" value="on"> Coding or technical tasks
+            </label>
+            <label style="display: block; margin: 8px 0; cursor: pointer;">
+                <input type="checkbox" name="ai_use_research" value="on"> Research or fact-checking
+            </label>
+        </div>
+
+        <p style="font-weight: bold; color: #555; margin-top: 15px; margin-bottom: 5px; font-size: 14px;">Creative/Learning:</p>
+        <div style="margin-left: 20px;">
+            <label style="display: block; margin: 8px 0; cursor: pointer;">
+                <input type="checkbox" name="ai_use_creative" value="on"> Creative projects or entertainment
+            </label>
+            <label style="display: block; margin: 8px 0; cursor: pointer;">
+                <input type="checkbox" name="ai_use_learning" value="on"> Learning new topics or skills
+            </label>
+        </div>
+
+        <p style="font-weight: bold; color: #555; margin-top: 15px; margin-bottom: 5px; font-size: 14px;">None:</p>
+        <div style="margin-left: 20px;">
+            <label style="display: block; margin: 8px 0; cursor: pointer;">
+                <input type="checkbox" name="ai_use_none" value="on"> I have not used AI chatbots for any of these purposes
+            </label>
+        </div>
+    </div>
+
+    <div style="text-align: center; margin-top: 30px;">
+        {{ next_button }}
+    </div>
+</div>
+
+{{ endblock }}

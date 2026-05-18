@@ -1,0 +1,114 @@
+{{ block title }}{{ endblock }}
+
+{{ block content }}
+
+<div style="max-width: 800px; margin: 0 auto; padding: 20px; line-height: 1.8; color: #555;">
+    <div style="margin: 25px 0;">
+        <p style="font-weight: bold; color: #333;">How often do you participate in online discussions or comment on social media posts?</p>
+        <div style="margin-left: 20px;">
+            <label style="display: block; margin: 8px 0; cursor: pointer;">
+                <input type="radio" name="discuss_frequency" value="never" required> Never
+            </label>
+            <label style="display: block; margin: 8px 0; cursor: pointer;">
+                <input type="radio" name="discuss_frequency" value="a_few_times_a_year"> A few times a year
+            </label>
+            <label style="display: block; margin: 8px 0; cursor: pointer;">
+                <input type="radio" name="discuss_frequency" value="a_few_times_a_month"> A few times a month
+            </label>
+            <label style="display: block; margin: 8px 0; cursor: pointer;">
+                <input type="radio" name="discuss_frequency" value="a_few_times_a_week"> A few times a week
+            </label>
+            <label style="display: block; margin: 8px 0; cursor: pointer;">
+                <input type="radio" name="discuss_frequency" value="every_day"> Every day
+            </label>
+        </div>
+    </div>
+
+    <div style="margin: 25px 0;">
+        <p style="font-weight: bold; color: #333;">Which platforms do you use most frequently for discussions? (Check all that apply)</p>
+        <div style="margin-left: 20px;">
+            <label style="display: block; margin: 8px 0; cursor: pointer;">
+                <input type="checkbox" name="discuss_platform_facebook" value="on"> Facebook
+            </label>
+            <label style="display: block; margin: 8px 0; cursor: pointer;">
+                <input type="checkbox" name="discuss_platform_youtube" value="on"> YouTube
+            </label>
+            <label style="display: block; margin: 8px 0; cursor: pointer;">
+                <input type="checkbox" name="discuss_platform_whatsapp" value="on"> WhatsApp
+            </label>
+            <label style="display: block; margin: 8px 0; cursor: pointer;">
+                <input type="checkbox" name="discuss_platform_instagram" value="on"> Instagram
+            </label>
+            <label style="display: block; margin: 8px 0; cursor: pointer;">
+                <input type="checkbox" name="discuss_platform_other" value="on" id="platform_other_checkbox"> Other:
+                <input type="text" name="discuss_platform_other_text" id="platform_other_text"
+                       style="margin-left: 5px; padding: 4px 8px; border: 1px solid #ccc; border-radius: 4px; width: 200px; display: none;">
+            </label>
+        </div>
+    </div>
+
+    <div style="margin: 25px 0;">
+        <p style="font-weight: bold; color: #333;">Have you ever had your content removed or been warned by a moderator?</p>
+        <div style="margin-left: 20px;">
+            <label style="display: block; margin: 8px 0; cursor: pointer;">
+                <input type="radio" name="discuss_content_removed" value="yes" required> Yes
+            </label>
+            <label style="display: block; margin: 8px 0; cursor: pointer;">
+                <input type="radio" name="discuss_content_removed" value="no"> No
+            </label>
+        </div>
+    </div>
+
+    <div style="margin: 25px 0;">
+        <p style="font-weight: bold; color: #333;">Have you ever served as a moderator or community manager?</p>
+        <div style="margin-left: 20px;">
+            <label style="display: block; margin: 8px 0; cursor: pointer;">
+                <input type="radio" name="discuss_is_moderator" value="yes" required> Yes
+            </label>
+            <label style="display: block; margin: 8px 0; cursor: pointer;">
+                <input type="radio" name="discuss_is_moderator" value="no"> No
+            </label>
+        </div>
+    </div>
+
+    <div style="margin: 25px 0;">
+        <p style="font-weight: bold; color: #333;">How often do you witness heated arguments or conflicts in online discussions?</p>
+        <div style="margin-left: 20px;">
+            <label style="display: block; margin: 8px 0; cursor: pointer;">
+                <input type="radio" name="discuss_witness_conflicts" value="never" required> Never
+            </label>
+            <label style="display: block; margin: 8px 0; cursor: pointer;">
+                <input type="radio" name="discuss_witness_conflicts" value="a_few_times_a_year"> A few times a year
+            </label>
+            <label style="display: block; margin: 8px 0; cursor: pointer;">
+                <input type="radio" name="discuss_witness_conflicts" value="a_few_times_a_month"> A few times a month
+            </label>
+            <label style="display: block; margin: 8px 0; cursor: pointer;">
+                <input type="radio" name="discuss_witness_conflicts" value="a_few_times_a_week"> A few times a week
+            </label>
+            <label style="display: block; margin: 8px 0; cursor: pointer;">
+                <input type="radio" name="discuss_witness_conflicts" value="every_day"> Every day
+            </label>
+        </div>
+    </div>
+
+    <div style="text-align: center; margin-top: 30px;">
+        {{ next_button }}
+    </div>
+</div>
+
+<noscript>
+<style>
+    #platform_other_text { display: inline-block !important; }
+</style>
+</noscript>
+
+<script>
+    document.getElementById('platform_other_checkbox').addEventListener('change', function() {
+        var textField = document.getElementById('platform_other_text');
+        textField.style.display = this.checked ? 'inline-block' : 'none';
+        if (!this.checked) textField.value = '';
+    });
+</script>
+
+{{ endblock }}

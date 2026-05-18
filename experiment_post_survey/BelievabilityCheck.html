@@ -1,0 +1,41 @@
+{{ block title }}{{ endblock }}
+
+{{ block content }}
+
+<div style="max-width: 800px; margin: 0 auto; padding: 20px; line-height: 1.8; color: #555;">
+
+    <div style="margin: 25px 0;">
+        <p style="font-weight: bold; color: #333;">To what extent did you believe the facilitator messages were written by a real human being?</p>
+        <div style="display: flex; align-items: center; gap: 15px; margin-left: 20px; flex-wrap: wrap;">
+            <span style="font-size: 13px; color: #777;">Not at all</span>
+            {% for val in "12345" %}
+            <label style="cursor: pointer; text-align: center;">
+                <input type="radio" name="human_fac_believability" value="{{ val }}" required><br>
+                <span style="font-size: 13px;">{{ val }}</span>
+            </label>
+            {% endfor %}
+            <span style="font-size: 13px; color: #777;">Completely</span>
+        </div>
+    </div>
+
+    <div style="margin: 25px 0;">
+        <p style="font-weight: bold; color: #333;">At any point during the study, did you suspect that the human facilitator might actually be an AI?</p>
+        <div style="margin-left: 20px;">
+            <label style="display: block; margin: 8px 0; cursor: pointer;">
+                <input type="radio" name="human_fac_suspicion" value="yes" required> Yes
+            </label>
+            <label style="display: block; margin: 8px 0; cursor: pointer;">
+                <input type="radio" name="human_fac_suspicion" value="no"> No
+            </label>
+            <label style="display: block; margin: 8px 0; cursor: pointer;">
+                <input type="radio" name="human_fac_suspicion" value="unsure"> I'm not sure
+            </label>
+        </div>
+    </div>
+
+    <div style="text-align: center; margin-top: 30px;">
+        {{ next_button }}
+    </div>
+</div>
+
+{{ endblock }}
