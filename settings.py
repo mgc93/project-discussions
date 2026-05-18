@@ -14,7 +14,7 @@ SESSION_CONFIGS = [
         display_name='Pre-Survey',
         app_sequence=['experiment_discussion', 'experiment_matching'],
         num_demo_participants=2,
-        topic_id=None,   # set to a topic ID string (e.g. '001') when creating a session
+        topic_id='',     # set to a topic ID string (e.g. '001') when creating a session
     ),
     dict(
         name='post_survey',

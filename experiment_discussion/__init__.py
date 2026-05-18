@@ -88,7 +88,7 @@ def creating_session(subsession: Subsession):
 
     # Select one topic for the whole session.
     # topic_id in session config takes priority over global TOPIC_FILTER.
-    pinned_id = subsession.session.config.get('topic_id')
+    pinned_id = subsession.session.config.get('topic_id') or None
     topic = _select_topic(rng, pinned_id=pinned_id)
     s = subsession.session
     s.topic_id             = topic['id']
