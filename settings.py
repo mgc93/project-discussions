@@ -14,6 +14,7 @@ SESSION_CONFIGS = [
         display_name='Pre-Survey',
         app_sequence=['experiment_discussion', 'experiment_matching'],
         num_demo_participants=2,
+        topic_id=None,   # set to a topic ID string (e.g. '001') when creating a session
     ),
     dict(
         name='post_survey',
@@ -104,10 +105,18 @@ LANGUAGE_CODE = 'en'
 REAL_WORLD_CURRENCY_CODE = 'USD'
 USE_POINTS = False
 ROOMS = [
+    # Pre-survey rooms — one per topic you want to run simultaneously.
+    # When creating a session for a room, set topic_id in the session config
+    # (e.g. topic_id='001') to pin that room to a specific discussion topic.
+    dict(name='pre_survey_1', display_name='Pre-Survey — Room 1'),
+    dict(name='pre_survey_2', display_name='Pre-Survey — Room 2'),
+    dict(name='pre_survey_3', display_name='Pre-Survey — Room 3'),
+    dict(name='pre_survey_4', display_name='Pre-Survey — Room 4'),
+    dict(name='pre_survey_5', display_name='Pre-Survey — Room 5'),
+    # Post-survey room — shared across all topics
     dict(
         name='post_survey',
         display_name='Post-Survey Room',
-        # No participant_label_file — open room, any participant_label accepted
     ),
 ]
 ADMIN_USERNAME = 'admin'

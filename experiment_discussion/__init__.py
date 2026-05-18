@@ -47,8 +47,12 @@ class Player(BasePlayer):
 # Session initialisation
 # ---------------------------------------------------------------------------
 
-def _select_topic(rng) -> dict:
-    """Load discussion_topics.json, apply TOPIC_FILTER, return one random topic."""
+def _select_topic(rng, pinned_id=None) -> dict:
+    """Load discussion_topics.json, apply TOPIC_FILTER, return one random topic.
+
+    If pinned_id is given (passed via session config), it takes precedence over
+    TOPIC_FILTER and selects that specific topic directly.
+    """
     import json, os
 
     json_path = os.path.join(os.path.dirname(__file__), '..', 'discussion_topics.json')
@@ -57,17 +61,20 @@ def _select_topic(rng) -> dict:
 
     topics = data['topics']
 
-    # Apply filters
-    if TOPIC_FILTER.get('topic_id') is not None:
-        topics = [t for t in topics if t['id'] == str(TOPIC_FILTER['topic_id'])]
-    if TOPIC_FILTER.get('is_political') is not None:
-        topics = [t for t in topics if t['is_political'] == TOPIC_FILTER['is_political']]
-    if TOPIC_FILTER.get('category') is not None:
-        topics = [t for t in topics if t['category'] == TOPIC_FILTER['category']]
+    # Session-level pin takes priority over global TOPIC_FILTER
+    if pinned_id is not None:
+        topics = [t for t in topics if t['id'] == str(pinned_id)]
+    else:
+        if TOPIC_FILTER.get('topic_id') is not None:
+            topics = [t for t in topics if t['id'] == str(TOPIC_FILTER['topic_id'])]
+        if TOPIC_FILTER.get('is_political') is not None:
+            topics = [t for t in topics if t['is_political'] == TOPIC_FILTER['is_political']]
+        if TOPIC_FILTER.get('category') is not None:
+            topics = [t for t in topics if t['category'] == TOPIC_FILTER['category']]
 
     if not topics:
         raise ValueError(
-            f"No topics match TOPIC_FILTER={TOPIC_FILTER}. "
+            f"No topic found for pinned_id={pinned_id!r} / TOPIC_FILTER={TOPIC_FILTER}. "
             "Check settings.py and discussion_topics.json."
         )
 
@@ -79,8 +86,10 @@ def creating_session(subsession: Subsession):
 
     rng = random.Random()
 
-    # Select one topic for the whole session
-    topic = _select_topic(rng)
+    # Select one topic for the whole session.
+    # topic_id in session config takes priority over global TOPIC_FILTER.
+    pinned_id = subsession.session.config.get('topic_id')
+    topic = _select_topic(rng, pinned_id=pinned_id)
     s = subsession.session
     s.topic_id             = topic['id']
     s.topic_statement      = topic['statement']
