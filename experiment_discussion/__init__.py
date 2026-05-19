@@ -28,7 +28,7 @@ class Group(BaseGroup):
 class Player(BasePlayer):
     # Stage 1 — Consent
     consent           = models.BooleanField(initial=False)
-    cloudresearch_pid = models.StringField(label='CloudResearch Participant ID')
+    cloudresearch_pid = models.StringField(label='CloudResearch Participant ID', blank=True)
 
     # Stage 2 — Voice test
     interview_test = models.LongStringField(blank=True)
@@ -130,16 +130,25 @@ class Consent(Page):
 
     @staticmethod
     def error_message(player, values):
-        if not values['consent']:
-            return 'You must consent to participate.'
+        if values['consent'] and not values['cloudresearch_pid']:
+            return 'Please enter your CloudResearch Participant ID.'
 
     @staticmethod
     def before_next_page(player, timeout_happened):
-        player.participant.cloudresearch_id = player.cloudresearch_pid
+        if player.consent:
+            player.participant.cloudresearch_id = player.cloudresearch_pid
+
+
+class NoConsent(Page):
+    @staticmethod
+    def is_displayed(player):
+        return not player.consent
 
 
 class Instructions(Page):
-    pass
+    @staticmethod
+    def is_displayed(player):
+        return player.consent
 
 
 class InterviewTest(Page):
@@ -293,7 +302,7 @@ class OpinionPre(Page):
 # ---------------------------------------------------------------------------
 
 page_sequence = (
-    [Consent, Instructions, InterviewTest, TopicIntro]
+    [Consent, NoConsent, Instructions, InterviewTest, TopicIntro]
     + [LLMInterview] * C.MAX_TURNS
     + [OpinionPre]
 )
