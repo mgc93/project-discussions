@@ -89,9 +89,8 @@ TOPIC_FILTER = {
 # ---------------------------------------------------------------------------
 # Interview configuration
 # ---------------------------------------------------------------------------
-INTERVIEW_MAX_TURNS = 0          # 0 = skip interview entirely; set to 8 for production
-INTERVIEW_TIMEOUT_SECONDS = 0   # None → rounds mode (exactly MAX_TURNS questions)
-                                   # e.g. 900 → timeout mode (15 min total, MAX_TURNS as ceiling)
+INTERVIEW_MAX_TURNS = 10         # hard cap on number of questions
+INTERVIEW_TIMEOUT_SECONDS = 720  # 720s = 12 minutes; interview ends at whichever comes first
 
 # ---------------------------------------------------------------------------
 # Study parameters
