@@ -2,60 +2,94 @@
 
 {{ block content }}
 
-<div style="max-width: 900px; margin: 0 auto; padding: 20px; line-height: 1.8; color: #555;">
-    <p><em>Please indicate your level of agreement with the following statements.</em></p>
+<div style="max-width: 900px; margin: 0 auto;">
 
-    <table style="width: 100%; border-collapse: collapse; margin-top: 15px; text-align: center;">
-        <thead>
-            <tr>
-                <th style="text-align: left; padding: 8px 12px; width: 45%;"></th>
-                <th colspan="5" style="padding: 4px 12px;">
-                    <div style="display: flex; justify-content: space-between; font-weight: normal; font-size: 13px; color: #555; padding-bottom: 4px;">
-                        <span>Strongly Disagree</span>
-                        <span>Strongly Agree</span>
-                    </div>
-                </th>
-            </tr>
-            <tr>
-                <th style="width: 45%;"></th>
-                <th style="padding: 4px 4px; font-weight: normal; font-size: 13px; color: #555;">1</th>
-                <th style="padding: 4px 4px; font-weight: normal; font-size: 13px; color: #555;">2</th>
-                <th style="padding: 4px 4px; font-weight: normal; font-size: 13px; color: #555;">3</th>
-                <th style="padding: 4px 4px; font-weight: normal; font-size: 13px; color: #555;">4</th>
-                <th style="padding: 4px 4px; font-weight: normal; font-size: 13px; color: #555;">5</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr style="border-top: 1px solid #eee;">
-                <td style="text-align: left; padding: 14px 12px; color: #333;">I generally prefer human facilitators over AI facilitators in online discussions.</td>
-                <td style="padding: 14px 4px;"><input type="radio" name="algo_aversion_1" value="1" required></td>
-                <td style="padding: 14px 4px;"><input type="radio" name="algo_aversion_1" value="2"></td>
-                <td style="padding: 14px 4px;"><input type="radio" name="algo_aversion_1" value="3"></td>
-                <td style="padding: 14px 4px;"><input type="radio" name="algo_aversion_1" value="4"></td>
-                <td style="padding: 14px 4px;"><input type="radio" name="algo_aversion_1" value="5"></td>
-            </tr>
-            <tr style="border-top: 1px solid #eee;">
-                <td style="text-align: left; padding: 14px 12px; color: #333;">I would trust a human more than an AI to handle conflicts fairly in online conversations.</td>
-                <td style="padding: 14px 4px;"><input type="radio" name="algo_aversion_2" value="1" required></td>
-                <td style="padding: 14px 4px;"><input type="radio" name="algo_aversion_2" value="2"></td>
-                <td style="padding: 14px 4px;"><input type="radio" name="algo_aversion_2" value="3"></td>
-                <td style="padding: 14px 4px;"><input type="radio" name="algo_aversion_2" value="4"></td>
-                <td style="padding: 14px 4px;"><input type="radio" name="algo_aversion_2" value="5"></td>
-            </tr>
-            <tr style="border-top: 1px solid #eee;">
-                <td style="text-align: left; padding: 14px 12px; color: #333;">I feel more comfortable when humans, rather than AI, moderate online discussions.</td>
-                <td style="padding: 14px 4px;"><input type="radio" name="algo_aversion_3" value="1" required></td>
-                <td style="padding: 14px 4px;"><input type="radio" name="algo_aversion_3" value="2"></td>
-                <td style="padding: 14px 4px;"><input type="radio" name="algo_aversion_3" value="3"></td>
-                <td style="padding: 14px 4px;"><input type="radio" name="algo_aversion_3" value="4"></td>
-                <td style="padding: 14px 4px;"><input type="radio" name="algo_aversion_3" value="5"></td>
-            </tr>
-        </tbody>
-    </table>
+<p>Please rate your agreement with each of the following statements.</p>
 
-    <div style="text-align: center; margin-top: 30px;">
-        {{ next_button }}
-    </div>
+<style>
+.survey-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 2rem;
+    table-layout: fixed;
+}
+.survey-table .q-col {
+    width: 50%;
+    text-align: left;
+    padding: 10px 20px 10px 4px;
+    font-size: 0.95em;
+    vertical-align: middle;
+}
+.survey-table th:not(.q-col),
+.survey-table td:not(.q-col) {
+    text-align: center;
+    padding: 8px 4px;
+    vertical-align: middle;
+}
+.survey-table thead tr.label-row th {
+    font-size: 0.80em;
+    font-weight: normal;
+    color: #666;
+    padding-top: 6px;
+    padding-bottom: 2px;
+}
+.survey-table thead tr.num-row th {
+    font-weight: 600;
+    color: #333;
+    border-bottom: 2px solid #dee2e6;
+    padding-bottom: 10px;
+}
+.survey-table tbody tr { height: 3em; }
+.survey-table tbody tr:nth-child(odd) { background: #f8f9fa; }
+.survey-table tbody tr:hover { background: #e9ecef; transition: background 0.1s; }
+.survey-table tbody td { border-bottom: 1px solid #f0f0f0; }
+.survey-table input[type=radio] {
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+    accent-color: #0d6efd;
+}
+</style>
+
+<table class="survey-table">
+    <thead>
+        <tr class="label-row">
+            <th class="q-col"></th>
+            <th>Strongly<br>disagree</th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th>Strongly<br>agree</th>
+        </tr>
+        <tr class="num-row">
+            <th class="q-col"></th>
+            <th>1</th><th>2</th><th>3</th><th>4</th><th>5</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td class="q-col">I generally prefer human facilitators over AI facilitators in online discussions.</td>
+            {% for val in "12345" %}
+            <td><input type="radio" name="algo_aversion_1" value="{{ val }}" id="algo_aversion_1_{{ val }}" required></td>
+            {% endfor %}
+        </tr>
+        <tr>
+            <td class="q-col">I would trust a human more than an AI to handle conflicts fairly in online conversations.</td>
+            {% for val in "12345" %}
+            <td><input type="radio" name="algo_aversion_2" value="{{ val }}" id="algo_aversion_2_{{ val }}" required></td>
+            {% endfor %}
+        </tr>
+        <tr>
+            <td class="q-col">I feel more comfortable when humans, rather than AI, moderate online discussions.</td>
+            {% for val in "12345" %}
+            <td><input type="radio" name="algo_aversion_3" value="{{ val }}" id="algo_aversion_3_{{ val }}" required></td>
+            {% endfor %}
+        </tr>
+    </tbody>
+</table>
+
+{{ next_button }}
+
 </div>
 
 {{ endblock }}
