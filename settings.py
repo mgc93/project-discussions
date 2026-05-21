@@ -97,7 +97,7 @@ INTERVIEW_TIMEOUT_SECONDS = 720  # 720s = 12 minutes; interview ends at whicheve
 # ---------------------------------------------------------------------------
 # Study parameters
 # ---------------------------------------------------------------------------
-DISAGREEMENT_THRESHOLD = 20   # minimum opinion distance to form a pair
+DISAGREEMENT_THRESHOLD = 38   # minimum opinion distance to form a pair
 MATCH_TIMEOUT_MINUTES  = 10   # how long participants wait before dropout
 
 # ---------------------------------------------------------------------------
