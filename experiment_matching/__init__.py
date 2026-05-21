@@ -81,6 +81,8 @@ def group_by_arrival_time_method(subsession, waiting_players):
             start = None
         if start is not None and (now - start) >= timeout_seconds:
             print(f"[matching] timeout: releasing {p.participant.code} after {now - start:.0f}s")
+            # before_next_page is never called for GBAT WaitPages, so set state here
+            p.participant.is_dropout = True
             return [p]
 
     return []
