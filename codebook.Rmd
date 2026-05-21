@@ -32,7 +32,7 @@ This codebook covers all measured variables across three oTree apps:
 |-----|-----------|---------|
 | `experiment_discussion` | `main` | Consent, LLM interview, pre-discussion opinion |
 | `experiment_matching` | `matching` | Wait page, condition assignment, DeliberateLab redirect |
-| `experiment_post_survey` | `post_survey` | Post-discussion surveys (opinion, conversation, PANAS, facilitator, affect) |
+| `experiment_post_survey` | `post_survey` | Post-discussion surveys (opinion, conversation, PANAS, facilitator, affect, AI attitudes, open feedback) |
 
 **Export columns** follow the oTree wide-format convention:
 `{app_name}.1.player.{field}` — e.g. `experiment_discussion.1.player.opinion_pre`
@@ -42,7 +42,7 @@ This codebook covers all measured variables across three oTree apps:
 | Field | Where stored | Description |
 |-------|-------------|-------------|
 | `participant.code` | oTree participant | Auto-generated oTree ID; used as `external_id` sent to DeliberateLab |
-| `participant.label` | Post-survey participant | Set by DL redirect; format `{pre_code}___{topic_id}___{dl_public_id}` |
+| `participant.label` | Post-survey participant | Set by DL redirect; format `{pre_code}___{topic_id}___{condition}___{dl_public_id}___{cohort_name}` |
 | `cloudresearch_pid` | Pre-survey player | Self-reported CloudResearch ID entered on consent page |
 | `dl_public_id` | Post-survey player | DeliberateLab anonymous participant ID (e.g. `hamster-yellow-3762`) |
 | `pre_survey_code` | Post-survey player | oTree `participant.code` from the pre-survey session, recovered from DL redirect |
@@ -126,7 +126,8 @@ cb(data.frame(
   range = c("TRUE / FALSE", "—"),
   desc  = c("Whether the participant provided informed consent",
             "CloudResearch participant ID as self-reported on consent page"),
-  notes = c("Must be TRUE to proceed", "Copied to participant.cloudresearch_id")
+  notes = c("Participants who do not consent are redirected to a NoConsent page and do not proceed",
+            "Required only when consent = TRUE; copied to participant.cloudresearch_id")
 ))
 ```
 
@@ -227,6 +228,20 @@ cb(data.frame(
 ))
 ```
 
+### Manipulation check
+
+```{r}
+cb(data.frame(
+  var   = c("experiment_post_survey.1.player.manip_check_type",
+            "experiment_post_survey.1.player.manip_check_confidence"),
+  type  = c("String", "Integer"),
+  range = c("3 levels", "1–5"),
+  desc  = c("Participant's belief about the type of facilitator they interacted with",
+            "Confidence in the above answer (1 = not at all confident, 5 = very confident)"),
+  notes = c("ai_facilitator / human_facilitator / dont_remember", "")
+))
+```
+
 ### Post-discussion opinion
 
 ```{r}
@@ -241,60 +256,57 @@ cb(data.frame(
 
 ### Conversation quality (1–5 Likert)
 
-Scale: 1 = Strongly disagree, 5 = Strongly agree. `conv_safety` is reverse-coded.
+Scale: 1 = Strongly disagree, 5 = Strongly agree.
 
 ```{r}
 cb(data.frame(
-  var = c("experiment_post_survey.1.player.conv_productive",
-          "experiment_post_survey.1.player.conv_depth",
-          "experiment_post_survey.1.player.conv_mutual_understanding",
+  var = c("experiment_post_survey.1.player.conv_satisfied",
           "experiment_post_survey.1.player.conv_feeling_heard",
-          "experiment_post_survey.1.player.conv_good_faith",
-          "experiment_post_survey.1.player.conv_comfort",
-          "experiment_post_survey.1.player.conv_safety",
-          "experiment_post_survey.1.player.conv_openness",
-          "experiment_post_survey.1.player.conv_future_engagement",
-          "experiment_post_survey.1.player.conv_platform_willingness"),
-  type  = rep("Integer", 10),
-  range = rep("1–5", 10),
+          "experiment_post_survey.1.player.conv_voice",
+          "experiment_post_survey.1.player.conv_understanding",
+          "experiment_post_survey.1.player.conv_receptiveness",
+          "experiment_post_survey.1.player.conv_respect",
+          "experiment_post_survey.1.player.conv_future_engage"),
+  type  = rep("Integer", 7),
+  range = rep("1–5", 7),
   desc  = c(
-    "Overall, this was a productive conversation.",
-    "We got beyond surface-level disagreement in this conversation.",
+    "Overall, I am satisfied with this conversation.",
+    "I felt heard and understood by my partner.",
+    "I was able to communicate my values and beliefs to my partner.",
     "By the end, I felt I understood the other person's perspective.",
-    "The other person genuinely listened to what I had to say.",
-    "The other person engaged with my arguments in good faith.",
-    "I felt comfortable expressing my views in this conversation.",
-    "I was worried about being judged for what I said.",
-    "This conversation made me reconsider some of my views.",
-    "I would be willing to have a similar conversation with someone who disagrees with me.",
+    "The other person engaged with my arguments rather than dismissing them.",
+    "The other person treated me with respect.",
     "I would participate in another conversation on this platform."
   ),
-  notes = c("","","","","","","Reverse-coded","","","")
+  notes = c("Overall satisfaction","Feeling heard","Voice / psychological safety",
+            "Understanding the other person","Good faith / receptiveness","Respect",
+            "Future engagement")
 ))
 ```
 
 ### I-PANAS-SF — Affect during conversation (1–5)
 
 International Positive and Negative Affect Schedule — Short Form (Thompson, 2007).
-Scale: 1 = Not at all, 5 = Extremely.
+Scale: 1 = Not at all, 5 = Extremely. Items presented in the order listed below.
 
 ```{r}
 cb(data.frame(
-  var = c("experiment_post_survey.1.player.panas_active",
+  var = c("experiment_post_survey.1.player.panas_upset",
+          "experiment_post_survey.1.player.panas_hostile",
+          "experiment_post_survey.1.player.panas_alert",
+          "experiment_post_survey.1.player.panas_ashamed",
+          "experiment_post_survey.1.player.panas_inspired",
+          "experiment_post_survey.1.player.panas_nervous",
           "experiment_post_survey.1.player.panas_determined",
           "experiment_post_survey.1.player.panas_attentive",
-          "experiment_post_survey.1.player.panas_inspired",
-          "experiment_post_survey.1.player.panas_alert",
           "experiment_post_survey.1.player.panas_afraid",
-          "experiment_post_survey.1.player.panas_upset",
-          "experiment_post_survey.1.player.panas_nervous",
-          "experiment_post_survey.1.player.panas_ashamed",
-          "experiment_post_survey.1.player.panas_hostile"),
+          "experiment_post_survey.1.player.panas_active"),
   type  = rep("Integer", 10),
   range = rep("1–5", 10),
-  desc  = c("Active","Determined","Attentive","Inspired","Alert",
-            "Afraid","Upset","Nervous","Ashamed","Hostile"),
-  notes = c(rep("Positive affect", 5), rep("Negative affect", 5))
+  desc  = c("Upset","Hostile","Alert","Ashamed","Inspired",
+            "Nervous","Determined","Attentive","Afraid","Active"),
+  notes = c(rep("Negative affect", 2), "Positive affect", "Negative affect", "Positive affect",
+            "Negative affect", rep("Positive affect", 3), "Negative affect", "Positive affect")
 ))
 ```
 
@@ -308,50 +320,228 @@ cb(data.frame(
           "experiment_post_survey.1.player.fac_competence",
           "experiment_post_survey.1.player.fac_legitimacy",
           "experiment_post_survey.1.player.fac_fairness",
-          "experiment_post_survey.1.player.fac_appropriateness",
-          "experiment_post_survey.1.player.fac_timing",
           "experiment_post_survey.1.player.fac_intrusiveness",
-          "experiment_post_survey.1.player.fac_authenticity",
           "experiment_post_survey.1.player.fac_eff_understanding",
-          "experiment_post_survey.1.player.fac_eff_constructive",
           "experiment_post_survey.1.player.fac_eff_civility",
+          "experiment_post_survey.1.player.fac_eff_constructive",
           "experiment_post_survey.1.player.fac_willingness"),
-  type  = rep("Integer", 12),
-  range = rep("1–5", 12),
+  type  = rep("Integer", 9),
+  range = rep("1–5", 9),
   desc  = c(
     "The facilitator seemed warm and understanding.",
     "The facilitator understood the situation well.",
-    "This is the kind of intervention this facilitator should be allowed to make.",
+    "These are the kind of messages that this facilitator should be allowed to write.",
     "The way the facilitator intervened was fair.",
-    "This intervention was appropriate for this situation.",
-    "The facilitator intervened at the right moment.",
     "The facilitator's intervention felt disruptive to the conversation.",
-    "The facilitator's message felt genuine rather than scripted.",
-    "This intervention helped us understand each other better.",
+    "This facilitator message would help the people in the conversation understand each other better.",
+    "This facilitator message would improve the tone of the conversation.",
     "This intervention made the conversation more productive.",
-    "This intervention improved the tone of the conversation.",
-    "I would participate in another conversation that used this kind of facilitator."
+    "I would participate in a community that used this kind of facilitator."
   ),
-  notes = c("Trust – Warmth","Trust – Competence","Legitimacy","Procedural Fairness",
-            "Appropriateness","Appropriateness of timing","Intrusiveness — reverse-coded",
-            "Authenticity","Effectiveness – Understanding","Effectiveness – Constructiveness",
-            "Effectiveness – Civility","Willingness to Participate")
+  notes = c("Warmth","Competence","Legitimacy","Fairness",
+            "Intrusiveness — reverse-coded",
+            "Effectiveness – Understanding","Effectiveness – Civility",
+            "Effectiveness – Constructiveness","Willingness to engage")
 ))
 ```
 
-### Affect toward partner & perceived distance
+### Facilitator preference
 
 ```{r}
 cb(data.frame(
-  var   = c("experiment_post_survey.1.player.affect_warmth",
-            "experiment_post_survey.1.player.perceived_distance"),
-  type  = c("Integer", "Integer"),
-  range = c("0–100", "1–5"),
+  var   = c("experiment_post_survey.1.player.pref_support",
+            "experiment_post_survey.1.player.pref_discussion"),
+  type  = c("Integer", "String"),
+  range = c("1–5", "4 levels"),
   desc  = c(
-    "Feeling thermometer: how warmly do you feel toward someone who holds the view expressed by the other participant? (0 = very cold/unfavourable, 50 = no feeling either way, 100 = very warm/favourable)",
-    "How different are your values from the other person's? (1 = very similar, 5 = very different)"
+    "I would support adding this kind of facilitator to real online platforms.",
+    "For future discussions like this one, which type of facilitator would you prefer?"
   ),
-  notes = c("Feeling thermometer", "")
+  notes = c("1 = Strongly disagree, 5 = Strongly agree",
+            "no_facilitator / human_facilitator / ai_facilitator / no_preference")
+))
+```
+
+### Affect toward partner
+
+```{r}
+cb(data.frame(
+  var   = "experiment_post_survey.1.player.affect_warmth",
+  type  = "Integer",
+  range = "0–100",
+  desc  = "Feeling thermometer: how warmly do you feel toward someone who holds the view expressed by the other participant? (0 = very cold/unfavourable, 50 = no feeling either way, 100 = very warm/favourable)",
+  notes = "Feeling thermometer"
+))
+```
+
+### Believability check (human-facilitator conditions only)
+
+Only shown in `condition %in% c("control_human", "bridging_human")`.
+
+```{r}
+cb(data.frame(
+  var   = c("experiment_post_survey.1.player.human_fac_believability",
+            "experiment_post_survey.1.player.human_fac_suspicion"),
+  type  = c("Integer", "String"),
+  range = c("1–5", "3 levels"),
+  desc  = c(
+    "To what extent did you believe the facilitator messages were written by a real human being?",
+    "At any point during the study, did you suspect that the human facilitator might actually be an AI?"
+  ),
+  notes = c("1 = Not at all, 5 = Completely; blank for AI conditions",
+            "yes / no / unsure; blank for AI conditions")
+))
+```
+
+### GAAIS — General Attitudes towards AI Scale (1–5)
+
+General Attitudes towards Artificial Intelligence Scale (Schepman & Rodway, 2020).
+Scale: 1 = Strongly disagree, 5 = Strongly agree.
+
+```{r}
+cb(data.frame(
+  var = paste0("experiment_post_survey.1.player.gaais_",
+               c(paste0("pos_", 1:12), paste0("neg_", 1:8))),
+  type  = rep("Integer", 20),
+  range = rep("1–5", 20),
+  desc  = c(
+    "For routine transactions, I would rather interact with an artificially intelligent system than with a human.",
+    "Artificial Intelligence can provide new economic opportunities for this country.",
+    "Artificially intelligent systems can help people feel happier.",
+    "I am impressed by what Artificial Intelligence can do.",
+    "I am interested in using artificially intelligent systems in my daily life.",
+    "Artificial Intelligence can have positive impacts on people's wellbeing.",
+    "Artificial Intelligence is exciting.",
+    "An artificially intelligent agent would be better than an employee in many routine jobs.",
+    "There are many beneficial applications of Artificial Intelligence.",
+    "Artificially intelligent systems can perform better than humans.",
+    "Much of society will benefit from a future full of Artificial Intelligence.",
+    "I would like to use Artificial Intelligence in my own job.",
+    "Organisations use Artificial Intelligence unethically.",
+    "I think artificially intelligent systems make many errors.",
+    "I find Artificial Intelligence sinister.",
+    "Artificial Intelligence might take control of people.",
+    "I think Artificial Intelligence is dangerous.",
+    "I shiver with discomfort when I think about future uses of Artificial Intelligence.",
+    "People like me will suffer if Artificial Intelligence is used more and more.",
+    "Artificial Intelligence is used to spy on people."
+  ),
+  notes = c(rep("Positive subscale", 12), rep("Negative subscale", 8))
+))
+```
+
+### AI experience
+
+```{r}
+cb(data.frame(
+  var = c("experiment_post_survey.1.player.ai_familiarity",
+          "experiment_post_survey.1.player.ai_usage_frequency",
+          "experiment_post_survey.1.player.ai_moderation_encountered",
+          "experiment_post_survey.1.player.ai_use_advice",
+          "experiment_post_survey.1.player.ai_use_emotional",
+          "experiment_post_survey.1.player.ai_use_casual",
+          "experiment_post_survey.1.player.ai_use_writing",
+          "experiment_post_survey.1.player.ai_use_coding",
+          "experiment_post_survey.1.player.ai_use_research",
+          "experiment_post_survey.1.player.ai_use_creative",
+          "experiment_post_survey.1.player.ai_use_learning",
+          "experiment_post_survey.1.player.ai_use_none"),
+  type  = c("String","String","String", rep("Boolean", 9)),
+  range = c("5 levels","5 levels","3 levels", rep("TRUE/FALSE", 9)),
+  desc  = c(
+    "How familiar are you with AI chatbots (like ChatGPT, Claude, Gemini)?",
+    "How often do you use AI tools (chatbots, AI assistants, AI-generated content)?",
+    "Have you knowingly encountered AI-powered moderation or facilitation online?",
+    "AI use: getting advice or recommendations on personal matters",
+    "AI use: emotional support or discussing feelings/problems",
+    "AI use: casual conversation or companionship",
+    "AI use: writing or editing text",
+    "AI use: coding or technical tasks",
+    "AI use: research or fact-checking",
+    "AI use: creative projects or entertainment",
+    "AI use: learning new topics or skills",
+    "Has not used AI chatbots for any of the listed purposes"
+  ),
+  notes = c(
+    "not_at_all / slightly / moderately / very / extremely",
+    "never / less_than_monthly / monthly / weekly / daily",
+    "yes / no / not_sure",
+    rep("Checkbox — blank=True if unchecked", 9)
+  )
+))
+```
+
+### Algorithmic aversion (1–5 Likert)
+
+Scale: 1 = Strongly disagree, 5 = Strongly agree.
+
+```{r}
+cb(data.frame(
+  var = paste0("experiment_post_survey.1.player.algo_aversion_", 1:3),
+  type  = rep("Integer", 3),
+  range = rep("1–5", 3),
+  desc  = c(
+    "I generally prefer human facilitators over AI facilitators in online discussions.",
+    "I would trust a human more than an AI to handle conflicts fairly in online conversations.",
+    "I feel more comfortable when humans, rather than AI, moderate online discussions."
+  ),
+  notes = rep("", 3)
+))
+```
+
+### Online discussion experience
+
+```{r}
+cb(data.frame(
+  var = c("experiment_post_survey.1.player.discuss_frequency",
+          "experiment_post_survey.1.player.discuss_platform_facebook",
+          "experiment_post_survey.1.player.discuss_platform_youtube",
+          "experiment_post_survey.1.player.discuss_platform_whatsapp",
+          "experiment_post_survey.1.player.discuss_platform_instagram",
+          "experiment_post_survey.1.player.discuss_platform_other",
+          "experiment_post_survey.1.player.discuss_platform_other_text",
+          "experiment_post_survey.1.player.discuss_content_removed",
+          "experiment_post_survey.1.player.discuss_is_moderator",
+          "experiment_post_survey.1.player.discuss_witness_conflicts"),
+  type  = c("String", rep("Boolean", 5), "String", "String", "String", "String"),
+  range = c("5 levels", rep("TRUE/FALSE", 5), "—", "yes/no", "yes/no", "5 levels"),
+  desc  = c(
+    "How often do you participate in online discussions about current events or social issues?",
+    "Platform: Facebook",
+    "Platform: YouTube",
+    "Platform: WhatsApp",
+    "Platform: Instagram",
+    "Platform: Other",
+    "Free-text description of other platform(s) used",
+    "Has any of your online content ever been removed or flagged by a moderator?",
+    "Have you ever been a moderator or administrator of an online community?",
+    "How often do you witness conflicts or heated arguments in online discussions?"
+  ),
+  notes = c(
+    "never / a_few_times_a_year / a_few_times_a_month / a_few_times_a_week / every_day",
+    rep("Checkbox — blank=True if unchecked", 5),
+    "Only filled if discuss_platform_other = TRUE",
+    "", "",
+    "never / a_few_times_a_year / a_few_times_a_month / a_few_times_a_week / every_day"
+  )
+))
+```
+
+### Open feedback
+
+```{r}
+cb(data.frame(
+  var   = c("experiment_post_survey.1.player.feedback_topic",
+            "experiment_post_survey.1.player.feedback_conversation",
+            "experiment_post_survey.1.player.feedback_facilitators"),
+  type  = c("String","String","String"),
+  range = c("—","—","—"),
+  desc  = c(
+    "Open-text feedback about the discussion topic",
+    "Open-text feedback about the conversation experience",
+    "Open-text feedback about the facilitators"
+  ),
+  notes = rep("Optional; blank=True", 3)
 ))
 ```
 
@@ -359,14 +549,13 @@ cb(data.frame(
 
 ## Notes on reverse-coding
 
-The following items should be reverse-coded before computing scale scores:
+The following item should be reverse-coded before computing scale scores:
 
 ```{r}
 kable(data.frame(
-  Variable = c("conv_safety", "fac_intrusiveness"),
-  Item = c("I was worried about being judged for what I said.",
-           "The facilitator's intervention felt disruptive to the conversation."),
-  Formula = c("conv_safety_r = 6 - conv_safety", "fac_intrusiveness_r = 6 - fac_intrusiveness")
+  Variable = "fac_intrusiveness",
+  Item = "The facilitator's intervention felt disruptive to the conversation.",
+  Formula = "fac_intrusiveness_r = 6 - fac_intrusiveness"
 ), align = "l") |>
   kable_styling(bootstrap_options = c("striped","condensed"), full_width = FALSE)
 ```
@@ -374,5 +563,7 @@ kable(data.frame(
 ---
 
 ## References
+
+Schepman, A., & Rodway, P. (2020). Initial validation of the General Attitudes towards Artificial Intelligence Scale. *Computers in Human Behavior Reports, 1*, 100014.
 
 Thompson, E. R. (2007). Development and validation of an internationally reliable short-form of the Positive and Negative Affect Schedule (PANAS). *Journal of Cross-Cultural Psychology, 38*(2), 227–242.

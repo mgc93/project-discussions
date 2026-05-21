@@ -88,7 +88,7 @@ class MatchingWait(WaitPage):
 
     @staticmethod
     def before_next_page(player, timeout_happened):
-        if timeout_happened and not player.participant.is_matched:
+        if not player.participant.is_matched:
             player.participant.is_dropout = True
 
 

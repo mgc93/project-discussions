@@ -74,10 +74,20 @@ function formatTime(s) {
 
 var timerEl = document.getElementById('match-timer');
 
+// Reload the page once when the deadline passes — this sends a fresh request to
+// the server so oTree's server-side timeout check fires and advances the player.
+var reloadFlag = 'matchReloaded_' + storageKey;
+
 function tick() {
     var secondsLeft = Math.max(0, Math.round((deadline - Date.now()) / 1000));
     timerEl.textContent = formatTime(secondsLeft);
-    if (secondsLeft <= 0) clearInterval(iv);
+    if (secondsLeft <= 0) {
+        clearInterval(iv);
+        if (!sessionStorage.getItem(reloadFlag)) {
+            sessionStorage.setItem(reloadFlag, '1');
+            window.location.reload();
+        }
+    }
 }
 
 tick(); // render immediately
