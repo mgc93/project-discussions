@@ -142,6 +142,10 @@ class Player(BasePlayer):
     feedback_conversation = models.LongStringField(blank=True)
     feedback_facilitators = models.LongStringField(blank=True)
 
+    # Question order (JSON array of field names in display order)
+    conv_question_order = models.LongStringField(blank=True)
+    fac_question_order  = models.LongStringField(blank=True)
+
 
 # ---------------------------------------------------------------------------
 # Helpers
@@ -237,7 +241,8 @@ class ConversationSurvey(Page):
 
     @staticmethod
     def vars_for_template(player):
-        return dict(questions=[
+        import random, json
+        questions = [
             dict(field='conv_satisfied',     label='Overall, I am satisfied with this conversation.'),
             dict(field='conv_feeling_heard', label='I felt heard and understood by my partner.'),
             dict(field='conv_voice',         label='I was able to communicate my values and beliefs to my partner.'),
@@ -245,7 +250,10 @@ class ConversationSurvey(Page):
             dict(field='conv_receptiveness', label='The other person engaged with my arguments rather than dismissing them.'),
             dict(field='conv_respect',       label='The other person treated me with respect.'),
             dict(field='conv_future_engage', label='I would participate in another conversation on this platform.'),
-        ])
+        ]
+        random.Random(player.participant.code + '_conv').shuffle(questions)
+        player.conv_question_order = json.dumps([q['field'] for q in questions])
+        return dict(questions=questions)
 
 
 class PANASSurvey(Page):
@@ -291,7 +299,8 @@ class FacilitatorSurvey(Page):
 
     @staticmethod
     def vars_for_template(player):
-        return dict(questions=[
+        import random, json
+        questions = [
             dict(field='fac_warmth',           label='The facilitator seemed warm and understanding.'),
             dict(field='fac_competence',        label='The facilitator understood the situation well.'),
             dict(field='fac_legitimacy',        label='These are the kind of messages that this facilitator should be allowed to write.'),
@@ -301,7 +310,10 @@ class FacilitatorSurvey(Page):
             dict(field='fac_eff_civility',      label='This facilitator message would improve the tone of the conversation.'),
             dict(field='fac_eff_constructive',  label='This intervention made the conversation more productive.'),
             dict(field='fac_willingness',       label='I would participate in a community that used this kind of facilitator.'),
-        ])
+        ]
+        random.Random(player.participant.code + '_fac').shuffle(questions)
+        player.fac_question_order = json.dumps([q['field'] for q in questions])
+        return dict(questions=questions)
 
 
 class FacilitatorPreference(Page):

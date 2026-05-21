@@ -61,10 +61,12 @@ DL_CONFIG = {
     'FRONTEND_URL': os.environ.get('DL_FRONTEND_URL', ''),  # frontend: exp-discussion.web.app
     'API_KEY':      os.environ.get('DL_API_KEY', ''),
     'EXPERIMENTS': {
-        'control_ai':    os.environ.get('DL_EXP_ID_CONTROL_AI', ''),
-        'control_human': os.environ.get('DL_EXP_ID_CONTROL_HUMAN', ''),
-        'bridging_ai':   os.environ.get('DL_EXP_ID_BRIDGING_AI', ''),
-        'bridging_human':os.environ.get('DL_EXP_ID_BRIDGING_HUMAN', ''),
+        'control_ai':                 os.environ.get('DL_EXP_ID_CONTROL_AI', ''),
+        'bridging_ai':                os.environ.get('DL_EXP_ID_BRIDGING_AI', ''),
+        'neutral_summarization_ai':   os.environ.get('DL_EXP_ID_NEUTRAL_SUMMARIZATION_AI', ''),
+        'emotional_validation_ai':    os.environ.get('DL_EXP_ID_EMOTIONAL_VALIDATION_AI', ''),
+        'descriptive_norm_ai':        os.environ.get('DL_EXP_ID_DESCRIPTIVE_NORM_AI', ''),
+        'confidence_calibration_ai':  os.environ.get('DL_EXP_ID_CONFIDENCE_CALIBRATION_AI', ''),
     },
 }
 
@@ -113,6 +115,7 @@ ROOMS = [
     dict(name='pre_survey_3', display_name='Pre-Survey — Room 3'),
     dict(name='pre_survey_4', display_name='Pre-Survey — Room 4'),
     dict(name='pre_survey_5', display_name='Pre-Survey — Room 5'),
+    dict(name='pre_survey_6', display_name='Pre-Survey — Room 6'),
     # Post-survey room — shared across all topics
     dict(
         name='post_survey',
