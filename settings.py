@@ -93,14 +93,14 @@ TOPIC_FILTER = {
 # ---------------------------------------------------------------------------
 # Interview configuration
 # ---------------------------------------------------------------------------
-INTERVIEW_MAX_TURNS = 10         # hard cap on number of questions
+INTERVIEW_MAX_TURNS = 1          # hard cap on number of questions
 INTERVIEW_TIMEOUT_SECONDS = 720  # 720s = 12 minutes; interview ends at whichever comes first
 
 # ---------------------------------------------------------------------------
 # Study parameters
 # ---------------------------------------------------------------------------
 DISAGREEMENT_THRESHOLD = 38   # minimum opinion distance to form a pair
-MATCH_TIMEOUT_MINUTES  = 10   # how long participants wait before dropout
+MATCH_TIMEOUT_MINUTES  = 2    # how long participants wait before dropout
 
 # ---------------------------------------------------------------------------
 # Standard oTree settings
