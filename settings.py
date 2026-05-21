@@ -51,6 +51,7 @@ PARTICIPANT_FIELDS = [
     'dl_public_id',          # str — DeliberateLab anonymous ID (e.g. hamster-yellow-3762)
     'pre_survey_code',       # str — oTree participant code from pre-survey, echoed back by DL
     'cohort_name',           # str — DeliberateLab cohort name, echoed back in completion redirect
+    'matching_start_time',   # float — unix timestamp when participant first hit MatchingWait
 ]
 
 # ---------------------------------------------------------------------------

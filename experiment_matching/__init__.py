@@ -25,6 +25,7 @@ class Player(BasePlayer):
 # ---------------------------------------------------------------------------
 
 def group_by_arrival_time_method(subsession, waiting_players):
+    import time as _time
     from settings import DISAGREEMENT_THRESHOLD, DL_CONFIG
     from dl_api import create_dl_cohort
 
@@ -68,6 +69,17 @@ def group_by_arrival_time_method(subsession, waiting_players):
                 subsession.session.pairs_matched += 1
                 return [p1, p2]
 
+    # No match found. Release any player who has exceeded the waiting timeout.
+    # Returning a single-player list advances that player past the WaitPage;
+    # before_next_page will mark them as dropout (is_matched is still False).
+    timeout_seconds = MATCH_TIMEOUT_MINUTES * 60
+    now = _time.time()
+    for p in ready:
+        start = getattr(p.participant, 'matching_start_time', None)
+        if start is not None and (now - start) >= timeout_seconds:
+            print(f"[matching] timeout: releasing {p.participant.code} after {now - start:.0f}s")
+            return [p]
+
     return []
 
 
@@ -77,13 +89,17 @@ def group_by_arrival_time_method(subsession, waiting_players):
 
 class MatchingWait(WaitPage):
     group_by_arrival_time = True
-    timeout_seconds       = 600
 
     @staticmethod
     def vars_for_template(player):
+        import time
+        # Record when the participant first arrived so group_by_arrival_time_method
+        # can release them after MATCH_TIMEOUT_MINUTES if no match is found.
+        if getattr(player.participant, 'matching_start_time', None) is None:
+            player.participant.matching_start_time = time.time()
         return {
             'timeout_minutes': MATCH_TIMEOUT_MINUTES,
-            'timeout_seconds': 600,
+            'timeout_seconds': MATCH_TIMEOUT_MINUTES * 60,
         }
 
     @staticmethod
