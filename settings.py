@@ -73,8 +73,9 @@ DL_CONFIG = {
 # ---------------------------------------------------------------------------
 # Participant panel return / completion codes
 # ---------------------------------------------------------------------------
-CLOUDRESEARCH_RETURN_URL       = os.environ.get('CLOUDRESEARCH_RETURN_URL', '')
-CLOUDRESEARCH_COMPLETION_CODE  = os.environ.get('CLOUDRESEARCH_COMPLETION_CODE', '')
+CLOUDRESEARCH_RETURN_URL        = os.environ.get('CLOUDRESEARCH_RETURN_URL', '')
+CLOUDRESEARCH_COMPLETION_CODE   = os.environ.get('CLOUDRESEARCH_COMPLETION_CODE', '')
+CLOUDRESEARCH_EARLY_RETURN_URL  = os.environ.get('CLOUDRESEARCH_EARLY_RETURN_URL', '')
 CLOUDRESEARCH_EARLY_RETURN_CODE = os.environ.get('CLOUDRESEARCH_EARLY_RETURN_CODE', '')
 
 # ---------------------------------------------------------------------------

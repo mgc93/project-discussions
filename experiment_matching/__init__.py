@@ -1,5 +1,5 @@
 from otree.api import *
-from settings import DL_CONFIG, MATCH_TIMEOUT_MINUTES, CLOUDRESEARCH_RETURN_URL, CLOUDRESEARCH_EARLY_RETURN_CODE
+from settings import DL_CONFIG, MATCH_TIMEOUT_MINUTES, CLOUDRESEARCH_EARLY_RETURN_URL, CLOUDRESEARCH_EARLY_RETURN_CODE
 
 
 class C(BaseConstants):
@@ -127,7 +127,7 @@ class EarlyReturn(Page):
     def vars_for_template(player):
         return {
             'completion_code':         CLOUDRESEARCH_EARLY_RETURN_CODE,
-            'completion_redirect_url': CLOUDRESEARCH_RETURN_URL,
+            'completion_redirect_url': CLOUDRESEARCH_EARLY_RETURN_URL,
         }
 
 
