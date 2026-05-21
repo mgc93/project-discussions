@@ -75,7 +75,10 @@ def group_by_arrival_time_method(subsession, waiting_players):
     timeout_seconds = MATCH_TIMEOUT_MINUTES * 60
     now = _time.time()
     for p in ready:
-        start = getattr(p.participant, 'matching_start_time', None)
+        try:
+            start = p.participant.matching_start_time
+        except KeyError:
+            start = None
         if start is not None and (now - start) >= timeout_seconds:
             print(f"[matching] timeout: releasing {p.participant.code} after {now - start:.0f}s")
             return [p]
@@ -95,7 +98,11 @@ class MatchingWait(WaitPage):
         import time
         # Record when the participant first arrived so group_by_arrival_time_method
         # can release them after MATCH_TIMEOUT_MINUTES if no match is found.
-        if getattr(player.participant, 'matching_start_time', None) is None:
+        try:
+            already_set = player.participant.matching_start_time is not None
+        except KeyError:
+            already_set = False
+        if not already_set:
             player.participant.matching_start_time = time.time()
         return {
             'timeout_minutes': MATCH_TIMEOUT_MINUTES,
