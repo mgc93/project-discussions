@@ -65,9 +65,11 @@
 
     <audio id="playback" style="display: none;"></audio>
 
+    {% if not voice_only %}
     <button id="toggle-input-mode" type="button" class="btn btn-link">
         Prefer writing?
     </button>
+    {% endif %}
 </div>
 
 <div class="mt-4 text-center">
@@ -129,8 +131,9 @@ const editTranscriptBtn = document.getElementById('edit-transcript-btn');
 
 const whisperUrl   = '{{ whisper_url }}';
 const whisperToken = '{{ whisper_token }}';
+const voiceOnly    = {{ voice_only|yesno:"true,false" }};
 
-let inputMode = localStorage.getItem('inputMode') || 'voice';
+let inputMode = voiceOnly ? 'voice' : (localStorage.getItem('inputMode') || 'voice');
 applyInputMode(inputMode);
 
 function applyInputMode(mode) {
@@ -140,18 +143,18 @@ function applyInputMode(mode) {
         playback.style.display         = 'none';
         textBox.style.display          = 'block';
         transcriptReview.style.display = 'none';
-        toggleInputButton.textContent  = 'Prefer speaking?';
+        if (toggleInputButton) toggleInputButton.textContent = 'Prefer speaking?';
     } else {
-        recordButton.style.display    = 'inline-block';
-        textBox.style.display         = 'none';
-        toggleInputButton.textContent = 'Prefer writing?';
+        recordButton.style.display = 'inline-block';
+        textBox.style.display      = 'none';
+        if (toggleInputButton) toggleInputButton.textContent = 'Prefer writing?';
     }
     localStorage.setItem('inputMode', mode);
     inputMode = mode;
     updateSubmitButtonState();
 }
 
-toggleInputButton.addEventListener('click', () => {
+toggleInputButton?.addEventListener('click', () => {
     applyInputMode(inputMode === 'voice' ? 'text' : 'voice');
 });
 
@@ -181,8 +184,12 @@ navigator.mediaDevices.getUserMedia({ audio: true })
             updateSubmitButtonState();
 
             if (!whisperUrl) {
-                applyInputMode('text');
-                alert('Voice transcription is not configured. Please type your answer instead.');
+                if (voiceOnly) {
+                    alert('Voice transcription is not configured. Please contact the study administrator.');
+                } else {
+                    applyInputMode('text');
+                    alert('Voice transcription is not configured. Please type your answer instead.');
+                }
                 return;
             }
 
@@ -211,10 +218,13 @@ navigator.mediaDevices.getUserMedia({ audio: true })
                 })
                 .catch((err) => {
                     console.error('Transcription failed:', err);
-                    // Auto-switch to text mode so the user is never stuck
-                    applyInputMode('text');
-                    document.getElementById('typed-response').querySelector('textarea').placeholder =
-                        'Transcription failed — please type your answer here.';
+                    if (voiceOnly) {
+                        alert('Transcription failed. Please try recording again.');
+                    } else {
+                        applyInputMode('text');
+                        document.getElementById('typed-response').querySelector('textarea').placeholder =
+                            'Transcription failed — please type your answer here.';
+                    }
                 })
                 .finally(() => {
                     isProcessingTranscript        = false;
@@ -241,7 +251,11 @@ navigator.mediaDevices.getUserMedia({ audio: true })
         });
     })
     .catch(() => {
-        applyInputMode('text');
+        if (voiceOnly) {
+            alert('Microphone access is required for this study. Please allow microphone access and reload the page.');
+        } else {
+            applyInputMode('text');
+        }
     });
 
 editTranscriptBtn.addEventListener('click', () => {

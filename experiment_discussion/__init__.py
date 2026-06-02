@@ -1,5 +1,5 @@
 from otree.api import *
-from settings import DL_CONFIG, TOPIC_FILTER, INTERVIEW_MAX_TURNS, INTERVIEW_TIMEOUT_SECONDS, INTERVIEW_VOICE_ONLY
+from settings import DL_CONFIG, TOPIC_FILTER, INTERVIEW_MAX_TURNS, INTERVIEW_TIMEOUT_SECONDS, INTERVIEW_VOICE_ONLY, INTERVIEW_TEST_VOICE_ONLY
 
 
 # ---------------------------------------------------------------------------
@@ -165,6 +165,7 @@ class InterviewTest(Page):
         return dict(
             whisper_url=os.environ.get('WHISPER_URL', ''),
             whisper_token=os.environ.get('WHISPER_TOKEN', ''),
+            voice_only=INTERVIEW_TEST_VOICE_ONLY,
         )
 
 
