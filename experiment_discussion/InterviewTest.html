@@ -131,7 +131,7 @@ const editTranscriptBtn = document.getElementById('edit-transcript-btn');
 
 const whisperUrl   = '{{ whisper_url }}';
 const whisperToken = '{{ whisper_token }}';
-const voiceOnly    = {{ voice_only|yesno:"true,false" }};
+const voiceOnly    = {% if voice_only %}true{% else %}false{% endif %};
 
 let inputMode = voiceOnly ? 'voice' : (localStorage.getItem('inputMode') || 'voice');
 applyInputMode(inputMode);
