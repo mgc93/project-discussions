@@ -78,9 +78,11 @@
 
     <audio id="playback" style="display: none;"></audio>
 
+    {% if not voice_only %}
     <button id="toggle-input-mode" type="button" class="btn btn-link">
         Prefer writing?
     </button>
+    {% endif %}
 </div>
 
 <!-- Submit -->
@@ -141,8 +143,10 @@ const transcriptText     = document.getElementById('transcript-text');
 const transcriptEditor   = document.getElementById('transcript-editor');
 const editTranscriptBtn  = document.getElementById('edit-transcript-btn');
 
-// Start in voice mode; persist preference across turns
-let inputMode = localStorage.getItem('inputMode') || 'voice';
+const voiceOnly = {{ voice_only|yesno:"true,false" }};
+
+// Start in voice mode; persist preference across turns (voice_only always forces voice)
+let inputMode = voiceOnly ? 'voice' : (localStorage.getItem('inputMode') || 'voice');
 applyInputMode(inputMode);
 
 function applyInputMode(mode) {
@@ -152,18 +156,18 @@ function applyInputMode(mode) {
         playback.style.display        = 'none';
         textBox.style.display         = 'block';
         transcriptReview.style.display = 'none';
-        toggleInputButton.textContent = 'Prefer speaking?';
+        if (toggleInputButton) toggleInputButton.textContent = 'Prefer speaking?';
     } else {
         recordButton.style.display = 'inline-block';
         textBox.style.display      = 'none';
-        toggleInputButton.textContent = 'Prefer writing?';
+        if (toggleInputButton) toggleInputButton.textContent = 'Prefer writing?';
     }
     localStorage.setItem('inputMode', mode);
     inputMode = mode;
     updateSubmitButtonState();
 }
 
-toggleInputButton.addEventListener('click', () => {
+toggleInputButton?.addEventListener('click', () => {
     applyInputMode(inputMode === 'voice' ? 'text' : 'voice');
 });
 
@@ -205,11 +209,14 @@ navigator.mediaDevices.getUserMedia({ audio: true })
             const whisperToken = '{{ whisper_token }}';
 
             if (!whisperUrl) {
-                // No Whisper server configured — fall back to text mode silently
                 transcribingMsg.style.display = 'none';
                 isProcessingTranscript = false;
-                applyInputMode('text');
-                alert('Voice transcription is not configured. Switched to text input.');
+                if (voiceOnly) {
+                    alert('Voice transcription is not configured. Please contact the study administrator.');
+                } else {
+                    applyInputMode('text');
+                    alert('Voice transcription is not configured. Switched to text input.');
+                }
                 return;
             }
 
@@ -234,10 +241,13 @@ navigator.mediaDevices.getUserMedia({ audio: true })
                 })
                 .catch((err) => {
                     console.error('Transcription failed:', err);
-                    // Auto-switch to text mode so the user is never stuck
-                    applyInputMode('text');
-                    document.getElementById('text-input').placeholder =
-                        'Transcription failed — please type your answer here.';
+                    if (voiceOnly) {
+                        alert('Transcription failed. Please try recording again.');
+                    } else {
+                        applyInputMode('text');
+                        document.getElementById('current_answer').placeholder =
+                            'Transcription failed — please type your answer here.';
+                    }
                 })
                 .finally(() => {
                     isProcessingTranscript        = false;
@@ -265,7 +275,11 @@ navigator.mediaDevices.getUserMedia({ audio: true })
     })
     .catch((err) => {
         console.error('Microphone access denied:', err);
-        applyInputMode('text');
+        if (voiceOnly) {
+            alert('Microphone access is required for this study. Please allow microphone access and reload the page.');
+        } else {
+            applyInputMode('text');
+        }
     });
 
 // Transcript edit toggle

@@ -305,10 +305,10 @@ class FacilitatorSurvey(Page):
             dict(field='fac_competence',        label='The facilitator understood the situation well.'),
             dict(field='fac_legitimacy',        label='These are the kind of messages that this facilitator should be allowed to write.'),
             dict(field='fac_fairness',          label='The way the facilitator intervened was fair.'),
-            dict(field='fac_intrusiveness',     label="The facilitator's intervention felt disruptive to the conversation."),
-            dict(field='fac_eff_understanding', label='This facilitator message would help the people in the conversation understand each other better.'),
-            dict(field='fac_eff_civility',      label='This facilitator message would improve the tone of the conversation.'),
-            dict(field='fac_eff_constructive',  label='This intervention made the conversation more productive.'),
+            dict(field='fac_intrusiveness',     label="The facilitator's messages felt disruptive to the conversation."),
+            dict(field='fac_eff_understanding', label='The facilitator messages helped us understand each other better.'),
+            dict(field='fac_eff_civility',      label='The facilitator messages improved the tone of the conversation.'),
+            dict(field='fac_eff_constructive',  label='The facilitator messages made the conversation more productive.'),
             dict(field='fac_willingness',       label='I would participate in a community that used this kind of facilitator.'),
         ]
         random.Random(player.participant.code + '_fac').shuffle(questions)
@@ -379,7 +379,9 @@ class BelievabilityCheck(Page):
 
 
 class Debrief(Page):
-    pass
+    @staticmethod
+    def vars_for_template(player):
+        return dict(is_human_condition=player.condition.endswith('_human'))
 
 
 class PostSurveyComplete(Page):

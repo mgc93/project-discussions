@@ -11,6 +11,8 @@
     <h3 style="color: #333;">What was this study about?</h3>
     <p>This study investigated how different AI facilitation strategies affect the quality of conversations, and how people perceive and respond to AI facilitators in online discussions.</p>
 
+    {% if is_human_condition %}
+
     <h3 style="color: #333;">Important information about your conversation</h3>
     <p>The facilitator in your conversation was an AI — regardless of how it was introduced to you at the start of the study. Some participants were told upfront that the facilitator was an AI, while others were told it was a human. This variation was a deliberate part of our research design.</p>
 
@@ -24,6 +26,17 @@
 
     <h3 style="color: #333;">Why is this research important?</h3>
     <p>As AI systems become increasingly present in online spaces, understanding how people perceive and respond to AI facilitation — and how labelling affects those perceptions — is crucial for designing effective and trustworthy moderation systems. Your participation helps us understand when and how AI facilitation can be ethically and effectively deployed in online communication environments.</p>
+
+    {% else %}
+
+    <h3 style="color: #333;">Your right to withdraw</h3>
+    <p>You have the right to withdraw your data if you wish. If you choose to withdraw, your responses will be permanently deleted and will not be included in any analyses or publications. You will still receive full compensation regardless of your decision.</p>
+    <p>To withdraw, please contact us on CloudResearch/Prolific with your ID within <strong>7 days</strong>. After this period, your data will be fully anonymised and withdrawal will no longer be possible. If we do not hear from you, we will assume you are comfortable with us using your data.</p>
+
+    <h3 style="color: #333;">Why is this research important?</h3>
+    <p>As AI systems become increasingly present in online spaces, understanding how people perceive and respond to AI facilitation is crucial for designing effective and trustworthy moderation systems. Your participation helps us understand when and how AI facilitation can be ethically and effectively deployed in online communication environments.</p>
+
+    {% endif %}
 
     <h3 style="color: #333;">Confidentiality</h3>
     <p>All responses are completely confidential. Your data is identified only by a randomly generated ID number. Only members of the research team will have access to the data, and any publications will present only aggregate findings.</p>

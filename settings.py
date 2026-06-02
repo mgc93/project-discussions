@@ -95,6 +95,7 @@ TOPIC_FILTER = {
 # ---------------------------------------------------------------------------
 INTERVIEW_MAX_TURNS = 10         # hard cap on number of questions
 INTERVIEW_TIMEOUT_SECONDS = 720  # 720s = 12 minutes; interview ends at whichever comes first
+INTERVIEW_VOICE_ONLY = False     # True = voice input only; False = voice preferred but text allowed
 
 # ---------------------------------------------------------------------------
 # Study parameters

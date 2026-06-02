@@ -1,5 +1,5 @@
 from otree.api import *
-from settings import DL_CONFIG, TOPIC_FILTER, INTERVIEW_MAX_TURNS, INTERVIEW_TIMEOUT_SECONDS
+from settings import DL_CONFIG, TOPIC_FILTER, INTERVIEW_MAX_TURNS, INTERVIEW_TIMEOUT_SECONDS, INTERVIEW_VOICE_ONLY
 
 
 # ---------------------------------------------------------------------------
@@ -41,6 +41,9 @@ class Player(BasePlayer):
 
     # Stage 4 — Post-interview opinion
     opinion_pre = models.IntegerField(min=0, max=100)
+
+    # Stage 5 — Affect toward opposing position
+    affect_warmth_pre = models.IntegerField(min=0, max=100)
 
 
 # ---------------------------------------------------------------------------
@@ -226,6 +229,7 @@ class LLMInterview(Page):
             progress_percentage=int(100 * current_turn / C.MAX_TURNS),
             time_remaining=time_remaining,
             timeout_mode=INTERVIEW_TIMEOUT_SECONDS is not None,
+            voice_only=INTERVIEW_VOICE_ONLY,
             whisper_url=os.environ.get('WHISPER_URL', ''),
             whisper_token=os.environ.get('WHISPER_TOKEN', ''),
         )
@@ -297,6 +301,20 @@ class OpinionPre(Page):
         player.participant.opinion_pre = player.opinion_pre
 
 
+class AffectPre(Page):
+    form_model  = 'player'
+    form_fields = ['affect_warmth_pre']
+
+    @staticmethod
+    def vars_for_template(player):
+        s = player.session
+        if player.opinion_pre >= 50:
+            opposing = s.topic_position_a
+        else:
+            opposing = s.topic_position_b
+        return dict(opposing_position=opposing)
+
+
 # ---------------------------------------------------------------------------
 # Page sequence
 # ---------------------------------------------------------------------------
@@ -304,5 +322,5 @@ class OpinionPre(Page):
 page_sequence = (
     [Consent, NoConsent, Instructions, InterviewTest, TopicIntro]
     + [LLMInterview] * C.MAX_TURNS
-    + [OpinionPre]
+    + [OpinionPre, AffectPre]
 )
