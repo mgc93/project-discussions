@@ -32,16 +32,50 @@
     <input type="hidden" name="affect_warmth_pre" id="id_affect_warmth_pre" value="50">
 </div>
 
+<div class="mb-5">
+    <p class="fw-bold">How warmly or coldly do you feel toward someone who holds the following position: {{ same_position }}?</p>
+
+    <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; font-size: 0.80em; color: #666; margin-bottom: 2px;">
+        <span style="text-align: left;">Very cold or unfavourable</span>
+        <span style="text-align: center;">No feeling either way</span>
+        <span style="text-align: right;">Very warm or favourable</span>
+    </div>
+    <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; font-weight: 600; color: #333; margin-bottom: 6px;">
+        <span style="text-align: left;">0</span>
+        <span style="text-align: center;">50</span>
+        <span style="text-align: right;">100</span>
+    </div>
+
+    <input type="range"
+           id="affect_warmth_pre_same_slider"
+           class="form-range"
+           min="0" max="100" step="1"
+           value="50"
+           oninput="syncWarmthPreSame(this.value)">
+
+    <p class="mt-2 text-center">
+        Your rating: <strong id="affect-warmth-pre-same-value">50</strong> / 100
+    </p>
+
+    <input type="hidden" name="affect_warmth_pre_same" id="id_affect_warmth_pre_same" value="50">
+</div>
+
 {{ next_button }}
 
 </div>
 
 <script>
-document.getElementById('id_affect_warmth_pre').value = 50;
+document.getElementById('id_affect_warmth_pre').value      = 50;
+document.getElementById('id_affect_warmth_pre_same').value = 50;
 
 function syncWarmthPre(val) {
     document.getElementById('affect-warmth-pre-value').textContent = val;
     document.getElementById('id_affect_warmth_pre').value          = val;
+}
+
+function syncWarmthPreSame(val) {
+    document.getElementById('affect-warmth-pre-same-value').textContent = val;
+    document.getElementById('id_affect_warmth_pre_same').value          = val;
 }
 </script>
 

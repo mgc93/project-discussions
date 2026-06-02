@@ -42,8 +42,9 @@ class Player(BasePlayer):
     # Stage 4 — Post-interview opinion
     opinion_pre = models.IntegerField(min=0, max=100)
 
-    # Stage 5 — Affect toward opposing position
-    affect_warmth_pre = models.IntegerField(min=0, max=100)
+    # Stage 5 — Affect toward opposing and same position
+    affect_warmth_pre      = models.IntegerField(min=0, max=100)
+    affect_warmth_pre_same = models.IntegerField(min=0, max=100)
 
 
 # ---------------------------------------------------------------------------
@@ -303,16 +304,18 @@ class OpinionPre(Page):
 
 class AffectPre(Page):
     form_model  = 'player'
-    form_fields = ['affect_warmth_pre']
+    form_fields = ['affect_warmth_pre', 'affect_warmth_pre_same']
 
     @staticmethod
     def vars_for_template(player):
         s = player.session
         if player.opinion_pre >= 50:
             opposing = s.topic_position_a
+            same     = s.topic_position_b
         else:
             opposing = s.topic_position_b
-        return dict(opposing_position=opposing)
+            same     = s.topic_position_a
+        return dict(opposing_position=opposing, same_position=same)
 
 
 # ---------------------------------------------------------------------------
