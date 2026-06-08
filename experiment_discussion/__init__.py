@@ -116,10 +116,14 @@ def creating_session(subsession: Subsession):
         p.interview_transcript  = ''
 
     conditions = list(DL_CONFIG['EXPERIMENTS'].keys())
-    # enough for all expected pairs plus buffer
+    # Shuffle in blocks so each condition appears once per block of len(conditions)
+    # dyads — guarantees near-perfect balance regardless of how many pairs form.
     n_repeats = math.ceil(subsession.session.num_participants / 2 / len(conditions)) + 5
-    queue = conditions * n_repeats
-    rng.shuffle(queue)
+    queue = []
+    for _ in range(n_repeats):
+        block = conditions[:]
+        rng.shuffle(block)
+        queue.extend(block)
     s.condition_queue = queue
     s.pairs_matched   = 0
 
