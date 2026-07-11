@@ -15,6 +15,12 @@ SESSION_CONFIGS = [
         app_sequence=['experiment_discussion', 'experiment_matching'],
         num_demo_participants=2,
         topic_id='',     # set to a topic ID string (e.g. '001') when creating a session
+        condition_queue=(
+            ['bridging_ai'] * 6 +
+            ['control_ai'] * 4 +
+            ['descriptive_norm_ai'] * 16 +
+            ['emotional_validation_ai'] * 4
+        ),
     ),
     dict(
         name='post_survey',
@@ -65,7 +71,7 @@ DL_CONFIG = {
         'control_ai':                 os.environ.get('DL_EXP_ID_CONTROL_AI', ''),
         'bridging_ai':                os.environ.get('DL_EXP_ID_BRIDGING_AI', ''),
         'neutral_summarization_ai':   os.environ.get('DL_EXP_ID_NEUTRAL_SUMMARIZATION_AI', ''),
-        # 'emotional_validation_ai':    os.environ.get('DL_EXP_ID_EMOTIONAL_VALIDATION_AI', ''),
+        'emotional_validation_ai':    os.environ.get('DL_EXP_ID_EMOTIONAL_VALIDATION_AI', ''),
         'descriptive_norm_ai':        os.environ.get('DL_EXP_ID_DESCRIPTIVE_NORM_AI', ''),
         'confidence_calibration_ai':  os.environ.get('DL_EXP_ID_CONFIDENCE_CALIBRATION_AI', ''),
     },
