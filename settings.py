@@ -15,12 +15,12 @@ SESSION_CONFIGS = [
         app_sequence=['experiment_discussion', 'experiment_matching'],
         num_demo_participants=2,
         topic_id='',     # set to a topic ID string (e.g. '001') when creating a session
-        condition_queue=(
-            ['bridging_ai'] * 6 +
-            ['control_ai'] * 4 +
-            ['descriptive_norm_ai'] * 16 +
-            ['emotional_validation_ai'] * 4
-        ),
+        condition_proportions={
+            'bridging_ai':            6,
+            'control_ai':             4,
+            'descriptive_norm_ai':    16,
+            'emotional_validation_ai': 4,
+        },
     ),
     dict(
         name='post_survey',

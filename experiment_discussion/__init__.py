@@ -115,21 +115,24 @@ def creating_session(subsession: Subsession):
         p.is_dropout            = False
         p.interview_transcript  = ''
 
-    custom_queue = subsession.session.config.get('condition_queue')
-    if custom_queue:
-        # Use the explicit per-condition counts defined in the session config,
-        # shuffled so assignment order is random.
-        queue = list(custom_queue)
-        rng.shuffle(queue)
+    proportions = subsession.session.config.get('condition_proportions')
+    if proportions:
+        # Build the base block from the per-condition counts in the session config,
+        # then repeat it enough times to cover all participants (plus buffer).
+        base = []
+        for condition, count in proportions.items():
+            base.extend([condition] * count)
+        n_repeats = math.ceil(subsession.session.num_participants / 2 / len(base)) + 5
     else:
-        # Default: block-shuffle all active conditions for balanced allocation.
-        conditions = list(DL_CONFIG['EXPERIMENTS'].keys())
-        n_repeats = math.ceil(subsession.session.num_participants / 2 / len(conditions)) + 5
-        queue = []
-        for _ in range(n_repeats):
-            block = conditions[:]
-            rng.shuffle(block)
-            queue.extend(block)
+        # Default: equal block-shuffle across all active conditions.
+        base = list(DL_CONFIG['EXPERIMENTS'].keys())
+        n_repeats = math.ceil(subsession.session.num_participants / 2 / len(base)) + 5
+
+    queue = []
+    for _ in range(n_repeats):
+        block = base[:]
+        rng.shuffle(block)
+        queue.extend(block)
     s.condition_queue = queue
     s.pairs_matched   = 0
 
