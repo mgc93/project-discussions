@@ -15,12 +15,14 @@ SESSION_CONFIGS = [
         app_sequence=['experiment_discussion', 'experiment_matching'],
         num_demo_participants=2,
         topic_id='',     # set to a topic ID string (e.g. '001') when creating a session
-        condition_proportions={
-            'bridging_ai':            6,
-            'control_ai':             4,
-            'descriptive_norm_ai':    16,
-            'emotional_validation_ai': 4,
-        },
+        # Relative weights for condition assignment (set to 0 to exclude a condition).
+        # These are editable per-session in the oTree admin "Create session" UI.
+        prop_bridging_ai=6,
+        prop_control_ai=4,
+        prop_descriptive_norm_ai=16,
+        prop_emotional_validation_ai=4,
+        prop_neutral_summarization_ai=0,
+        prop_confidence_calibration_ai=0,
     ),
     dict(
         name='post_survey',

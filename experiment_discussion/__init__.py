@@ -115,17 +115,22 @@ def creating_session(subsession: Subsession):
         p.is_dropout            = False
         p.interview_transcript  = ''
 
-    proportions = subsession.session.config.get('condition_proportions')
-    if proportions:
-        # Build the base block from the per-condition counts in the session config,
-        # then repeat it enough times to cover all participants (plus buffer).
+    # Build proportions from individual prop_* fields (set to 0 to exclude a condition).
+    all_conditions = list(DL_CONFIG['EXPERIMENTS'].keys())
+    proportions = {
+        name: subsession.session.config.get(f'prop_{name}', 0)
+        for name in all_conditions
+    }
+    active = {k: v for k, v in proportions.items() if v > 0}
+
+    if active:
         base = []
-        for condition, count in proportions.items():
+        for condition, count in active.items():
             base.extend([condition] * count)
         n_repeats = math.ceil(subsession.session.num_participants / 2 / len(base)) + 5
     else:
-        # Default: equal block-shuffle across all active conditions.
-        base = list(DL_CONFIG['EXPERIMENTS'].keys())
+        # Fallback: equal allocation across all conditions.
+        base = all_conditions
         n_repeats = math.ceil(subsession.session.num_participants / 2 / len(base)) + 5
 
     queue = []
