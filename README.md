@@ -1,4 +1,4 @@
-# project_discussions
+# Project Discussions
 
 An [oTree](https://www.otree.org/) study that runs one leg of a deliberation experiment: participants form an opinion on a topic via an AI-led interview, get matched in real time with a disagreeing partner, are handed off to an external platform for an AI-facilitated discussion, and are brought back to fill out a post-discussion survey.
 
