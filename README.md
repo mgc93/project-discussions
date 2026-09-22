@@ -1,6 +1,6 @@
 # Project Discussions
 
-An [oTree](https://www.otree.org/) study that runs one leg of a deliberation experiment: participants form an opinion on a topic via an AI-led interview, get matched in real time with a disagreeing partner, are handed off to an external platform for an AI-facilitated discussion, and are brought back to fill out a post-discussion survey.
+An [oTree](https://www.otree.org/) study that runs one part of a deliberation experiment: participants form an opinion on a topic via an AI-led interview, get matched in real time with a disagreeing partner, are handed off to an external platform for an AI-facilitated discussion, and are brought back to fill out a post-discussion survey.
 
 The discussion itself happens outside this codebase, on [deliberate-lab-extended](https://github.com/mgc93/deliberate-lab-extended) (a fork of Google's Deliberate Lab). This repo covers everything before and after that handoff: consent, the LLM interview, real-time matching, and the post-survey.
 
