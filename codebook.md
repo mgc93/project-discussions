@@ -39,7 +39,9 @@ These are set once per session in `experiment_discussion` and available to all a
 | `session.topic_is_political` | Boolean | TRUE / FALSE | Whether the topic is classified as political | |
 | `session.topic_position_a` | String | — | Label for the left/low end of the opinion slider | |
 | `session.topic_position_b` | String | — | Label for the right/high end of the opinion slider | |
+| `session.topic_ratings` | Dict | — | Topic norm ratings from discussion_topics.json (objectivity, emotionality, morality, complexity; each 1–5) | Not exported as flat columns |
 | `session.pairs_matched` | Integer | ≥ 0 | Running count of successfully matched pairs in this session | |
+| `session.condition_queue` | List[String] | — | Balanced, shuffled queue of condition names used to assign conditions at matching | Internal state; not an analysis variable |
 
 ---
 
@@ -51,7 +53,7 @@ Stored on the oTree participant object; available in all apps via `participant.v
 |---|---|---|---|---|
 | `participant.code` | String | Auto | oTree auto-generated participant ID; used as external_id in DL redirect | |
 | `participant.cloudresearch_id` | String | — | CloudResearch participant ID entered on consent page | |
-| `participant.condition` | String | 4 levels | Between-subjects condition assigned at matching | control_ai, control_human, bridging_ai, bridging_human |
+| `participant.condition` | String | 6 levels | Condition assigned at matching (see [Condition assignment](#condition-assignment)) | control_ai, bridging_ai, neutral_summarization_ai, emotional_validation_ai, descriptive_norm_ai, confidence_calibration_ai |
 | `participant.opinion_pre` | Integer | 0–100 | Pre-discussion opinion on the topic (0 = fully agree with position A, 100 = position B) | Collected in experiment_discussion |
 | `participant.opinion_post` | Integer | 0–100 | Post-discussion opinion on the topic | Collected in experiment_post_survey |
 | `participant.is_matched` | Boolean | TRUE/FALSE | Whether the participant was successfully matched with a partner | |
@@ -59,6 +61,8 @@ Stored on the oTree participant object; available in all apps via `participant.v
 | `participant.dl_url` | String | URL | Full DeliberateLab cohort URL assigned to this participant | |
 | `participant.dl_public_id` | String | — | DeliberateLab anonymous participant ID recovered from post-survey redirect | |
 | `participant.pre_survey_code` | String | — | oTree participant.code from the pre-survey, recovered from post-survey redirect | Links pre and post survey records |
+| `participant.cohort_name` | String | — | DeliberateLab cohort name, echoed back in the post-survey completion redirect | |
+| `participant.matching_start_time` | Float | Unix timestamp | Time the participant first hit the MatchingWait page | Used to compute matching timeout |
 | `participant.interview_transcript` | JSON String | — | Full LLM interview transcript as a JSON array of question–answer objects | |
 
 ---
@@ -77,6 +81,8 @@ Stored on the oTree participant object; available in all apps via `participant.v
 | Variable | Type | Range / Values | Description | Notes |
 |---|---|---|---|---|
 | `experiment_discussion.1.player.interview_test` | String | — | Text or transcription from the voice/microphone test page | |
+| `experiment_discussion.1.player.current_answer` | String | — | Raw typed answer submitted on the current LLMInterview turn | Cleared/reused each turn; not a running log — see conversation_json |
+| `experiment_discussion.1.player.voice_answer` | String | — | Raw voice-transcribed answer submitted on the current LLMInterview turn | Used when input_mode = 'voice'; cleared/reused each turn |
 | `experiment_discussion.1.player.conversation_json` | JSON String | — | Full interview conversation stored as a JSON array; updated after each turn | Each element: {question, answer, input_mode, time_sent, time_received} |
 | `experiment_discussion.1.player.interview_transcript` | JSON String | — | Final copy of conversation_json saved at end of interview | Identical to conversation_json at completion; also mirrored to participant |
 
@@ -86,6 +92,15 @@ Stored on the oTree participant object; available in all apps via `participant.v
 |---|---|---|---|---|
 | `experiment_discussion.1.player.opinion_pre` | Integer | 0–100 | Participant's opinion on the discussion topic before the conversation (slider). 0 = fully agrees with position A; 100 = fully agrees with position B. | Mirrored to participant.opinion_pre for use in matching |
 
+### Pre-discussion affect
+
+Feeling thermometers collected on the `AffectPre` page, immediately after `OpinionPre`. The opposing/same position shown to each participant depends on their own `opinion_pre` (< 50 vs. ≥ 50).
+
+| Variable | Type | Range / Values | Description | Notes |
+|---|---|---|---|---|
+| `experiment_discussion.1.player.affect_warmth_pre` | Integer | 0–100 | Feeling thermometer: how warmly do you feel toward someone who holds the *opposing* position on this topic? (0 = very cold/unfavourable, 100 = very warm/favourable) | Pre-discussion counterpart to post-survey's affect_warmth |
+| `experiment_discussion.1.player.affect_warmth_pre_same` | Integer | 0–100 | Feeling thermometer: how warmly do you feel toward someone who holds the *same* position on this topic? | |
+
 ---
 
 ## App 2: experiment_matching
@@ -94,18 +109,20 @@ The matching app has **no player-level fields** in the database. All outcomes ar
 
 ### Condition assignment
 
-Conditions are assigned at matching using a balanced shuffled queue. Each matched pair is assigned one condition.
+Conditions are assigned at matching using a balanced shuffled queue, built from the `prop_*` weights in the session config (`settings.py`). Each matched pair is assigned one condition. All active conditions use an AI facilitator; the human-confederate condition variants have been retired from the active session config, though `pref_discussion`, `manip_check_type`, and the `_human`-suffix branching logic in `experiment_matching`/`experiment_post_survey` still support them if reintroduced.
 
 | Variable | Type | Range / Values | Description | Notes |
 |---|---|---|---|---|
-| `participant.condition` | String | 4 levels | Between-subjects experimental condition assigned at matching | |
+| `participant.condition` | String | 6 levels | Experimental condition assigned at matching | See [Participant-level fields](#participant-level-fields) |
 
-| Value | Facilitator | Strategy |
-|---|---|---|
-| control_ai | AI | Control (no active facilitation) |
-| control_human | Human (confederate) | Control (no active facilitation) |
-| bridging_ai | AI | Bridging intervention |
-| bridging_human | Human (confederate) | Bridging intervention |
+| Value | Strategy |
+|---|---|
+| control_ai | Control (no active facilitation) |
+| bridging_ai | Bridging intervention |
+| neutral_summarization_ai | Neutral summarization intervention |
+| emotional_validation_ai | Emotional validation intervention |
+| descriptive_norm_ai | Descriptive norm intervention |
+| confidence_calibration_ai | Confidence calibration intervention |
 
 ---
 
@@ -151,6 +168,7 @@ Scale: 1 = Strongly disagree, 5 = Strongly agree.
 | `experiment_post_survey.1.player.conv_receptiveness` | Integer | 1–5 | The other person engaged with my arguments rather than dismissing them. | Good faith / receptiveness |
 | `experiment_post_survey.1.player.conv_respect` | Integer | 1–5 | The other person treated me with respect. | Respect |
 | `experiment_post_survey.1.player.conv_future_engage` | Integer | 1–5 | I would participate in another conversation on this platform. | Future engagement |
+| `experiment_post_survey.1.player.conv_question_order` | JSON String | — | Randomized display order of the conv_* items for this participant | JSON array of field names |
 
 ### I-PANAS-SF — Affect during conversation (1–5)
 
@@ -185,6 +203,7 @@ Scale: 1 = Strongly disagree, 5 = Strongly agree. `fac_intrusiveness` is reverse
 | `experiment_post_survey.1.player.fac_eff_civility` | Integer | 1–5 | This facilitator message would improve the tone of the conversation. | Effectiveness – Civility |
 | `experiment_post_survey.1.player.fac_eff_constructive` | Integer | 1–5 | This intervention made the conversation more productive. | Effectiveness – Constructiveness |
 | `experiment_post_survey.1.player.fac_willingness` | Integer | 1–5 | I would participate in a community that used this kind of facilitator. | Willingness to engage |
+| `experiment_post_survey.1.player.fac_question_order` | JSON String | — | Randomized display order of the fac_* items for this participant | JSON array of field names |
 
 ### Facilitator preference
 
